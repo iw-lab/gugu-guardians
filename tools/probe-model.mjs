@@ -53,30 +53,40 @@ export const CAMPAIGN_STAGES = 30;
 export const CHAPTER_LEN = 10;
 const VOLUME_CAP_STAGE = 30;
 const ENDLESS_STEP = 1.078;
-const BOSSES = ['e_boss', 'e_boss2', 'e_boss3', 'e_boss4'];
+const BOSSES = ['e_boss', 'e_boss2', 'e_boss3', 'e_boss4', 'e_boss5', 'e_boss6'];
 const TYPE_ORDER = ['A1', 'S1', 'A2', 'M1', 'S2', 'AS1', 'M2', 'D1', 'AS2', 'M3', 'D2'];
 export const REVIEW_WINDOW = 6;
 
 /** 동시 활성 종류를 10종 안팎으로 유지한다 — src/sim/stages.ts 의 WAVES 와 1:1(은퇴 열 포함) */
 const FOREVER = Infinity;   // 🔴 9999 로 두면 '무한'이 1만 판에서 끝난다(교차검증 지적)
 const WAVES = [
-  //  id          등장  은퇴     t0   주기   하한  지분
+  //  id          등장  은퇴     t0   주기   하한  지분   — src/sim/stages.ts 의 WAVES 와 1:1
   ['e_mul',     1, FOREVER,  3,  9.0,  4.0, 0.30],
   ['e_bat',     2,      12, 14, 13.0,  5.5, 0.09],
-  ['e_swarm',   3, FOREVER,  8,  8.0,  3.5, 0.10],
+  ['e_swarm',   3,      27,  8,  8.0,  3.5, 0.10],
   ['e_arch',    4,      14, 24, 20.0,  8.0, 0.12],
-  ['e_split',   5, FOREVER, 20, 16.0,  7.0, 0.06],
+  ['e_split',   5,      29, 20, 16.0,  7.0, 0.06],
   ['e_rock',    6,      16, 52, 36.0, 16.0, 0.14],
   ['e_zero',    7,      13, 18, 10.0,  4.0, 0.08],
-  ['e_sky',    12, FOREVER, 28, 22.0,  9.0, 0.05],
+  ['e_sky',    12,      42, 28, 22.0,  9.0, 0.05],
   ['e_knot',    9,      18, 30, 22.0,  9.0, 0.12],
-  ['e_ghost',  15, FOREVER, 34, 26.0, 12.0, 0.06],
+  ['e_ghost',  15,      34, 34, 26.0, 12.0, 0.06],
   ['e_minus',  12,      20, 36, 26.0, 11.0, 0.05],
-  ['e_dash',   13, FOREVER, 26, 18.0,  7.0, 0.04],
-  ['e_shield', 16, FOREVER, 60, 45.0, 22.0, 0.14],
-  ['e_armor',  18, FOREVER, 44, 30.0, 14.0, 0.06],
-  ['e_thorn',  20, FOREVER, 50, 34.0, 15.0, 0.06],
+  ['e_dash',   13,      25, 26, 18.0,  7.0, 0.04],
+  ['e_shield', 16,      46, 60, 45.0, 22.0, 0.14],
+  ['e_armor',  18,      38, 44, 30.0, 14.0, 0.06],
+  ['e_thorn',  20,      50, 50, 34.0, 15.0, 0.06],
   ['e_drum',   22, FOREVER, 40, 28.0, 13.0, 0.05],
+  // 교대조 — 은퇴한 괴수와 같은 역할이 바로 뒤에 들어온다(동시 활성 10종 유지)
+  ['e_comma',    26,      54, 26, 18.0,  7.0, 0.04],
+  ['e_windbell', 28, FOREVER,  8,  8.0,  3.5, 0.10],
+  ['e_fraction', 30, FOREVER, 20, 16.0,  7.0, 0.06],
+  ['e_lantern',  35, FOREVER, 34, 26.0, 12.0, 0.06],
+  ['e_bracket',  39, FOREVER, 44, 30.0, 14.0, 0.06],
+  ['e_abacus',   43, FOREVER, 28, 22.0,  9.0, 0.05],
+  ['e_hourglass',47, FOREVER, 60, 45.0, 22.0, 0.14],
+  ['e_mirror',   51, FOREVER, 50, 34.0, 15.0, 0.06],
+  ['e_ox',       55, FOREVER, 26, 18.0,  7.0, 0.05],
 ];
 const BOSS_SHARE = 0.5, BOSS_MOB_SHARE = 0.75, PER_WAVE_CAP = 40;
 export const BUDGET_SLOPE = 0.10;

@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { Battle } from '../src/sim/core';
 import { stageDef, lengthRamp, CAMPAIGN_STAGES } from '../src/sim/stages';
 import { quizTypesFor, REVIEW_WINDOW, TYPE_ORDER as ALL_TYPE_ORDER } from '../src/sim/stages';
-import { ALLIES } from '../src/sim/units';
+import { ALLIES, ALLY_BY_ID, defaultDeck, power, progressionAllies } from '../src/sim/units';
 import {
   manaCap, manaCapCost, MANA_CAP_BASE, MANA_CAP_MAX_LV,
   hasteOf, HASTE_MAX, HASTE_PER_CORRECT, HASTE_DECAY,
@@ -272,5 +272,60 @@ describe('문항 유형 진행', () => {
 
   it('항상 2종 이상 나온다 — 한 종류만 반복되면 연습이 아니라 암기가 된다', () => {
     for (let n = 1; n <= 80; n++) expect(quizTypesFor(n).length, `${n}판`).toBeGreaterThanOrEqual(2);
+  });
+});
+
+/**
+ * 추천 덱 **안정성** 게이트 — 2026-08-28.
+ *
+ * 🔴 셈지기 20종을 한 번에 늘렸더니, **새 유닛 하나가 기준을 1% 차이로 이기면서**
+ *    추천 덱을 갈아치웠고 그것만으로 밸런스가 무너졌다(실측):
+ *      · 장명등(200먹)이 원거리 자리에서 붕붕이(130먹)를 밀어냈다 — `dps/cost` 0.271 vs 0.267.
+ *        덱의 **총 화력은 오히려 올라갔는데**(7644→8056) 정답 40% 아이 ST18 승률은
+ *        **86% → 43%** 로 반토막 났다. 그 아이는 셈력 수입이 거의 없어 50% 비싼 유닛을
+ *        전장에 못 세운다 — `power` 는 그걸 못 본다.
+ *      · 꽃신이(50먹)가 '가성비' 자리에서 나막신장수(150먹, 절대 화력 3배)를 밀어냈다.
+ *    `defaultDeck` 은 이 파일이 이미 두 번 경고한 대로(등급 우선 금지 · 비싼 순 금지)
+ *    **로스터가 커지면 흔들리는 휴리스틱**이다. 그러니 흔들렸는지를 기계가 본다.
+ *
+ * 🔴 이 스냅샷이 깨지는 것 자체는 잘못이 아니다 — **밸런스 프로브를 다시 돌리라는 뜻**이다.
+ *    (`node tools/balance-probe.mjs` 가 ✅ 면 이 목록을 새 값으로 갱신하고, 근거를 여기 적을 것.)
+ */
+describe('추천 덱은 로스터가 커져도 흔들리지 않는다', () => {
+  const ids = (us: readonly { id: string }[]): string[] => us.map((u) => u.id);
+
+  it('진도 해금 덱 (ST12 · ST18 · ST24 · ST30)', () => {
+    expect(defaultDeck(ids(progressionAllies(12))))
+      .toEqual(['jipsin', 'onggi', 'bungbung', 'haetae', 'kkachi', 'namak']);
+    expect(defaultDeck(ids(progressionAllies(18))))
+      .toEqual(['jipsin', 'onggi', 'bungbung', 'haetae', 'kkachi', 'namak']);
+    // ST23 황소도령이 해태장군을 결정타 자리에서 대체한다 — 더 싸고(320<340) 더 세다
+    expect(defaultDeck(ids(progressionAllies(24))))
+      .toEqual(['jipsin', 'onggi', 'bungbung', 'hwangso', 'kkachi', 'namak']);
+    expect(defaultDeck(ids(progressionAllies(30))))
+      .toEqual(['jipsin', 'onggi', 'bungbung', 'jujak', 'baekho', 'kkachi']);
+  });
+
+  it('전부 가진 덱 — 전설을 다 뽑아도 싼 원거리(붕붕이) 자리는 지킨다', () => {
+    expect(defaultDeck(ids(ALLIES)))
+      .toEqual(['jipsin', 'onggi', 'bungbung', 'cheollima', 'gumiho', 'yongwang']);
+  });
+
+  /**
+   * 🔴 **셈지기를 새로 얻었는데 추천 덱이 약해지면 안 된다.** 아이 눈에는 보상이
+   *    벌처럼 보인다. 상한 10%는 관용이 아니라 **알려진 한 건**을 담는 폭이다 —
+   *    ST6(조롱박이가 붓통이를 가성비 자리에서 밀어냄)이 −6.8%로 이미 배포돼 있고,
+   *    이 게이트는 그보다 큰 새 사고(꽃신이 −17%)를 막는다.
+   */
+  it('진도 해금이 추천 덱을 10% 넘게 약화시키지 않는다', () => {
+    const deckPower = (st: number): number =>
+      defaultDeck(ids(progressionAllies(st)))
+        .reduce((s, id) => s + power(ALLY_BY_ID.get(id)!), 0);
+    const drops: string[] = [];
+    for (let st = 2; st <= CAMPAIGN_STAGES; st++) {
+      const a = deckPower(st - 1), b = deckPower(st);
+      if (b < a * 0.9) drops.push(`ST${st}: ${Math.round(a)} → ${Math.round(b)}`);
+    }
+    expect(drops).toEqual([]);
   });
 });
