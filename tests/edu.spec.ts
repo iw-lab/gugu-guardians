@@ -7,6 +7,12 @@ import { newItem, review, dueQueue, isDue } from '../src/edu/srs';
 import { addDays, toDayStr, daysBetween, weekKey } from '../src/edu/date';
 import { scanTerms, scanTypes } from '../src/edu/vocabulary-gate';
 import { recordAnswer, emptyStat, automaticity, questionDensity } from '../src/edu/stats';
+import { QuizSession, ATTEMPTS_PER_QUESTION } from '../src/edu/session';
+import { normalize } from '../src/save/schema';
+
+/** 재도전 테스트용 세션 — 저장 스키마 기본값 위에 세운다 */
+const newSession = (): QuizSession =>
+  new QuizSession({ layer: 'L1', save: normalize(null), types: ['M1'], seed: 7, now: '2026-08-28' });
 
 // ── DoD 17: 학년 용어·유형 게이트 ────────────────────────────────────────
 describe('학년 적합성 게이트', () => {
@@ -258,5 +264,46 @@ describe('학습 성과 지표', () => {
     expect(questionDensity(60000, 150000)).toBeCloseTo(0.4, 6);
     expect(questionDensity(999, 0)).toBe(0);
     expect(questionDensity(200000, 100000)).toBe(1);
+  });
+});
+
+/**
+ * 재도전 기회 — 2026-08-28 사용자 확인. "3번까지 주라고 했는데 한 번만 준다."
+ * 🔴 `wrongOnCurrent >= 2` 였다. 첫 시도 + 다시 풀기 1회 = **재도전 한 번**이다.
+ */
+describe('한 문항에 세 번까지 붙어 본다', () => {
+  it('두 번 틀려도 정답을 공개하지 않고, 세 번째에 공개한다', () => {
+    const s = newSession();
+    const q = s.next(0);
+    const wrong = q.answer + 1;
+    const a = s.submit(wrong, 3000);
+    expect(a.reveal, '첫 오답에 공개하면 안 된다').toBe(false);
+    expect(a.left, '두 번 더 남았다고 말해 준다').toBe(2);
+    const b = s.submit(wrong, 3000);
+    expect(b.reveal, '두 번째 오답에도 아직 기회가 남는다').toBe(false);
+    expect(b.left).toBe(1);
+    const c = s.submit(wrong, 3000);
+    expect(c.reveal, '세 번째 오답에서 정답을 알려준다').toBe(true);
+    expect(c.answer).toBe(q.answer);
+    expect(c.left).toBe(0);
+  });
+
+  it('맞히면 남은 기회를 다 쓰지 않고 다음 문항으로 간다', () => {
+    const s = newSession();
+    const q = s.next(0);
+    s.submit(q.answer + 1, 3000);
+    const ok = s.submit(q.answer, 2000);
+    expect(ok.correct).toBe(true);
+    expect(ok.reveal).toBe(false);
+    expect(s.next(0).key).not.toBe(q.key);
+  });
+
+  it('상수와 실제 동작이 같다 — 값만 바꾸고 조건을 안 바꾸는 드리프트 방지', () => {
+    const s = newSession();
+    const q = s.next(0);
+    for (let i = 1; i < ATTEMPTS_PER_QUESTION; i++) {
+      expect(s.submit(q.answer + 1, 3000).reveal, `${i}번째 오답`).toBe(false);
+    }
+    expect(s.submit(q.answer + 1, 3000).reveal).toBe(true);
   });
 });

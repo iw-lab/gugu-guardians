@@ -62,8 +62,13 @@ export const MAX_TIER = 20;
 //      ATK×598 단독  → 어른 패배 11% · 피격  6% · 시간초과 4%(교착)
 //      ATK×204+VOL×3.3 → 어른 패배 40% · 피격 42% · 시간초과 2%
 //    같은 패배율이라도 뒤쪽이 '아슬아슬한 판'을 만든다. 교착(시간초과)도 반으로 줄었다.
+// 🔴 **1~4단계를 완만하게 내렸다(2026-08-28 실측).** 실사용자 보고 "2스테이지로 가면서
+//    너무 어렵다"의 절반이 여기서 나온다. 0단계는 성이 한 대도 안 맞는 판인데(돌파 0%),
+//    첫 승격 한 번에 적 공격력이 ×1.9 가 되고 돌파형이 26% 생겼다. 표의 첫 칸이
+//    **아이가 이 게임에서 겪는 첫 난이도 변화**인데, 그 칸이 상단과 같은 ×1.35 보폭이었다.
+//    상단(5단계 이상)은 한 칸도 안 건드렸다 — "너무 쉽다"의 근거(G8)가 그대로 보존된다.
 const ATK: readonly number[] =
-  [1.0, 1.9, 2.8, 3.8, 5.1, 6.8, 9.1, 12.2, 16.4, 22.1, 29.8, 40.2, 54.2,
+  [1.0, 1.45, 2.05, 2.9, 4.0, 6.8, 9.1, 12.2, 16.4, 22.1, 29.8, 40.2, 54.2,
    64.0, 75.5, 89.1, 105.1, 124.0, 146.3, 172.6, 203.7];
 
 /**
@@ -89,8 +94,11 @@ const VOL: readonly number[] =
  */
 // 🔴 13~20 은 0.96 을 점근선으로 연장했다. 1 로 보내지 않는다 — 전부가 전선을 무시하면
 //    셈지기를 세우는 행위 자체가 무의미해져 게임이 아니라 화면보호기가 된다.
+// 🔴 1~4단계를 내렸다 — ATK 와 같은 이유다. 돌파형은 **아이가 눈으로 보는** 유일한
+//    난이도 손잡이다(적이 내 성으로 뛰어간다). 0% 에서 26% 로 한 번에 가면 "갑자기
+//    성이 맞기 시작했다"가 되고, 그게 2판에서 벌어지면 게임이 배신처럼 읽힌다.
 const BREAK: readonly number[] =
-  [0, 0.26, 0.36, 0.43, 0.49, 0.55, 0.61, 0.67, 0.72, 0.77, 0.81, 0.85, 0.88,
+  [0, 0.10, 0.20, 0.30, 0.40, 0.55, 0.61, 0.67, 0.72, 0.77, 0.81, 0.85, 0.88,
    0.898, 0.912, 0.923, 0.931, 0.937, 0.942, 0.946, 0.949];
 
 /**
@@ -98,8 +106,9 @@ const BREAK: readonly number[] =
  * 🔴 "16기 쌓고 방치"를 정면으로 무력화한다. 뭉쳐 있을수록 손해가 되어야
  *    전선이 무너졌다 다시 서는 순간이 생긴다.
  */
+// 🔴 1~4단계 완만화(ATK·BREAK 와 한 묶음).
 const AOE: readonly number[] =
-  [0, 55, 75, 90, 105, 118, 132, 146, 160, 175, 190, 205, 220,
+  [0, 38, 58, 78, 95, 118, 132, 146, 160, 175, 190, 205, 220,
    234, 247, 258, 268, 277, 285, 292, 298];
 
 /**
@@ -155,6 +164,11 @@ export interface MatchOutcome {
    *    99% 이겼다(speed-probe 실측). 속도를 승격 신호로 쓰는 근거가 이것이다.
    */
   paceMs?: number;
+  /**
+   * 이 판의 스테이지 번호. 승격 **보폭**의 바닥 감쇠에만 쓴다(`floorDamp`).
+   * 🔴 없으면 감쇠하지 않는다 — 옛 호출부의 거동을 바꾸지 않기 위한 기본값이다.
+   */
+  stage?: number;
 }
 
 /**
@@ -241,8 +255,30 @@ function dominantFast(m: MatchOutcome, t: number): boolean {
  *    17단계쯤에서는 한 칸이 되어 **천장 근처를 더듬어 찾는다.**
  *    0단계 거동은 바뀌지 않는다 — 안전망 근거가 그대로다.
  */
-function raiseStep(t: number, want: number): number {
-  return Math.max(1, Math.min(want, Math.ceil((MAX_TIER - t) / 3)));
+/**
+ * 시작 근처의 보폭 상한 — **판 하나로는 네 칸의 근거가 안 된다.**
+ *
+ * 🔴 `raiseStep` 은 천장 근처에서만 보폭을 줄였다. 바닥에서는 `ceil(20/3)=7` 이라
+ *    +4 가 그대로 나갔고, 그래서 **ST1 을 무피해로 이긴 아이는 ST2 를 4단계에서 만났다**
+ *    (2026-08-28 실측, 21시드 × 이어서 플레이):
+ *      정답95%·빠른 아이  ST1 단계 0.0 → **ST2 단계 3.4**
+ *        적 공격력 ×1.0 → ×3.8 · 돌파형 0% → 43% · 광역 0 → 78
+ *      정답80% 아이       ST1 0.0 → ST2 1.0 (×1.9 · 돌파 26%)
+ *    ST1 은 **성이 한 대도 안 맞는 판**이다(돌파 0%). 그다음 판에서 적의 절반이 전선을
+ *    지나쳐 성으로 달려오면, 아이 입장에서 그건 난이도 조정이 아니라 다른 게임이다.
+ *    실사용자 보고 "2스테이지로 가면서 너무 어렵다"가 정확히 이 지점이다.
+ *
+ * 🔴 천장 감쇠를 없애지 않고 **바닥 감쇠를 더한다.** 승격이 느려지는 건 첫 여섯 판뿐이고
+ *    ST7 부터는 종전 규칙 그대로다 — 빠른 풀이자가 자기 자리에 서는 데 걸리는 판이
+ *    5판에서 8판쯤으로 늘 뿐, 천장(20)도 보폭(+4)도 그대로 살아 있다.
+ * 🔴 `stage` 가 없으면(옛 호출부·옛 세이브) 감쇠하지 않는다 — 종전 거동이 기본값이다.
+ */
+function floorDamp(stage: number | undefined): number {
+  return stage === undefined ? Infinity : Math.max(1, Math.ceil(stage / 2));
+}
+
+function raiseStep(t: number, want: number, stage: number | undefined): number {
+  return Math.max(1, Math.min(want, Math.ceil((MAX_TIER - t) / 3), floorDamp(stage)));
 }
 
 export function nextTier(tier: number, streak: number, m: MatchOutcome):
@@ -256,8 +292,8 @@ export function nextTier(tier: number, streak: number, m: MatchOutcome):
       ? { tier: clampTier(t - 1), streak: 0 }
       : { tier: t, streak: s };          // 같은 난이도로 한 번 더 — 여기서 '못 깨던 판'이 생긴다
   }
-  if (dominantFast(m, t)) return { tier: clampTier(t + raiseStep(t, 4)), streak: 0 };
-  if (dominant(m, t)) return { tier: clampTier(t + raiseStep(t, 2)), streak: 0 };
+  if (dominantFast(m, t)) return { tier: clampTier(t + raiseStep(t, 4, m.stage)), streak: 0 };
+  if (dominant(m, t)) return { tier: clampTier(t + raiseStep(t, 2, m.stage)), streak: 0 };
   // 여유롭게 이겼다 = 성이 거의 안 깎였고 문제도 잘 맞혔다
   const comfortable = m.castleLeft >= 0.85 && m.accuracy >= 0.7;
   if (!comfortable) return { tier: t, streak: 0 };   // 딱 맞는 난이도 — 유지

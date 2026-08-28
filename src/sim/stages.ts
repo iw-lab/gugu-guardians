@@ -28,7 +28,20 @@ const VOLUME_CAP_STAGE = 30;
  *    시작될 지점이 아예 없었다. 실사용자 보고 "긴장감이 없어"의 절반은 여기서 나온다.
  *    1.07 이면 같은 지점의 적 배율이 2.65배 → 3.87배가 된다.
  */
-const ENDLESS_STEP = 1.07;
+/**
+ * 🔴 1.07 → 1.078 (2026-08-28). **난이도를 올린 게 아니라 제자리로 되돌린 것이다.**
+ *    같은 커밋에서 예산 분배 기준을 체력에서 위협으로 바꿨는데(`threatOf`), 그 부수 효과로
+ *    적 **화력이 전 구간에서 일률적으로 −28%** 가 됐다(실측 ST15~50: DPS ×0.71~0.74,
+ *    체력은 ×0.95 로 거의 그대로). 이 파일 머리말이 적어 둔 대로 이 게임에서 듣는 손잡이는
+ *    화력이므로, 캠페인만 완만해지길 원했는데 무한 구간까지 한 구역만큼 물러났다:
+ *      도달 한계(캠페인 로스터+최대강화) ST45 → **ST55**, 그 결과 전설 로스터(ST55)와 동률이 되어
+ *      G10-c(소환이 무의미해진다)가 깨졌다.
+ *    1.078 이면 세 로스터의 도달 한계가 **기준선과 정확히 같아진다**
+ *    (캠페인만 ST50 · 유니크 ST55 · 전설 ST60, 전 게이트 통과).
+ *    스윕 실측: 1.07→55/55/60(G10-c FAIL) · 1.08→45/55/55 · **1.078→50/55/60** · 1.085→50/50/55.
+ * 🔴 캠페인(1~30)은 이 값이 곱해지지 않는다 — 완만해진 초반 곡선은 그대로 남는다.
+ */
+const ENDLESS_STEP = 1.078;
 
 const CHAPTER_NAMES = [
   '첫걸음 들판',
@@ -164,7 +177,7 @@ const FOREVER = Infinity;   // 🔴 9999 로 두면 '무한'이 1만 판에서 �
 const WAVES: [string, number, number, number, number, number, number][] = [
   //  id          등장  은퇴     t0   주기   하한  지분
   ['e_mul',     1, FOREVER,  3,  9.0,  4.0, 0.30],
-  ['e_bat',     2,      12, 14, 13.0,  5.5, 0.12],
+  ['e_bat',     2,      12, 14, 13.0,  5.5, 0.09],   // 🔴 0.12 였다 — 아래 '두 번째 판' 주석
   ['e_swarm',   3, FOREVER,  8,  8.0,  3.5, 0.10],
   ['e_arch',    4,      14, 24, 20.0,  8.0, 0.12],
   ['e_split',   5, FOREVER, 20, 16.0,  7.0, 0.06],
@@ -180,6 +193,15 @@ const WAVES: [string, number, number, number, number, number, number][] = [
   ['e_thorn',  20, FOREVER, 50, 34.0, 15.0, 0.06],
   ['e_drum',   22, FOREVER, 40, 28.0, 13.0, 0.05],
 ];
+/**
+ * 🔴 **두 번째 판** — `e_bat`(뒤집힌박쥐) 지분을 0.12 → 0.09 로 내렸다(2026-08-28).
+ *    위협 가중(`threatOf`)이 종별 화력 밀도는 바로잡았지만, ST2 는 **없던 종이 하나 생기는
+ *    판**이라 그것만으로 부족했다: 위협 가중 후에도 ST1→ST2 총화력이 +53% 였다
+ *    (아군 성장 ×1.13 · 예산 ×1.10 이므로 설계상 중립은 ~+24%).
+ *    0.09 면 초반 다섯 판이 +44% · +42% · +30% · +23% 로 펴진다.
+ *    `tests/sim.spec.ts` 의 '초반 난이도 경사' 게이트가 한 판당 45% 상한을 지킨다 —
+ *    새 괴수를 추가할 때 이 게이트를 먼저 볼 것.
+ */
 
 /**
  * 수량 계산에 쓰는 **실효 체력**. 갈래벌레처럼 쓰러지며 새끼를 남기는 적은
@@ -194,6 +216,45 @@ function effectiveHp(id: string): number {
   const childHp = sp ? (ENEMY_BY_ID.get(sp.id)?.hp ?? 0) * sp.n : 0;
   return e.hp + childHp;
 }
+
+/** 실효 화력(초당). 분열형은 새끼 화력까지 자기 몫으로 친다 — `effectiveHp` 와 같은 이유다. */
+function effectiveDps(id: string): number {
+  const e = ENEMY_BY_ID.get(id);
+  if (!e) return 20;
+  const sp = e.split;
+  const child = sp ? ENEMY_BY_ID.get(sp.id) : undefined;
+  const childDps = child && sp ? (child.atk / child.aspd) * sp.n : 0;
+  return e.atk / e.aspd + childDps;
+}
+
+/**
+ * 🔴 **예산을 나누는 기준을 체력에서 «위협»으로 바꾼다(2026-08-28).**
+ *
+ * 바로 위 주석들이 세 번에 걸쳐 같은 말을 하고 있었다 — "지분이 고정하는 것은 총 체력이지
+ * 총 위협이 아니다", "높은 공격력도 특기다", "특기 있는 종은 지분을 낮게 준다". 그런데
+ * 그 보정을 **사람이 종마다 손으로** 넣고 있었고, 그래서 매번 한 종씩 늦게 발견됐다
+ * (e_minus 는 2026-08-20 에야 잡혔다). 초반 세 판이 아직 그 상태였다:
+ *
+ *   체력당 화력(물음표벌레=1.00 기준) — 숫자벌레떼 **×5.67** · 꼬마갈래 ×3.24 · 뒤집힌박쥐 **×2.50**
+ *
+ * 게임은 신규 플레이어에게 **가장 화력 밀도가 높은 두 종을 2·3판에** 쥐여 주고 있었다.
+ * 그 결과가 0단계 실측이다(총 체력은 예산대로 +23%·+25% 인데):
+ *     ST1 DPS 196 → ST2 **343(+75%)** → ST3 **688(+101%)**
+ * 실사용자 보고 "2스테이지로 가면서 너무 어렵다"의 나머지 절반이 여기다.
+ *
+ * 위협 = 체력 + W × 초당화력. W=6 이면 같은 예산에서 물음표벌레는 그대로, 숫자벌레떼는
+ * 1/3 로 줄어 곡선이 이렇게 펴진다: 196 → 301(+53%) → 373(+24%) → 489(+31%).
+ * 🔴 **ST1 은 한 마리도 안 바뀐다**(물음표벌레 9마리) — `enemyBudget` 이 물음표벌레의
+ *    위협/체력 비로 정규화하기 때문이다. G2 안전망의 기준점이 그대로 보존된다.
+ * 🔴 W 를 더 올려도(8) 초반 곡선은 같고 무한 구간만 더 물러난다. 6 이 실측 하한이다.
+ */
+const THREAT_W = 6;
+const THREAT_REF_ID = 'e_mul';
+function threatOf(id: string): number {
+  return effectiveHp(id) + THREAT_W * effectiveDps(id);
+}
+/** 예산 단위를 '체력'에서 '위협'으로 옮기는 정규화 계수 — ST1 을 종전과 비트 단위로 같게 한다 */
+const THREAT_SCALE = threatOf(THREAT_REF_ID) / effectiveHp(THREAT_REF_ID);
 
 /**
  * 물량 증가 기울기. 🔴 이 값과 `REWARD_SLOPE_RATIO`(economy.ts)는 **짝**이다 —
@@ -246,7 +307,7 @@ export function lengthRamp(index: number): number {
 /** 한 판에 나오는 적의 기준 총 체력(배율 적용 전). 볼륨은 캠페인 끝에서 멈춘다. */
 export function enemyBudget(index: number): number {
   const v = Math.min(Math.max(1, index), VOLUME_CAP_STAGE);
-  return BUDGET_K * (1 + (v - 1) * BUDGET_SLOPE);
+  return BUDGET_K * THREAT_SCALE * (1 + (v - 1) * BUDGET_SLOPE);
 }
 
 /** 보스가 가져가는 예산 비중 / 보스 판에서 잡몹에 남기는 비중 */
@@ -272,19 +333,22 @@ export function stageDef(index: number): StageDef {
 
   const spawns: SpawnEntry[] = [];
   for (const [id, , , t0, everyBase, everyMin, share] of active) {
-    const hp = effectiveHp(id);
+    const th = threatOf(id);
     spawns.push({
       id,
       t0,
       every: Math.max(everyMin, everyBase - (v * (everyBase - everyMin)) / VOLUME_CAP_STAGE),
-      cap: Math.max(1, Math.min(PER_WAVE_CAP, Math.round((mobBudget * (share / shareSum)) / hp))),
+      cap: Math.max(1, Math.min(PER_WAVE_CAP, Math.round((mobBudget * (share / shareSum)) / th))),
     });
   }
   if (boss) {
     const id = BOSSES[(chapter - 1) % BOSSES.length]!;
     const base = ENEMY_BY_ID.get(id)?.hp ?? 4000;
     // 수문장 체력을 예산에 묶는다 — 안 그러면 구역마다 보스 기본 체력 차이가 배율과 겹쳐 폭발한다
-    spawns.push({ id, t0: 35, every: 9999, cap: 1, hpMul: (budget * BOSS_SHARE) / base });
+    // 🔴 수문장 체력은 **체력 예산** 기준이다 — 위협 정규화분(THREAT_SCALE)을 되돌려서 곱한다.
+    //    안 되돌리면 예산 단위가 바뀐 만큼 보스만 조용히 1.5배가 된다.
+    const hpBudget = budget / THREAT_SCALE;
+    spawns.push({ id, t0: 35, every: 9999, cap: 1, hpMul: (hpBudget * BOSS_SHARE) / base });
   }
 
   return {

@@ -44,7 +44,7 @@ function playAdaptive(skill, pace, stages = CAMPAIGN_STAGES) {
       if (r.myCastleLeft < 0.999) touched++;
       ({ tier, streak } = nextTier(tier, streak, {
         win: r.win, castleLeft: r.myCastleLeft,
-        accuracy: r.solved > 0 ? r.correct / r.solved : 0,
+        accuracy: r.solved > 0 ? r.correct / r.solved : 0, stage: st,
         paceMs: r.paceMs,
       }));
     }

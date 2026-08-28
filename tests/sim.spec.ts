@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { Battle } from '../src/sim/core';
 import { stageDef, MAP_LEN, MAX_SEC } from '../src/sim/stages';
-import { ALLY_CAP, ALLY_BY_ID, defaultDeck, progressionAllies } from '../src/sim/units';
+import { ALLY_CAP, ALLY_BY_ID, ENEMY_BY_ID, defaultDeck, progressionAllies } from '../src/sim/units';
 import { START_MONEY, REWARD, comboMul } from '../src/sim/economy';
 
 const DT = 0.1;
@@ -210,5 +210,56 @@ describe('밸런스 게이트 (게임 코드 기준 재확인)', () => {
   it('한 판에서 실제로 푸는 문항 수가 20개 이상이다', () => {
     const b = playBot(5, 0.95, 3);
     expect(b.solved).toBeGreaterThanOrEqual(20);
+  });
+});
+
+/**
+ * 초반 **화력** 경사 게이트 — 2026-08-28.
+ *
+ * 🔴 stages.ts 의 지분(share)은 한 판의 **총 체력**을 고정한다. 그런데 이 게임에서
+ *    실제로 듣는 손잡이는 화력이다(tier.ts 머리말: "적 체력 ×4 → 아무 변화 없음").
+ *    그래서 체력당 화력이 높은 종을 넣으면 총 난이도가 조용히 뛴다. 실측(수정 전 0단계):
+ *      ST1 DPS 196 → ST2 343(**+75%**) → ST3 688(**+101%**)   ← 총 체력은 +23%·+25%
+ *    원인은 숫자벌레떼(체력당 화력 ×5.67)·뒤집힌박쥐(×2.50)를 2·3판에 넣은 것.
+ *    같은 실수가 e_minus 로 한 번, e_bat/e_swarm 으로 또 한 번 났다 — 사람 눈으로
+ *    막을 수 없다는 뜻이므로 여기서 기계가 센다.
+ * 🔴 상한 45% 의 근거: 아군은 판당 ×1.13(진도 성장) 커지고 예산은 ×1.10 커진다.
+ *    즉 ~24% 는 설계상 중립이고, 그 두 배까지를 허용치로 둔다.
+ */
+describe('초반 난이도 경사 — 체력이 아니라 화력을 잰다', () => {
+  const armyDps = (n: number): number => {
+    const d = stageDef(n);
+    return d.spawns.reduce((s, sp) => {
+      const e = ENEMY_BY_ID.get(sp.id);
+      return e ? s + (e.atk / e.aspd) * sp.cap * d.mult : s;
+    }, 0);
+  };
+
+  it('캠페인 초반 10판에서 한 판당 적 총화력 증가가 45%를 넘지 않는다', () => {
+    const jumps: string[] = [];
+    for (let n = 2; n <= 10; n++) {
+      if (stageDef(n).boss) continue;   // 수문장 판은 관문이라 따로 잰다
+      const grow = armyDps(n) / armyDps(n - 1);
+      if (grow > 1.45) jumps.push(`ST${n - 1}→ST${n} +${Math.round((grow - 1) * 100)}%`);
+    }
+    expect(jumps).toEqual([]);
+  });
+
+  it('ST1 은 종전과 한 마리도 다르지 않다 — G2 안전망의 기준점', () => {
+    const d = stageDef(1);
+    expect(d.spawns).toHaveLength(1);
+    expect(d.spawns[0]!.id).toBe('e_mul');
+    expect(d.spawns[0]!.cap).toBe(9);
+  });
+
+  /** 🔴 위협 가중이 실제로 배선됐는지 — 화력 밀도가 높은 종이 더 적게 나와야 한다 */
+  it('체력당 화력이 높은 괴수는 같은 지분에서 더 적게 나온다', () => {
+    const d = stageDef(3);
+    const swarm = d.spawns.find((s) => s.id === 'e_swarm')!;
+    const mul = d.spawns.find((s) => s.id === 'e_mul')!;
+    const e = (id: string) => ENEMY_BY_ID.get(id)!;
+    // 숫자벌레떼는 물음표벌레보다 체력이 1/3 인데도, 체력만 봤다면 3배 가까이 나왔어야 한다
+    const byHpOnly = (e('e_mul').hp / e('e_swarm').hp) * (0.10 / 0.30);
+    expect(swarm.cap / mul.cap).toBeLessThan(byHpOnly * 0.8);
   });
 });

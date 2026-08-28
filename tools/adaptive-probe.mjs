@@ -28,7 +28,7 @@ for (const skill of KIDS) {
     for (let st = 1; st <= 30; st++) {
       const r = simulate(st, skill, run * 31 + st, null, tier);
       const acc = r.solved > 0 ? r.correct / r.solved : 0;
-      const m = { win: r.win, castleLeft: r.myCastleLeft, accuracy: acc };
+      const m = { win: r.win, castleLeft: r.myCastleLeft, accuracy: acc, paceMs: r.paceMs, stage: st };
       tierHist.push(tier);
       matches++;
       if (!r.win) losses++;

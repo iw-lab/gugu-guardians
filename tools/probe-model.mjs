@@ -52,7 +52,7 @@ export function makeRng(seed) {
 export const CAMPAIGN_STAGES = 30;
 export const CHAPTER_LEN = 10;
 const VOLUME_CAP_STAGE = 30;
-const ENDLESS_STEP = 1.07;
+const ENDLESS_STEP = 1.078;
 const BOSSES = ['e_boss', 'e_boss2', 'e_boss3', 'e_boss4'];
 const TYPE_ORDER = ['A1', 'S1', 'A2', 'M1', 'S2', 'AS1', 'M2', 'D1', 'AS2', 'M3', 'D2'];
 export const REVIEW_WINDOW = 6;
@@ -62,7 +62,7 @@ const FOREVER = Infinity;   // 🔴 9999 로 두면 '무한'이 1만 판에서 �
 const WAVES = [
   //  id          등장  은퇴     t0   주기   하한  지분
   ['e_mul',     1, FOREVER,  3,  9.0,  4.0, 0.30],
-  ['e_bat',     2,      12, 14, 13.0,  5.5, 0.12],
+  ['e_bat',     2,      12, 14, 13.0,  5.5, 0.09],
   ['e_swarm',   3, FOREVER,  8,  8.0,  3.5, 0.10],
   ['e_arch',    4,      14, 24, 20.0,  8.0, 0.12],
   ['e_split',   5, FOREVER, 20, 16.0,  7.0, 0.06],
@@ -111,10 +111,10 @@ export const BUDGET_K = 2340 * SWEEP_BUDGET;
  * 🔴 0단계는 종전 밸런스와 완전히 같아야 한다: 배율 1.0 · 돌파 0 · 광역 0 · 목표정답률 0.85.
  */
 export const MAX_TIER = 20;
-export const TIER_ATK = [1.0, 1.9, 2.8, 3.8, 5.1, 6.8, 9.1, 12.2, 16.4, 22.1, 29.8, 40.2, 54.2, 64.0, 75.5, 89.1, 105.1, 124.0, 146.3, 172.6, 203.7];
+export const TIER_ATK = [1.0, 1.45, 2.05, 2.9, 4.0, 6.8, 9.1, 12.2, 16.4, 22.1, 29.8, 40.2, 54.2, 64.0, 75.5, 89.1, 105.1, 124.0, 146.3, 172.6, 203.7];
 export const TIER_VOL = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.16, 1.346, 1.561, 1.811, 2.101, 2.437, 2.827, 3.279];
-export const TIER_BREAK = [0, 0.26, 0.36, 0.43, 0.49, 0.55, 0.61, 0.67, 0.72, 0.77, 0.81, 0.85, 0.88, 0.898, 0.912, 0.923, 0.931, 0.937, 0.942, 0.946, 0.949];
-export const TIER_AOE = [0, 55, 75, 90, 105, 118, 132, 146, 160, 175, 190, 205, 220, 234, 247, 258, 268, 277, 285, 292, 298];
+export const TIER_BREAK = [0, 0.10, 0.20, 0.30, 0.40, 0.55, 0.61, 0.67, 0.72, 0.77, 0.81, 0.85, 0.88, 0.898, 0.912, 0.923, 0.931, 0.937, 0.942, 0.946, 0.949];
+export const TIER_AOE = [0, 38, 58, 78, 95, 118, 132, 146, 160, 175, 190, 205, 220, 234, 247, 258, 268, 277, 285, 292, 298];
 export const TIER_TARGET_P =
   [0.85, 0.84, 0.82, 0.81, 0.79, 0.78, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77, 0.77];
 const tclamp = (t) => Math.max(0, Math.min(MAX_TIER, Math.floor(Number.isFinite(t) ? t : 0)));
@@ -150,8 +150,10 @@ export function nextTier(tier, streak, m) {
   // src/sim/tier.ts 의 dominant 주석 참고(단계가 오르면 문항이 어려워져 정답률이 같이 내려간다).
   // 0단계에서는 0.85+0.05 = 0.90 이라 종전과 완전히 같다. — tier.ts 와 1:1
   const dom = m.castleLeft >= 0.999 && m.accuracy >= TIER_TARGET_P[t] + 0.05;
-  // 승격 보폭: 압도 2칸 · 완전 압도(응답까지 빠름) 4칸. 천장에 가까울수록 감쇠 — raiseStep 과 1:1
-  const step = (want) => Math.max(1, Math.min(want, Math.ceil((MAX_TIER - t) / 3)));
+  // 승격 보폭: 압도 2칸 · 완전 압도(응답까지 빠름) 4칸.
+  // 천장에 가까울수록 감쇠 + **시작에 가까워도 감쇠**(m.stage) — raiseStep/floorDamp 와 1:1
+  const damp = m.stage === undefined ? Infinity : Math.max(1, Math.ceil(m.stage / 2));
+  const step = (want) => Math.max(1, Math.min(want, Math.ceil((MAX_TIER - t) / 3), damp));
   if (dom && m.paceMs !== undefined && m.paceMs > 0 && m.paceMs <= FAST_PACE_MS) {
     return { tier: tclamp(t + step(4)), streak: 0 };
   }
@@ -181,10 +183,27 @@ export function effectiveHp(id) {
   return e.hp + child;
 }
 
+/** 실효 화력(초당) — 분열형은 새끼 화력까지 자기 몫 — src/sim/stages.ts 와 1:1 */
+export function effectiveDps(id) {
+  const e = ENEMY_BY_ID[id];
+  if (!e) return 20;
+  const c = e.split ? ENEMY_BY_ID[e.split.id] : null;
+  const child = c ? (c.atk / c.aspd) * e.split.n : 0;
+  return e.atk / e.aspd + child;
+}
+
+/** 위협 가중치 — src/sim/stages.ts 의 THREAT_W 와 1:1. 스윕 손잡이로 덮어쓸 수 있다 */
+export const THREAT_W = 6;
+const THREAT_REF = effectiveHp('e_mul') + THREAT_W * effectiveDps('e_mul');
+/** 예산을 나누는 기준값 — src/sim/stages.ts 의 threatOf 와 1:1 */
+export function threatOf(id) {
+  return effectiveHp(id) + THREAT_W * effectiveDps(id);
+}
+
 /** 한 판에 나오는 적의 기준 총 체력(배율 적용 전) */
 export function enemyBudget(index) {
   const v = Math.min(Math.max(1, index), VOLUME_CAP_STAGE);
-  return BUDGET_K * (1 + (v - 1) * BUDGET_SLOPE);
+  return BUDGET_K * (THREAT_REF / effectiveHp('e_mul')) * (1 + (v - 1) * BUDGET_SLOPE);
 }
 
 export const chapterOf = (n) => Math.floor((n - 1) / CHAPTER_LEN) + 1;
@@ -220,17 +239,18 @@ export function stageDef(index) {
 
   const spawns = [];
   for (const [id, , , t0, everyBase, everyMin, share] of active) {
-    const hp = effectiveHp(id);
+    const th = threatOf(id);
     spawns.push({
       id,
       t0,
       every: Math.max(everyMin, everyBase - (v * (everyBase - everyMin)) / VOLUME_CAP_STAGE) * SWEEP_EVERY,
-      cap: Math.max(1, Math.min(PER_WAVE_CAP, Math.round((mobBudget * (share / shareSum)) / hp))),
+      cap: Math.max(1, Math.min(PER_WAVE_CAP, Math.round((mobBudget * (share / shareSum)) / th))),
     });
   }
   if (boss) {
     const id = BOSSES[(chapter - 1) % BOSSES.length];
-    spawns.push({ id, t0: 35, every: 9999, cap: 1, hpMul: (budget * BOSS_SHARE) / ENEMY_HP[id] });
+    const hpBudget = budget * (effectiveHp('e_mul') / THREAT_REF);
+    spawns.push({ id, t0: 35, every: 9999, cap: 1, hpMul: (hpBudget * BOSS_SHARE) / ENEMY_HP[id] });
   }
 
   return {

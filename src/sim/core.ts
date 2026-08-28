@@ -155,6 +155,9 @@ export class Battle {
       //    한 문제도 안 푼 판은 `undefined` 로 둔다: 0 을 내보내면 "무한히 빠름"으로 읽혀
       //    문제를 안 푼 판이 네 칸 승격의 근거가 된다.
       paceMs: this.solved > 0 ? this.answerMs / this.solved : undefined,
+      // 🔴 승격 보폭의 바닥 감쇠(tier.ts 의 floorDamp)가 읽는다. 안 실어 보내면
+      //    그 감쇠는 코드에만 있고 게임에는 없는 휴면 필드가 된다.
+      stage: this.stage.index,
     };
   }
 

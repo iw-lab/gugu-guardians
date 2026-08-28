@@ -244,7 +244,9 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
         qFb.textContent = `정답은 ${res.answer}. ${res.hint}`;
         setTimeout(() => { if (battle.status === 'playing') nextQuestion(); }, 1200);
       } else {
-        qFb.textContent = `다시 생각해 보자 — ${res.hint}`;
+        // 🔴 남은 기회를 말해 준다. 재도전을 세 번으로 늘려도 아이가 그걸 모르면
+        //    "틀리면 끝"이라고 믿고 찍는다 — 늘린 효과가 화면에 없으면 없는 것이다.
+        qFb.textContent = `다시 생각해 보자 (${res.left}번 더 풀 수 있어요) — ${res.hint}`;
         typed = '';
         drawQuestion();
       }

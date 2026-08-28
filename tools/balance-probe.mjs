@@ -146,7 +146,7 @@ for (const st of BOSSES) {
         if (r.myCastleLeft < 0.999) touched++;
         ({ tier, streak } = nextTier(tier, streak, {
           win: r.win, castleLeft: r.myCastleLeft,
-          accuracy: r.solved > 0 ? r.correct / r.solved : 0,
+          accuracy: r.solved > 0 ? r.correct / r.solved : 0, stage: st,
           paceMs: r.paceMs,
         }));
       }
@@ -398,7 +398,7 @@ for (const st of BOSSES) {
         if (r.myCastleLeft < 0.999) touched++;
         ({ tier, streak } = nextTier(tier, streak, {
           win: r.win, castleLeft: r.myCastleLeft,
-          accuracy: r.solved > 0 ? r.correct / r.solved : 0,
+          accuracy: r.solved > 0 ? r.correct / r.solved : 0, stage: st,
         }));
       }
     }
@@ -472,7 +472,7 @@ console.log(`  [G6 설계 제약] ${G6_VERDICT}`);
         if (r.myCastleLeft < 0.999) touched++;
         ({ tier, streak } = nextTier(tier, streak, {
           win: r.win, castleLeft: r.myCastleLeft,
-          accuracy: r.solved > 0 ? r.correct / r.solved : 0,
+          accuracy: r.solved > 0 ? r.correct / r.solved : 0, stage: st,
           paceMs: r.paceMs,
         }));
       }

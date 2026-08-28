@@ -29,10 +29,16 @@ export interface SessionOpts {
 
 export interface SubmitResult {
   correct: boolean;
-  /** 정답 노출 여부 (2회 틀리면 알려준다) */
+  /** 정답 노출 여부 (`ATTEMPTS_PER_QUESTION` 회 틀리면 알려준다) */
   reveal: boolean;
   answer: number;
   hint: string;
+  /**
+   * 이 문항에 **남은 재도전 횟수**.
+   * 🔴 아이에게 보여 주기 위한 값이다. 기회가 세 번이어도 그 사실이 화면에 없으면
+   *    아이는 여전히 "틀리면 끝"이라고 믿고 찍는다 — 기회를 늘린 효과가 사라진다.
+   */
+  left: number;
 }
 
 const RECENT_MAX = 12;
@@ -128,11 +134,12 @@ export class QuizSession {
 
   /**
    * 응답 채점. 🔴 prequential: 예측 → 채점 → 갱신 순서는 updateTheta 안에서 강제된다.
-   * 오답이면 성 HP를 깎지 않는다(처벌 금지). 2회 틀리면 정답을 알려주고 넘어간다.
+   * 오답이면 성 HP를 깎지 않는다(처벌 금지). `ATTEMPTS_PER_QUESTION` 회 틀리면
+   * 정답을 알려주고 넘어간다.
    */
   submit(value: number, elapsedMs: number): SubmitResult {
     const q = this.current;
-    if (!q) return { correct: false, reveal: false, answer: 0, hint: '' };
+    if (!q) return { correct: false, reveal: false, answer: 0, hint: '', left: 0 };
     const correct = value === q.answer;
 
     if (!correct) {
@@ -165,8 +172,9 @@ export class QuizSession {
     this.save.edu.srs[q.key] = after;
     this.attemptsInSession++;
 
-    const reveal = !correct && this.wrongOnCurrent >= 2;
-    return { correct, reveal, answer: q.answer, hint: hintFor(q) };
+    const reveal = !correct && this.wrongOnCurrent >= ATTEMPTS_PER_QUESTION;
+    const left = Math.max(0, ATTEMPTS_PER_QUESTION - this.wrongOnCurrent);
+    return { correct, reveal, answer: q.answer, hint: hintFor(q), left };
   }
 
   /** 이 판에서 단계가 오른 봉인 수 — 오늘의 임무용 */
@@ -176,6 +184,19 @@ export class QuizSession {
 
   get answered(): number { return this.attemptsInSession; }
 }
+
+/**
+ * 한 문항에 허용하는 **시도 횟수**. 이 횟수를 다 틀리면 정답을 보여 주고 넘어간다.
+ *
+ * 🔴 2 였다 — 즉 **재도전 기회가 한 번뿐**이었다(첫 시도 + 다시 풀기 1회).
+ *    설계 의도는 "세 번까지 다시 붙어 본다"였는데 코드가 그 절반이었다(2026-08-28 확인).
+ * 🔴 늘려도 벌이 아니다: 오답은 성 HP 를 깎지 않고(이 파일 submit 참고) 콤보만 끊긴다.
+ *    대신 매 오답마다 힌트가 한 번씩 더 붙고, DDA(economy.ts)가 연속 오답을 세어
+ *    문항 난이도를 낮춘다 — 한 문제를 붙잡고 있을수록 그 문제 뒤가 쉬워진다.
+ * 🔴 이 값을 더 올리지 말 것. 저학년이 한 문항에 오래 묶이면 판당 문항 수가 줄고,
+ *    그건 학습량 게이트(G5, 한 판 20문항)를 직접 깎는다.
+ */
+export const ATTEMPTS_PER_QUESTION = 3;
 
 /** 정답을 말하지 않는 힌트 — "다시 생각해 보자"에 붙는다 */
 export function hintFor(q: Question): string {

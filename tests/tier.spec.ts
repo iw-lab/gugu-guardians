@@ -3,6 +3,7 @@ import {
   MAX_TIER, EASY_STREAK_TO_RAISE, LOSE_STREAK_TO_DROP, FAST_PACE_MS, nextTier,
   tierAoe, tierAtk, tierBreakShare, tierTargetP, tierVolume,
 } from '../src/sim/tier';
+import type { MatchOutcome } from '../src/sim/tier';
 import { Battle } from '../src/sim/core';
 import { stageDef } from '../src/sim/stages';
 import { ENEMY_BY_ID } from '../src/sim/units';
@@ -336,5 +337,57 @@ describe('프로브 모델과 단계 표가 일치한다', () => {
       }
     }
     expect(cases).toBe(TIERS * 3 * 2 * CASTLE.length * ACC.length * PACE.length);   // 격자가 실제로 다 돌았는지
+  });
+});
+
+/**
+ * 승격 보폭의 **바닥 감쇠** — 2026-08-28 실사용자 보고 "2스테이지로 가면서 너무 어렵다".
+ *
+ * 🔴 `raiseStep` 은 천장 근처에서만 보폭을 줄였고 바닥에서는 +4 가 그대로 나갔다.
+ *    그래서 ST1 을 무피해로 이긴 아이가 **ST2 를 4단계에서** 만났다(적 공격력 ×5.1 ·
+ *    돌파형 49%). ST1 은 돌파형이 0% 라 성이 한 대도 안 맞는 판이다 — 그 다음 판이
+ *    절반이 성으로 직행하는 판이면 아이에게 그건 난이도 조정이 아니라 다른 게임이다.
+ */
+describe('승격 보폭 — 시작 근처에서는 성큼 오르지 않는다', () => {
+  const perfect = (stage: number): MatchOutcome =>
+    ({ win: true, castleLeft: 1, accuracy: 1, paceMs: 900, stage });
+
+  it('ST1 을 완전 압도해도 한 칸만 오른다 (종전 네 칸)', () => {
+    expect(nextTier(0, 0, perfect(1)).tier).toBe(1);
+  });
+
+  it('감쇠는 판이 갈수록 풀린다 — ST3~4 는 두 칸, ST7 부터는 종전 네 칸', () => {
+    expect(nextTier(0, 0, perfect(3)).tier).toBe(2);
+    expect(nextTier(0, 0, perfect(4)).tier).toBe(2);
+    expect(nextTier(0, 0, perfect(7)).tier).toBe(4);
+    expect(nextTier(0, 0, perfect(20)).tier).toBe(4);
+  });
+
+  it('stage 를 안 실어 보내면 감쇠하지 않는다 — 옛 호출부의 거동이 기본값이다', () => {
+    expect(nextTier(0, 0, { win: true, castleLeft: 1, accuracy: 1, paceMs: 900 }).tier).toBe(4);
+  });
+
+  /** 🔴 게임이 실제로 stage 를 실어 보내는지 — 안 그러면 위 규칙은 휴면 코드다 */
+  it('전투가 판 번호를 결과에 실어 보낸다 (배선 확인)', () => {
+    const b = new Battle(stageDef(5));
+    expect(b.outcome.stage).toBe(5);
+  });
+});
+
+/**
+ * 🔴 첫 승격 한 번에 바뀌는 폭. ST1(0단계)은 **돌파형이 없어 성이 안 맞는 판**이고,
+ *    아이가 겪는 첫 난이도 변화가 1단계다. 이 칸이 상단과 같은 보폭이면 안 된다.
+ */
+describe('1~4단계는 완만하다 — 아이가 겪는 첫 난이도 변화', () => {
+  it('첫 승격의 적 공격력 상승이 1.5배를 넘지 않는다', () => {
+    expect(tierAtk(1) / tierAtk(0)).toBeLessThanOrEqual(1.5);
+  });
+  it('첫 승격의 돌파 비율이 15%를 넘지 않는다 — 0%에서 한 번에 뛰지 않는다', () => {
+    expect(tierBreakShare(1)).toBeLessThanOrEqual(0.15);
+  });
+  it('5단계 이상은 손대지 않았다 — "너무 쉽다"의 근거(G8)가 그대로다', () => {
+    expect(tierAtk(5)).toBe(6.8);
+    expect(tierBreakShare(5)).toBe(0.55);
+    expect(tierAtk(MAX_TIER)).toBe(203.7);
   });
 });
