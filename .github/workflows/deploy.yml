@@ -86,22 +86,41 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # 🔴 **시크릿이 없으면 실패한다 — 경고로 넘어가지 않는다.**
+      #    예전엔 `::warning::` 를 찍고 `ok=false` 로 건너뛰었다. 경고는 잡을 실패시키지
+      #    않으므로 **잡도 워크플로도 초록**이었다. 그래서 2026-08-22 이후 학생이 여는
+      #    pages.dev 는 8/22 빌드에 멈춘 채로, 2판 난이도 완화도 재도전 3회도 도달하지
+      #    못했다 — 그동안 푸시마다 초록불이 떴다(2026-08-28 실측: 배포 번들에 신규
+      #    유닛 문자열 0건, github.io 에는 1건).
+      #    「건너뛰되 로그에 남긴다」는 사람이 로그를 읽을 때만 작동한다. 안 읽힌다.
       - name: 시크릿 확인
-        id: gate
         env:
           TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           if [ -z "$TOKEN" ] || [ -z "$ACCOUNT" ]; then
-            echo "::warning::CLOUDFLARE_API_TOKEN·CLOUDFLARE_ACCOUNT_ID 가 없어 학생 사이트(pages.dev) 배포를 건너뜁니다 — 그동안은 손으로 'npx wrangler pages deploy dist --project-name gugu-guardians --branch main' 를 쳐야 합니다."
-            echo "ok=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "ok=true" >> "$GITHUB_OUTPUT"
+            echo "::error::CLOUDFLARE_API_TOKEN·CLOUDFLARE_ACCOUNT_ID 가 없어 학생 사이트(pages.dev)에 배포하지 못했습니다. 저장소 Settings → Secrets and variables → Actions 에 두 값을 넣으세요(계정 ID 는 gugu-guardians Pages 프로젝트를 가진 계정의 것). 임시로는 'npx wrangler pages deploy dist --project-name gugu-guardians --branch main'."
+            exit 1
           fi
       - name: Cloudflare Pages 배포 (학생이 여는 주소)
-        if: steps.gate.outputs.ok == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name gugu-guardians --branch main
+      # 🔴 **배포했다는 말을 믿지 않고, 학생 주소를 실제로 열어 본다.**
+      #    「배포 성공」은 업로드가 됐다는 뜻이지 그 주소가 새 번들을 준다는 뜻이 아니다.
+      #    오늘 고친 결함이 정확히 그 틈이었다. 방금 빌드한 번들 파일명이 pages.dev 의
+      #    index.html 에 보이는지 확인한다 — 안 보이면 배포는 실패한 것이다.
+      - name: 학생 주소가 방금 만든 번들을 주는지 확인
+        run: |
+          want=$(grep -o 'assets/index-[A-Za-z0-9_-]*\.js' dist/index.html | head -1)
+          echo "이번 빌드 번들: $want"
+          for i in 1 2 3 4 5 6; do
+            got=$(curl -sf "https://gugu-guardians.pages.dev/?cb=$RANDOM$i" | grep -o 'assets/index-[A-Za-z0-9_-]*\.js' | head -1 || true)
+            echo "  시도 $i — 학생 주소: ${got:-(응답 없음)}"
+            [ "$got" = "$want" ] && exit 0
+            sleep 10
+          done
+          echo "::error::학생 주소(gugu-guardians.pages.dev)가 아직 옛 번들을 주고 있습니다. 배포 잡은 성공했지만 학생에게는 도달하지 않았습니다."
+          exit 1
