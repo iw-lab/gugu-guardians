@@ -73,7 +73,9 @@ const ALLIES = [
   ['dwiju',     'rare',   'a big wooden rice chest spirit with iron corner fittings, short legs, a heavy calm face on the lid'],
   ['jangmyeong','rare',   'a stone jangmyeong lantern spirit, a tall carved stone lamp with a warm glowing flame inside its window'],
   ['hwangso',   'unique', 'a strong young ox-boy spirit with curved horns and a nose ring, lowering his shoulder to charge forward'],
-  ['jokduri',   'unique', 'an elegant bride spirit wearing a jeweled jokduri crown, scattering shining beads in a wide arc'],
+  // 🔴 'elegant bride' 는 실사 미인 초상으로 끌고 간다(실측: 사람 이마 클로즈업이 나왔다).
+  //    「어린 신부 정령」으로 못박고 둥근 볼·전신을 먼저 말해야 화풍 안에 남는다.
+  ['jokduri',   'unique', 'a small chibi bride spirit girl with round rosy cheeks, wearing a red and blue hanbok and a tiny jeweled jokduri coronet on her head, scattering shining beads in a wide arc'],
   ['kkachiho',  'unique', 'a comical folk-painting tiger with a magpie on its back, striped orange fur, grinning wide, minhwa kkachi-horangi'],
   ['seolmun',   'unique', 'a giant grandmother spirit of Jeju, enormous and kind, carrying a small mountain in her apron, towering'],
   ['gwimyeon',  'epic',   'a roof-tile demon face guardian, a huge scowling ceramic mask with bulging eyes and fangs, standing as a wall'],
