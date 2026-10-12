@@ -790,3 +790,11 @@ table.rep td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .gbj-banner.gbj-go{animation:gbjBan var(--d,1.4s) cubic-bezier(.2,1.5,.4,1) forwards}
 @keyframes gbjBan{0%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(-8deg)}15%{opacity:1;transform:translate(-50%,-50%) scale(1.25) rotate(2deg)}30%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-70%) scale(1.05)}}
 @media (prefers-reduced-motion:reduce){.gbj-pop,.gbj-banner.gbj-go,.gbj-punch{animation-duration:.01s}}
+/* ── juice 확장(이 프로젝트 전용 — kit 밖, src/gb/juice-fx.ts 의 jackpot 이 쓴다) ── */
+.iwd-confetti { position: fixed; width: 7px; height: 7px; border-radius: 2px; pointer-events: none;
+  z-index: 41; animation: iwdConfetti .68s cubic-bezier(.2,.8,.4,1) forwards; }
+@keyframes iwdConfetti {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.4); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .iwd-confetti { animation-duration: .01s; } }

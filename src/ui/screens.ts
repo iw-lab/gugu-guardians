@@ -24,6 +24,7 @@ import { QuizSession } from '../edu/session';
 import { buildChoices } from '../edu/distractor';
 import { makeRng, type Question } from '../edu/generator';
 import { play, syncBgmSetting } from '../render/audio';
+import { fireJackpot, fireSummonReveal, fireUnlock, fireUpgrade } from '../gb/juice-fx';
 import {
   missionsFor, claimable, claim, isDone, allDone, rollDaily, DAILY_BONUS,
 } from '../meta/daily';
@@ -519,6 +520,16 @@ export function resultScreen(go: Go, r: ResultPayload): { node: HTMLElement } {
       )
     : null;
 
+  // 🔴 새 셈지기 합류는 예전엔 소리·이펙트가 0 이었다(이 화면은 순수 렌더 함수라 그랬다).
+  //    여러 명이 한 번에 들어오면 차례로 띄운다 — 동시에 겹치면 누가 왔는지 안 읽힌다.
+  r.unlocked?.forEach((id, i) => {
+    const u = ALLY_BY_ID.get(id);
+    if (!u) return;
+    setTimeout(() => {
+      fireUnlock({ text: `${u.name} 합류!`, color: rarityColor(u.rarity), punch: '.gain', bannerSec: 1.6 });
+    }, i * 500);
+  });
+
   const node = el('section', { class: 'screen' },
     el('div', { class: 'topbar' },
       el('h1', {}, won ? '이겼다!' : r.status === 'draw' ? '시간이 다 됐어요' : '아쉬워요'),
@@ -600,7 +611,8 @@ export function summonScreen(go: Go): { node: HTMLElement; teardown?: Teardown }
       const rng = () => Math.random();
       results = n === 10 ? summonTen(s.roster, s.summon, rng) : [summonOnce(s.roster, s.summon, rng)];
     });
-    play('summon');
+    // 🔴 여기서 play('summon') 을 바로 부르지 않는다 — 첫 카드가 열리는 순간(아래 at=0)
+    //    fireSummonReveal() 이 같은 소리를 내므로, 여기서 또 내면 한 순간에 두 번 울린다.
 
     // 등급 낮은 것부터 차례로 열어 마지막에 좋은 게 나오게 한다(연출)
     const order = [...results].sort((a, b) => rarityRank(a.rarity) - rarityRank(b.rarity));
@@ -640,7 +652,19 @@ export function summonScreen(go: Go): { node: HTMLElement; teardown?: Teardown }
           card.append(el('span', { class: `ucard-need${capped ? ' capped' : ''}` }, tail));
         }
         stage.append(card);
-        if (rank >= 2) play('win');
+        const rect = card.getBoundingClientRect();
+        fireSummonReveal({
+          x: rect.left + rect.width / 2, y: rect.top,
+          color: rarityColor(res.rarity), punch: card,
+        });
+        // 🔴 유니크 이상(10연 확정 등급)은 한 번 더 — 배너·화면 플래시·꽃가루까지 겹쳐서
+        //    "방금 좋은 게 나왔다"가 소리만으로도 분명히 갈린다(실사용자: "이펙트가 없어서 심심함").
+        if (rank >= 2) {
+          fireJackpot({
+            x: rect.left + rect.width / 2, y: rect.top + rect.height / 2,
+            text: `${res.unit.name}!`, color: rarityColor(res.rarity), bannerSec: 1.3,
+          });
+        }
         refreshHead();
       }, at));
     });
@@ -827,7 +851,11 @@ export function codexScreen(go: Go): { node: HTMLElement } {
           } else {
             const b = btn(`승급 · 조각 ${entry.shards}/${cost}`, () => {
               store.update((s) => { upgrade(u, s.roster[u.id]); });
-              play('correct');
+              const rect = b.getBoundingClientRect();
+              fireUpgrade({
+                x: rect.left + rect.width / 2, y: rect.top,
+                text: `${u.name} 승급!`, color: rarityColor(u.rarity), punch: b,
+              });
               refresh();
             }, 'btn sm ghost up');
             b.disabled = !canUpgrade(u, entry);

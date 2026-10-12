@@ -11,7 +11,9 @@ import type { Question } from '../edu/generator';
 import { el, btn, type Teardown } from './dom';
 import * as store from '../save/store';
 import { play } from '../render/audio';
-import { fireBossAppear, fireCorrect, fireLegend, fireWin, fireWrong, playLose } from '../gb/juice-fx';
+import {
+  fireBossAppear, fireCannonFire, fireCorrect, fireDeploy, fireLegend, fireWin, fireWrong, playLose,
+} from '../gb/juice-fx';
 import { bumpWeeklyNow } from '../meta/weekly';
 import type { ModeKind, StageDef } from '../sim/types';
 import { dailyMod } from '../sim/modes';
@@ -135,7 +137,14 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     );
     card.style.setProperty('--rc', rarityColor(def.rarity));
     card.addEventListener('click', () => {
-      if (battle.summon(id)) { renderer.shake(2); flash(card); play('summon'); }
+      if (battle.summon(id)) {
+        renderer.shake(2);
+        const rect = card.getBoundingClientRect();
+        fireDeploy({
+          x: rect.left + rect.width / 2, y: rect.top,
+          text: `${def.name} 출전!`, color: rarityColor(def.rarity), punch: card,
+        });
+      }
     });
     deckCol.append(card);
     return { id, def, card, cool, why };
@@ -174,8 +183,11 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     if (!battle.fireCannon()) return;
     renderer.cannonSweep();
     renderer.shake(9);
-    play('hit');
-    flash(cannonBtn);
+    const rect = cannonBtn.getBoundingClientRect();
+    fireCannonFire({
+      x: rect.left + rect.width / 2, y: rect.top,
+      text: '대포!', flashColor: '#2b2320', flashAlpha: 0.22,
+    });
     syncCannon();
   });
 
@@ -198,10 +210,6 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     reduceMotion: save.settings.reduceMotion,
     lowSpec: false,
   });
-
-  function flash(node0: HTMLElement) {
-    node0.animate?.([{ filter: 'brightness(1.7)' }, { filter: 'brightness(1)' }], { duration: 180 });
-  }
 
   function nextQuestion() {
     current = quiz.next(battle.dda.level);

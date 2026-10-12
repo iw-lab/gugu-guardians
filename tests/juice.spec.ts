@@ -75,4 +75,43 @@ describe('타격감 배선', () => {
     expect(battle).toMatch(/cheers: renderer\.cheersShown/);
     expect(battle).toMatch(/bosses: renderer\.bossesShown/);
   });
+
+  /**
+   * 🔴 2026-10-12 확장분 — 전투 화면 밖(전장 배치·먹 대포·소환 뽑기·도감 승급·진도 해금)도
+   *    같은 허브(juice-fx.ts)에 반응을 건다. tools/check-juice.mjs 가 CI에는 안 물려 있어서,
+   *    여기서 "표에 행동이 있고, 그 행동을 실제로 부르는 곳이 있다"를 직접 지킨다
+   *    (표만 있고 fire 가 없으면 반응이 0인 채로 넘어간다 — 이 파일 머리말의 교훈과 같다).
+   */
+  const screens = read('src/ui/screens.ts');
+
+  it('전장 배치(소환)·먹 대포에 반응이 걸려 있다', () => {
+    expect(juiceFx).toMatch(/deploy:\s*\[.*'sfx'/);
+    expect(battle, 'battle.ts 에서 fireDeploy 를 안 부른다').toMatch(/fireDeploy\(/);
+    expect(juiceFx).toMatch(/cannonFire:\s*\[.*'sfx'/);
+    expect(battle, 'battle.ts 에서 fireCannonFire 를 안 부른다').toMatch(/fireCannonFire\(/);
+  });
+
+  it('소환(뽑기) 카드 공개·잭팟에 반응이 걸려 있다', () => {
+    expect(juiceFx).toMatch(/summonReveal:\s*\[.*'sfx'/);
+    expect(screens, 'screens.ts 에서 fireSummonReveal 을 안 부른다').toMatch(/fireSummonReveal\(/);
+    expect(juiceFx).toMatch(/jackpot:\s*\[.*'sfx'/);
+    expect(screens, 'screens.ts 에서 fireJackpot 을 안 부른다').toMatch(/fireJackpot\(/);
+  });
+
+  it('도감 승급·새 셈지기 합류(해금)에 반응이 걸려 있다', () => {
+    expect(juiceFx).toMatch(/upgrade:\s*\[.*'sfx'/);
+    expect(screens, 'screens.ts 에서 fireUpgrade 를 안 부른다').toMatch(/fireUpgrade\(/);
+    expect(juiceFx).toMatch(/unlock:\s*\[.*'sfx'/);
+    expect(screens, 'screens.ts 에서 fireUnlock 을 안 부른다').toMatch(/fireUnlock\(/);
+  });
+
+  it('소환은 소리가 두 번 겹치지 않는다 (카드 열리는 시점에만 난다)', () => {
+    // 🔴 예전엔 doSummon() 진입 즉시 play('summon')을 부르고, 첫 카드가 열릴 때 또 울렸다.
+    //    첫 카드의 지연(at)이 0이라 거의 같은 순간에 같은 소리가 두 번 났다.
+    const i = screens.indexOf('function doSummon');
+    const j = screens.indexOf('fireSummonReveal(', i);
+    const body = screens.slice(i, j);
+    expect(j, 'doSummon 안에서 fireSummonReveal 을 못 찾았다').toBeGreaterThan(i);
+    expect(body, "doSummon 이 fireSummonReveal 보다 먼저 play('summon')을 또 부른다").not.toMatch(/play\('summon'\);/);
+  });
 });
