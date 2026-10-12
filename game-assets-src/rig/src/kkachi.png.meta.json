@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a cheerful Korean magpie warrior bird with a tiny pebble. Front view, wings spread wide open horizontally, body upright facing the viewer, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outlines, ri",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/kkachi.png",
+ "t0": 1791771410.5111501,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/kkachi.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/a9250b95-bd2b-4f2c-b76d-ec8db56c372a",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,104,349바이트",
+ "elapsed_s": 85.6,
+ "conversation": "https://chatgpt.com/c/6acc42cb-a0f4-83ec-b73d-bca91de49cf6",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

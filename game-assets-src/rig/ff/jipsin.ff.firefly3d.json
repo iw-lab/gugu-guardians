@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/jipsin.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:25de0be3-c0f4-4c24-bdd5-184eebb36e18",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.20.35.glb",
+ "bytes": 2713540,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.575,
+  1.998,
+  1.658
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:23:16.950Z"
+}

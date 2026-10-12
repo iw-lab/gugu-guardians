@@ -1,7 +1,7 @@
 import type { Battle } from '../sim/core';
 import { MAP_LEN } from '../sim/stages';
 import { ALLY_BY_ID, ENEMY_BY_ID } from '../sim/units';
-import { getImage } from './assets';
+import { getImage, getRig } from './assets';
 
 /**
  * 전장 렌더러 — Canvas 2D.
@@ -290,13 +290,17 @@ export class FieldRenderer {
     ctx.fillStyle = 'rgba(52,40,28,0.20)';
     ctx.fillRect(0, groundY, this.w, this.h - groundY);
 
+    this.drawAmbient(groundY, now, false);
     this.drawCastle(groundY, 'castle_ally', b.playerCastleHp / b.stage.playerCastleHp, true);
-    this.drawCastle(groundY, 'castle_foe', b.castleHp / b.stage.castleHp, false);
+    // 성이 없는 모드(끝없는 방어·보스 연전)는 적 성 대신 «엉킴의 문»이 열려 있다
+    if (b.noFoeCastle) this.drawPortal(groundY, now);
+    else this.drawCastle(groundY, 'castle_foe', b.castleHp / b.castleHpMax, false);
     // 성문 표시는 성 **위**, 유닛 **아래** — 나오는 적이 표시에 가리지 않게
     this.drawGates(groundY, now);
 
     // 유닛 — 뒤쪽(작은 x)부터 그려 앞줄이 위에 오게 한다
     const sorted = [...b.units].sort((p, q) => p.x - q.x);
+    if (this.lastX.size > 400) this.lastX.clear();   // 쓰러진 유닛 기록이 쌓이지 않게(다음 프레임에 다시 잰다)
     for (const u of sorted) this.drawUnit(u, groundY, b.t);
 
     this.drawShots(groundY, now);
@@ -306,6 +310,92 @@ export class FieldRenderer {
     this.drawBursts(groundY, now);
     this.drawCheers(groundY, now);
     this.drawBoss(now);
+    this.drawAmbient(groundY, now, true);
+    ctx.restore();
+  }
+
+  // ── v2.0 분위기 층(REMASTER-GDD R-1) — 그림 전용, 시뮬 수치에는 손대지 않는다 ─────────
+  /** 배경별 날씨: 들판=꽃잎 · 밤=반딧불 · 바다=물보라 · 동굴=먼지 · 하늘=낙엽 · 성벽=불티 */
+  private particles: { x: number; y: number; vx: number; vy: number; r: number; ph: number }[] = [];
+  private weatherKind(): { color: string; glow: boolean; n: number; fall: number; drift: number; shape: 'petal' | 'dot' } {
+    const k = this.bgKey;
+    if (k.includes('night')) return { color: '#fff3a0', glow: true, n: 26, fall: -4, drift: 10, shape: 'dot' };
+    if (k.includes('sea')) return { color: '#e8f6ff', glow: false, n: 22, fall: -14, drift: 26, shape: 'dot' };
+    if (k.includes('cave')) return { color: '#d9c9a8', glow: false, n: 30, fall: 6, drift: 6, shape: 'dot' };
+    if (k.includes('sky')) return { color: '#e09a3a', glow: false, n: 18, fall: 22, drift: 30, shape: 'petal' };
+    if (k.includes('wall')) return { color: '#ff9a4a', glow: true, n: 20, fall: -18, drift: 12, shape: 'dot' };
+    return { color: '#f7b8c8', glow: false, n: 22, fall: 20, drift: 26, shape: 'petal' };
+  }
+  /**
+   * 뒤층(front=false): 천천히 흐르는 구름띠 · 앞층(front=true): 날씨 입자와 화면 아래 풀잎 실루엣.
+   * 🔴 reduceMotion 이면 그리지 않는다(정보가 아니라 장식이다 — drawCheers 의 «글자는 남긴다»와 다르다).
+   */
+  private drawAmbient(groundY: number, now: number, front: boolean): void {
+    if (this.opts.reduceMotion || this.opts.lowSpec) return;
+    const { ctx } = this; const t = now / 1000;
+    if (!front) {
+      ctx.save();
+      ctx.globalAlpha = 0.18; ctx.fillStyle = '#ffffff';
+      for (let i = 0; i < 4; i++) {
+        const y = this.h * (0.08 + i * 0.07);
+        const x = ((t * (8 + i * 4) + i * 260) % (this.w + 400)) - 200;
+        ctx.beginPath(); ctx.ellipse(x, y, 160 + i * 30, 10 + i * 2, 0, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.restore();
+      return;
+    }
+    const wk = this.weatherKind();
+    if (this.particles.length !== wk.n) {
+      this.particles = Array.from({ length: wk.n }, (_, i) => ({ x: (i * 97.3) % 1, y: (i * 53.7) % 1, vx: 0, vy: 0, r: 2 + (i % 4), ph: i * 1.7 }));
+    }
+    ctx.save();
+    ctx.fillStyle = wk.color;
+    for (const p of this.particles) {
+      // 위치는 시각의 함수(상태를 쌓지 않는다) — 탭 복귀·일시정지에도 튀지 않는다
+      const x = (((p.x * this.w + t * wk.drift + Math.sin(t * 0.9 + p.ph) * 18) % this.w) + this.w) % this.w;
+      const y = (((p.y * groundY + t * wk.fall) % groundY) + groundY) % groundY;
+      ctx.globalAlpha = wk.glow ? 0.45 + 0.45 * Math.sin(t * 3 + p.ph) : 0.75;
+      if (wk.shape === 'petal') {
+        ctx.save(); ctx.translate(x, y); ctx.rotate(t * 1.5 + p.ph);
+        ctx.beginPath(); ctx.ellipse(0, 0, p.r + 2, p.r * 0.6, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      } else {
+        if (wk.glow) { ctx.shadowColor = wk.color; ctx.shadowBlur = 8; }
+        ctx.beginPath(); ctx.arc(x, y, p.r * 0.7, 0, Math.PI * 2); ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+    // 앞 풀잎 — 화면 아래 가장자리에 먹빛 실루엣이 살랑인다(전장과 덱 사이에 깊이를 준다)
+    ctx.globalAlpha = 0.55; ctx.fillStyle = '#1e2a16';
+    const base = this.h;
+    ctx.beginPath(); ctx.moveTo(0, base);
+    for (let x = 0; x <= this.w; x += 14) {
+      const sway = Math.sin(t * 1.6 + x * 0.05) * 4;
+      ctx.lineTo(x + sway, base - 10 - ((x * 7) % 11));
+      ctx.lineTo(x + 7, base);
+    }
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  /** 엉킴의 문 — 성이 없는 모드에서 적이 쏟아져 나오는 먹빛 소용돌이 */
+  private drawPortal(groundY: number, now: number): void {
+    const { ctx } = this; const t = now / 1000;
+    const { x, w, h } = castleBox(this.w, this.h, false);
+    const cx = Math.min(this.w - w * 0.35, x + w / 2), cy = groundY - h * 0.45;
+    ctx.save();
+    for (let i = 5; i >= 0; i--) {
+      const r = h * (0.18 + i * 0.07);
+      ctx.globalAlpha = 0.16 + (5 - i) * 0.1;
+      ctx.fillStyle = i % 2 ? '#3b2257' : '#120b18';
+      ctx.beginPath(); ctx.ellipse(cx, cy, r * 0.62, r, Math.sin(t + i) * 0.15, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 0.9; ctx.strokeStyle = '#b388ff'; ctx.lineWidth = 3;
+    for (let i = 0; i < 3; i++) {
+      ctx.beginPath(); ctx.ellipse(cx, cy, h * 0.3, h * 0.48, t * (0.8 + i * 0.3) + i, 0.4, 2.2); ctx.stroke();
+    }
+    ctx.font = '800 13px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.lineWidth = 3; ctx.strokeStyle = '#000c';
+    const ly = Math.max(18, cy - h * 0.62);
+    ctx.strokeText('엉킴의 문', cx, ly); ctx.fillStyle = '#fff'; ctx.fillText('엉킴의 문', cx, ly);
     ctx.restore();
   }
 
@@ -553,6 +643,18 @@ export class FieldRenderer {
       ctx.fillStyle = ally ? '#1b4f8c' : '#3a2b28';
       ctx.fillRect(x, y, w, h);
     }
+    // 금 간 성 — 체력 60% 아래부터 먹선 금이 가고 30% 아래면 더 갈라진다(체력 바를 안 읽는 아이도 «거의 다 부쉈다»를 본다)
+    if (ratio < 0.6) {
+      ctx.save(); ctx.strokeStyle = '#1a120d'; ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.globalAlpha = 0.85;
+      const cracks = ratio < 0.3 ? 5 : 2;
+      for (let i = 0; i < cracks; i++) {
+        let cx = x + w * (0.25 + 0.5 * ((i * 0.37) % 1)), cy = y + h * (0.2 + 0.12 * i);
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        for (let k = 0; k < 4; k++) { cx += (k % 2 ? -1 : 1) * w * 0.06; cy += h * 0.07; ctx.lineTo(cx, cy); }
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
     // HP 바 — 색만이 아니라 위치(좌/우)와 라벨로도 구분된다
     // 낮은 화면에서는 성 위 공간이 부족해 HP 바·라벨이 캔버스 위로 잘린다 → 아래로 밀어 둔다
     const bw = w * 1.15, bh = 12, by = Math.max(18, y - 20);
@@ -577,7 +679,42 @@ export class FieldRenderer {
     ctx.fillText(ally ? '우리 성' : '엉킴 성', bx + bw / 2, by - 6);
   }
 
-  private drawUnit(u: { side: 1 | -1; defId: string; x: number; hp: number; maxHp: number; hurtAt: number; swingAt: number; spd: number; breaker?: boolean }, groundY: number, simT: number): void {
+  /** 유닛별 직전 x — 실제로 걷고 있는지(멈춰 싸우는지)를 그리기 쪽에서 판정한다(시뮬은 모른다) */
+  private lastX = new Map<number, { x: number; t: number; moving: boolean }>();
+
+  /**
+   * 뼈대 아틀라스 한 프레임(REMASTER v2.0) — 공격(스윙 0.45초) > 걷기(이번 프레임에 x 가 움직였다) > 대기.
+   * 발 위치(pivot)를 땅선에 맞춘다. 아군 아틀라스는 오른쪽 앞(SE), 적은 왼쪽 앞(SW)으로 찍었으므로 뒤집지 않는다.
+   * @returns 그렸으면 true(없으면 옛 정지 그림으로)
+   */
+  private drawRig(u: { uid?: number; defId: string; x: number; swingAt: number }, h: number, simT: number, hurt: boolean): boolean {
+    const r = getRig(u.defId);
+    if (!r) return false;
+    const { ctx } = this; const { ent, img } = r;
+    const id = u.uid ?? 0;
+    const prev = this.lastX.get(id);
+    const moving = prev ? (simT > prev.t ? Math.abs(u.x - prev.x) > 0.02 : prev.moving) : false;
+    if (!prev || simT > prev.t) this.lastX.set(id, { x: u.x, t: simT, moving });
+    const sw = simT - u.swingAt;
+    const reduce = this.opts.reduceMotion;
+    let row = ent.rows['idle'] ?? 0, f = 0;
+    if (sw >= 0 && sw < 0.45 && ent.rows['attack'] !== undefined) { row = ent.rows['attack']!; f = Math.min(ent.frames - 1, Math.floor((sw / 0.45) * ent.frames)); }
+    else if (moving && ent.rows['walk'] !== undefined) { row = ent.rows['walk']!; f = reduce ? 0 : Math.floor(simT * 11 + id * 0.37) % ent.frames; }
+    else { f = reduce ? 0 : Math.floor(simT * 6 + id * 0.53) % ent.frames; }
+    // 칸 안 인물은 칸 높이의 ~70% — 옛 정지 그림(h)과 같은 키로 보이게 칸을 키운다
+    const k = (h * 1.45) / ent.cell;
+    const dw = ent.cell * k, dh = ent.cell * k;
+    const dx = -ent.pivot[0] * k, dy = -ent.pivot[1] * k;
+    ctx.drawImage(img, f * ent.cell, row * ent.cell, ent.cell, ent.cell, dx, dy, dw, dh);
+    if (hurt) {
+      ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.5;
+      ctx.drawImage(img, f * ent.cell, row * ent.cell, ent.cell, ent.cell, dx, dy, dw, dh);
+      ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+    }
+    return true;
+  }
+
+  private drawUnit(u: { uid?: number; side: 1 | -1; defId: string; x: number; hp: number; maxHp: number; hurtAt: number; swingAt: number; spd: number; breaker?: boolean }, groundY: number, simT: number): void {
     const { ctx } = this;
     const def = u.side === 1 ? ALLY_BY_ID.get(u.defId) : ENEMY_BY_ID.get(u.defId);
     const img = getImage(u.defId);
@@ -596,6 +733,14 @@ export class FieldRenderer {
     const hurt = simT - u.hurtAt >= 0 && simT - u.hurtAt < 0.15;
 
     ctx.save();
+    // 뼈대 아틀라스가 있으면 그 프레임이 걷기·공격을 직접 보여 준다 — 통통(bob)·기울이기(swing)는 옛 정지 그림 전용
+    if (getRig(u.defId)) {
+      ctx.translate(x, groundY);
+      this.drawRig(u, h, simT, hurt);
+      ctx.restore();
+      this.drawUnitMarks(u, x, h, groundY);
+      return;
+    }
     ctx.translate(x, groundY + bob);
     if (swing) ctx.rotate(u.side === 1 ? swing : -swing);
     // 🔴 반전하지 않는다. 아군 키아트는 우향, 적 키아트는 좌향으로 생성했으므로
@@ -616,6 +761,11 @@ export class FieldRenderer {
     }
     ctx.restore();
 
+    this.drawUnitMarks(u, x, h, groundY);
+  }
+
+  private drawUnitMarks(u: { side: 1 | -1; hp: number; maxHp: number; breaker?: boolean }, x: number, h: number, groundY: number): void {
+    const { ctx } = this;
     // 발밑 링 — 🔴 적아군을 색만으로 구분하지 않는다(모양도 다르게: 아군 원 / 적 삼각)
     ctx.save();
     ctx.translate(x, groundY + 4);

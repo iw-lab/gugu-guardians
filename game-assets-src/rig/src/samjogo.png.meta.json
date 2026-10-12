@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a three-legged golden crow (samjogo) with sun halo. Front view, wings spread wide open horizontally, body upright facing the viewer, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outlines, rich dan",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/samjogo.png",
+ "t0": 1791770579.122877,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/samjogo.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/9bf99a58-3c04-48ae-9a1b-58e892b300f5",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,660,668바이트",
+ "elapsed_s": 99.1,
+ "conversation": "https://chatgpt.com/c/6acc3fe7-6f50-83ee-bed0-e67d54b6598d",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

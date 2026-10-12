@@ -1,6 +1,6 @@
-import type { BattleStatus, EnemyDef, LiveUnit, StageDef } from './types';
+import type { BattleStatus, EnemyDef, LiveUnit, SpawnEntry, StageDef } from './types';
 import { ALLY_BY_ID, ALLY_CAP, ENEMY_BY_ID, levelMult, slotsOf } from './units';
-import { allyGrowth, enemyBudget, MAP_LEN, MAX_SEC } from './stages';
+import { allyGrowth, enemyBudget, enemyMult, MAP_LEN, MAX_SEC, stageDef } from './stages';
 import { clampTier, tierAoe, tierAtk, tierBreakShare, tierVolume, type MatchOutcome } from './tier';
 import {
   baseRegen, cannonDamage, CANNON_CASTLE_SHARE, CANNON_KNOCKBACK, CANNON_PER_CORRECT, cannonMult,
@@ -95,6 +95,31 @@ export class Battle {
   /** 먹 대포 충전(0~1). 정답으로만 찬다 */
   cannonCharge = 0;
 
+  // ── 모드(REMASTER-GDD R-2) — 캠페인(classic)에서는 전부 0·미사용이라 종전 거동과 같다 ──
+  /** 번개 전투: 부순 적 성 수 */
+  castlesBroken = 0;
+  /** 오답 수 — 번개 전투 시계가 읽는다 */
+  wrong = 0;
+  /** 끝없는 방어: 지금 파도 번호(1부터) */
+  wave = 0;
+  /** 보스 연전: 쓰러뜨린 보스 수 */
+  bossesDown = 0;
+  /** 지금 적 성 최대 체력 — 번개 전투에선 성이 새로 설 때마다 커진다 */
+  castleHpMax: number;
+  /** 이 판의 출전표 — 모드가 파도를 덧붙이므로 stage.spawns 를 복사해 쓴다 */
+  private spawns: SpawnEntry[];
+  private rushIdx = 0;
+  private rushLive = false;
+  private nextWaveAt = 3;
+  /** 성이 없는 모드(끝없는 방어·보스 연전) — 아군이 성을 때려도 깎이지 않는다 */
+  get noFoeCastle(): boolean { const k = this.stage.mode?.kind; return k === 'survival' || k === 'big'; }
+  /** 번개 전투 남은 초(그 밖의 모드 = Infinity) */
+  get clockLeft(): number {
+    const c = this.stage.mode?.clock;
+    if (!c) return Infinity;
+    return Math.max(0, c.start + c.perCastle * this.castlesBroken - c.perWrong * this.wrong - this.t);
+  }
+
   private uidSeq = 1;
   private growth: number;
   private cooldowns = new Map<string, number>();
@@ -137,12 +162,18 @@ export class Battle {
     this.tier = clampTier(tier);   // 🔴 자체 클램프 금지 — NaN 이 새어 들어간다(clampTier 주석 참고)
     this.growth = allyGrowth(stage.index);
     this.castleHp = stage.castleHp;
+    this.castleHpMax = stage.castleHp;
     this.playerCastleHp = stage.playerCastleHp;
+    // 오늘의 전장 비틀기 — 물량(swarm·giant)은 출전표에서, 체력·속도는 makeEnemy 에서 집행
+    const mod = stage.mode?.mod;
+    const capMul = mod === 'swarm' ? 1.5 : mod === 'giant' ? 0.7 : 1;
+    this.spawns = stage.spawns.map((s) => ({ ...s, cap: s.cap <= 1 ? s.cap : Math.max(1, Math.round(s.cap * capMul)) }));
+    if (this.noFoeCastle) { this.castleHp = Number.MAX_SAFE_INTEGER; this.castleHpMax = Number.MAX_SAFE_INTEGER; }
     this.manaMax = manaCap(upgrades.mana ?? 0);
     this.regenMul = regenMult(upgrades.regen ?? 0);
     this.cannonMul = cannonMult(upgrades.cannon ?? 0);
     this.money = Math.min(START_MONEY, this.manaMax);
-    for (const s of stage.spawns) this.spawnNext.set(s.id, s.t0);
+    for (const s of this.spawns) this.spawnNext.set(this.key(s), s.t0);
   }
 
   /** 이 판의 결과 — 다음 판 난이도를 정하는 입력 */
@@ -197,7 +228,7 @@ export class Battle {
     //    밀고 올라가면 화면에 적이 한 마리도 없는 시간이 길다(실측: 1판 28초 이후 적군 0마리).
     //    그때 대포를 누르면 충전만 사라지고 아무 일도 안 일어났다 — 아이 눈에는 **고장난 버튼**이다.
     //    정답 열몇 개로 번 것이 아무것도 아닌 게 되면 "정답의 하류에 쾌감을 둔다"는 원칙이 깨진다.
-    this.castleHp -= this.stage.castleHp * CANNON_CASTLE_SHARE * this.cannonMul;
+    if (!this.noFoeCastle) this.castleHp -= this.castleHpMax * CANNON_CASTLE_SHARE * this.cannonMul;
     this.events.push({ type: 'castleHit', x: MAP_LEN, side: 1 });
     return true;
   }
@@ -283,6 +314,7 @@ export class Battle {
       if (this.combo > this.maxCombo) this.maxCombo = this.combo;
     } else {
       this.combo = 0;
+      this.wrong++;
     }
     this.dda = stepDda(this.dda, correct);
     return gained;
@@ -325,23 +357,91 @@ export class Battle {
     if (this.status !== 'playing') return;
     this.t += dt;
     if (this.money < this.cheapestCost) this.drySec += dt;
-    this.money = Math.min(this.manaMax, this.money + baseRegen(this.stage.index) * this.regenMul * dt);
+    this.money = Math.min(this.manaMax, this.money + baseRegen(this.stage.index) * this.regenMul * (this.stage.mode?.mod === 'rich' ? 1.6 : 1) * dt);
     this.hasteBoost = Math.max(0, this.hasteBoost - HASTE_DECAY * dt);
 
+    this.modeTick();
     this.spawnEnemies();
     this.combat(dt);
     this.cleanup();
 
+    const kind = this.stage.mode?.kind;
+    if (kind === 'time') {
+      // 성을 부숴도 판은 이어진다 — 더 큰 성이 새로 서고 적 출전표가 처음부터 다시 돈다
+      if (this.castleHp <= 0) {
+        this.castlesBroken++;
+        this.castleHpMax = Math.round(this.stage.castleHp * (1 + 0.15 * this.castlesBroken));
+        this.castleHp = this.castleHpMax;
+        for (const s of this.spawns) { this.spawnCount.set(this.key(s), 0); this.spawnNext.set(this.key(s), this.t + s.t0 * 0.5); }
+        this.events.push({ type: 'skill', x: MAP_LEN, side: 1, name: `성 함락! +${this.stage.mode!.clock!.perCastle}초`, r: 0 });
+      }
+      if (this.playerCastleHp <= 0) { this.playerCastleHp = 0; this.status = this.castlesBroken > 0 ? 'win' : 'lose'; return; }
+      if (this.clockLeft <= 0) { this.status = this.castlesBroken > 0 ? 'win' : 'lose'; return; }
+      return;
+    }
+    if (kind === 'survival') {
+      if (this.playerCastleHp <= 0) { this.playerCastleHp = 0; this.status = this.wave >= 5 ? 'win' : 'lose'; }
+      return;
+    }
+    if (kind === 'big') {
+      if (this.bossesDown >= (this.stage.mode!.bossRush?.length ?? 0)) { this.status = 'win'; return; }
+      if (this.playerCastleHp <= 0) { this.playerCastleHp = 0; this.status = 'lose'; return; }
+      if (this.t >= MAX_SEC * 2) this.status = 'draw';
+      return;
+    }
     if (this.castleHp <= 0) { this.castleHp = 0; this.status = 'win'; return; }
     if (this.playerCastleHp <= 0) { this.playerCastleHp = 0; this.status = 'lose'; return; }
     if (this.t >= MAX_SEC) this.status = 'draw';
   }
 
+  /** 출전표 항목 열쇠 — 파도마다 같은 적 id 가 다시 나오므로 id 만으로는 겹친다 */
+  private key(s: SpawnEntry): string { return (s as SpawnEntry & { k?: string }).k ?? s.id; }
+
+  /** 모드 진행 — 끝없는 방어의 파도 · 보스 연전의 다음 보스 */
+  private modeTick(): void {
+    const m = this.stage.mode;
+    if (!m) return;
+    if (m.kind === 'survival' && m.waves && this.t >= this.nextWaveAt) {
+      this.wave++;
+      this.nextWaveAt = this.t + m.waves.every;
+      const idx = m.waves.base + (this.wave - 1) * m.waves.step;
+      const src = stageDef(idx);
+      const hpMul = enemyMult(idx) / this.stage.mult;
+      for (const s of src.spawns) {
+        if (s.cap === 1 && s.every >= 9999) continue;   // 수문장은 파도에 섞지 않는다(보스 연전이 따로 있다)
+        const e: SpawnEntry & { k: string } = { ...s, k: `${s.id}#${this.wave}`, t0: this.t + Math.min(s.t0, 8) * 0.5, every: Math.max(1.2, s.every * 0.6), cap: Math.max(2, Math.round(s.cap * 0.45)), hpMul: (s.hpMul ?? 1) * hpMul };
+        this.spawns.push(e);
+        this.spawnNext.set(e.k, e.t0);
+      }
+      this.events.push({ type: 'skill', x: MAP_LEN, side: -1, name: `${this.wave}번째 파도!`, r: 0 });
+    }
+    if (m.kind === 'big' && m.bossRush) {
+      if (!this.rushLive && this.rushIdx < m.bossRush.length && this.t >= (this.rushIdx === 0 ? 6 : 0)) {
+        const id = m.bossRush[this.rushIdx]!;
+        const e = ENEMY_BY_ID.get(id);
+        if (e) {
+          // 보스 체력 = 그 보스가 원래 나오는 판(10·20·30…)의 수문장 예산 — 순서대로 세진다
+          const at = (this.rushIdx + 1) * 10;
+          const boss = stageDef(at).spawns.find((s) => s.every >= 9999);
+          const hpMul = (boss?.hpMul ?? 1) * enemyMult(at) / this.stage.mult * 0.8;
+          const u = this.makeEnemy(e, hpMul, false);
+          (u as LiveUnit & { rush?: boolean }).rush = true;
+          this.units.push(u);
+          this.events.push({ type: 'spawn', x: MAP_LEN, side: -1 });
+          this.events.push({ type: 'skill', x: MAP_LEN, side: -1, name: `${this.rushIdx + 1}번째 보스 ${e.name}!`, r: 0 });
+        }
+        this.rushIdx++;
+        this.rushLive = true;
+      }
+    }
+  }
+
   private spawnEnemies(): void {
-    for (const s of this.stage.spawns) {
-      const next = this.spawnNext.get(s.id);
+    for (const s of this.spawns) {
+      const sk = this.key(s);
+      const next = this.spawnNext.get(sk);
       if (next === undefined || this.t < next) continue;
-      const n = this.spawnCount.get(s.id) ?? 0;
+      const n = this.spawnCount.get(sk) ?? 0;
       // 예비대: 앞쪽은 시간표대로, 뒤쪽은 적 성이 깎인 만큼 나온다(RESERVE_SHARE 주석 참고).
       // 총량(s.cap)은 그대로다 — 늦게 깬다고 적이 더 나오지는 않는다.
       // 🔴 `ceil` 만 쓰면 cap 1~3 에서 onTime === cap 이 되어 **예비대가 0기**가 된다
@@ -356,9 +456,10 @@ export class Battle {
       //      ST9 86% · ST10★ **38%** · ST11 76%   ← 보스 판만 40%p 꺼진 절벽
       //    배율을 빼면 ST10★ 62%, 단계 18에서는 0% → 24%, ST30★ 52% → 81% 로 이어진다.
       const cap = s.cap <= 1 || this.stage.boss ? s.cap : Math.round(s.cap * tierVolume(this.tier));
-      const onTime = cap <= 1 ? cap : Math.min(cap - 1, Math.ceil(cap * (1 - RESERVE_SHARE)));
+      // 성이 없는 모드는 «성이 깎인 만큼 나오는 예비대»가 성립하지 않는다 — 전부 시간표대로
+      const onTime = cap <= 1 || this.noFoeCastle ? cap : Math.min(cap - 1, Math.ceil(cap * (1 - RESERVE_SHARE)));
       if (n >= onTime) {
-        const progress = 1 - this.castleHp / this.stage.castleHp;
+        const progress = 1 - this.castleHp / this.castleHpMax;
         if (progress < RESERVE_COVER * (n - onTime + 1) / Math.max(1, cap - onTime)) {
           // 🔴 여기서 `spawnNext` 를 미루면 안 된다. 미루면 진행도를 넘긴 뒤에도
           //    **다음 폴링(every 초)까지 기다리다**, 그 사이 판이 끝나면 영영 안 나온다
@@ -375,7 +476,7 @@ export class Battle {
           //    태생 능력(e.breaker·e.aoe)은 그와 별개다. 그건 "이 괴수가 원래 그렇다"이고
           //    등장 스테이지·예산 지분으로 조절된다(stages.ts 의 WAVES).
           this.units.push(this.makeEnemy(e, s.hpMul ?? 1, this.breakerRoll(n)));
-          this.spawnCount.set(s.id, n + 1);
+          this.spawnCount.set(sk, n + 1);
           // 🔴 적이 **나왔다는 사실 자체**를 렌더러에 알린다. 전선이 적 성에 닿은 뒤로는
           //    적이 성문에서 나오자마자 0.7~1.5초 만에 죽는다(ST1 실측: 3번째 적부터
           //    한 픽셀도 못 움직이고 사망). 그 짧은 등장이 표시되지 않으면 아이 눈에는
@@ -384,7 +485,7 @@ export class Battle {
           this.events.push({ type: 'spawn', x: MAP_LEN, side: -1 });
         }
       }
-      this.spawnNext.set(s.id, this.t + s.every);
+      this.spawnNext.set(sk, this.t + s.every);
     }
   }
 
@@ -394,7 +495,8 @@ export class Battle {
    * @param x 생략하면 기본 등장 위치(고정형은 성 앞, 나머지는 성문)
    */
   private makeEnemy(e: EnemyDef, hpMul: number, rollBreaker: boolean, x?: number, canSplit = true): LiveUnit {
-    const hp = e.hp * this.stage.mult * hpMul;
+    const mod = this.stage.mode?.mod;
+    const hp = e.hp * this.stage.mult * hpMul * (mod === 'giant' ? 1.6 : mod === 'swarm' ? 0.75 : 1);
     // 돌파형은 **고정형(수문장)에는 걸지 않는다** — 자리를 지키는 게 그 유닛의 역할이다.
     const breaker = e.spd > 0 && (e.breaker === true || rollBreaker);
     // 태생 광역과 단계 광역 중 넓은 쪽. 단계 광역은 느리고 단단한 적·수문장에게만 준다
@@ -411,7 +513,7 @@ export class Battle {
       aspd: e.aspd,
       range: e.range,
       // 돌파형은 싸우지 않고 달린다 — 조금 빨라야 "지나간다"가 읽힌다
-      spd: breaker ? e.spd * 1.25 : e.spd,
+      spd: (breaker ? e.spd * 1.25 : e.spd) * (mod === 'fast' ? 1.3 : 1),
       atkAt: 0,
       hurtAt: -99,
       swingAt: -99,
@@ -576,6 +678,7 @@ export class Battle {
           ? 1 + ((u.slots ?? 1) - 1) * 0.6
           : (u.spd <= 0 ? 3 : u.maxHp >= 900 ? 2.2 : 1);   // 고정형(수문장) > 맷집 큰 놈 > 잡졸
         this.events.push({ type: 'die', x: u.x, side: u.side, big });
+        if ((u as LiveUnit & { rush?: boolean }).rush) { this.bossesDown++; this.rushLive = false; }
         // 🔴 갈라져 나온 새끼는 **다시 갈라지지 않는다.** 새끼의 정의(e_splitlet)에 split 이
         //    없기 때문인데, 이건 데이터에 의존하는 안전장치라 눈에 안 보인다 —
         //    tests/sim.spec.ts 가 "분열은 한 세대에서 멈춘다"를 직접 검사한다.

@@ -1,4 +1,5 @@
 import { el, btn, stars, type Teardown } from './dom';
+import { startRun } from './home';
 import * as store from '../save/store';
 import {
   ALLIES, RARITIES, DECK_SIZE, reconcileDeck, progressionAllies,
@@ -23,15 +24,10 @@ import { QuizSession } from '../edu/session';
 import { buildChoices } from '../edu/distractor';
 import { makeRng, type Question } from '../edu/generator';
 import { play, syncBgmSetting } from '../render/audio';
-import { assetUrl } from '../render/assets';
 import {
   missionsFor, claimable, claim, isDone, allDone, rollDaily, DAILY_BONUS,
 } from '../meta/daily';
 import { accuracy, automaticity, questionDensity, retention, thetaDelta, thetaDisplayable, weakTypes } from '../edu/stats';
-import {
-  boardEnabled, fetchBoard, submitScore, grantConsent, revokeConsent, entryName, type BoardEntry,
-} from '../net/board';
-import { weekKeyUTC, TOP_N } from '../../shared/board-contract';
 import type { BattleResult } from './battle';
 import type { RarityId } from '../sim/types';
 import type { SaveData } from '../save/schema';
@@ -43,7 +39,7 @@ import { aapStatusLine } from './aapStatus';
 type Go = (screen: string, payload?: unknown) => void;
 
 /** 보유 셈지기 목록 */
-function ownedIds(): string[] {
+export function ownedIds(): string[] {
   return Object.keys(store.load().roster);
 }
 
@@ -141,6 +137,16 @@ function todayCard(d: SaveData, go: Go): HTMLElement | null {
   );
 }
 
+/** 오늘 할 일 — 첫 화면 보조 줄 «📋 임무» (v2.0 첫 화면은 단추 하나·카드 여섯으로 줄였다) */
+export function missionsScreen(go: Go): { node: HTMLElement } {
+  const d = store.load();
+  const node = el('section', { class: 'screen' },
+    topbar('오늘 할 일', go),
+    el('div', { class: 'pane' }, ...[todayCard(d, go), dailyCard(d, () => go('missions'))].filter((x): x is HTMLElement => x !== null)),
+  );
+  return { node };
+}
+
 /**
  * 오늘의 임무 카드.
  *
@@ -190,57 +196,6 @@ function dueLabel(due: string): string {
   if (n === 1) return '내일';
   if (n === 2) return '모레';
   return `${n}일 뒤`;
-}
-
-export function menuScreen(go: Go): { node: HTMLElement } {
-  const d = store.load();
-  const clearedN = Object.keys(d.progress.cleared).length;
-  const starN = Object.values(d.progress.cleared).reduce((s, v) => s + v, 0);
-  const owned = ownedIds().length;
-  const best = d.progress.maxStage;
-
-  const node = el('section', { class: 'screen menu-screen' },
-    el('div', { class: 'menu-hero' },
-      // 🔴 예전에는 여기에 한자 龜(거북 귀)를 썼다. 대상이 초등 2~4학년인데 16획짜리
-      //    한자는 읽을 수 없고, 파비콘 크기에서는 획이 뭉쳐 얼룩이 된다. 게임 안에 이미
-      //    있는 수호 짐승(해태)으로 바꿨다 — 아이가 아는 캐릭터라 바로 알아본다.
-      el('div', { class: 'crest', 'aria-hidden': 'true' },
-        el('img', { src: assetUrl('crest_haetae'), alt: '' })),
-      el('h1', { class: 'logo' }, '구구성 수호대'),
-      el('p', { class: 'tag' }, '계산이 빨라질수록 내 군대가 강해진다'),
-      ...(clearedN ? [todayCard(d, go)].filter((x): x is HTMLElement => x !== null) : []),
-      // 🔴 임무는 **한 판이라도 해 본 아이에게만** 보여 준다. 처음 켠 화면에 할 일 목록이
-      //    세 줄 떠 있으면 게임이 아니라 숙제로 보인다(첫 화면은 '시작하기' 하나여야 한다).
-      ...(clearedN ? [dailyCard(d, () => go('menu'))] : []),
-      clearedN
-        ? el('div', { class: 'menu-progress' },
-            stat('가장 멀리 간 길', best ? `${chapterOf(best)}구역 ${((best - 1) % CHAPTER_LEN) + 1}` : '—'),
-            stat('깬 길', `${clearedN}`),
-            stat('모은 별', `${starN}`),
-            stat('셈지기', `${owned}/${ALLIES.length}`),
-          )
-        : el('p', { class: 'muted' }, '문제를 맞히면 셈력이 차오르고, 셈지기가 달려 나가요.'),
-      el('div', { class: 'row' },
-        btn(clearedN ? '이어서 하기' : '시작하기', () => go('map'), 'btn ju big'),
-        btn('셈지기 소환', () => go('summon'), 'btn gold'),
-      ),
-      el('div', { class: 'row' },
-        btn('셈지기 도감', () => go('codex')),
-        btn('엉킴 봉인', () => go('srs')),
-        btn('내 기록', () => go('report'), 'btn nok'),
-        // 서버 주소가 없는 빌드(단일 HTML·아티팩트)에서는 버튼 자체를 만들지 않는다 —
-        // 눌러 봐야 CSP 에 막혀 콘솔 에러만 남는다
-        ...(boardEnabled() ? [btn('주간 순위', () => go('board'), 'btn ghost')] : []),
-        btn('설정', () => go('settings'), 'btn ghost'),
-      ),
-      // 🔴 "기기에만 저장돼요"를 **무조건** 적으면, 주간 순위를 켠 아이에게는 거짓말이 된다
-      //    (별명과 이번 주 숫자가 서버로 나간다). 동의 상태에 따라 말을 바꾼다.
-      el('p', { class: 'muted fine' }, d.board.consent
-        ? '로그인 없이 바로 즐길 수 있어요. 기록은 이 기기에 저장되고, 주간 순위에는 별명과 이번 주 숫자만 올라가요.'
-        : '로그인 없이 바로 즐길 수 있어요. 기록은 이 기기에만 저장돼요.'),
-    ),
-  );
-  return { node };
 }
 
 // ── 셈나라 지도 (무한) ───────────────────────────────────────────────────
@@ -317,7 +272,8 @@ export function prepScreen(go: Go, stageIndex: number): { node: HTMLElement } {
   const grid = el('div', { class: 'card-grid' });
   const startBtn = btn('출전!', () => {
     store.update((s) => { s.deck = picked; });
-    go('battle', { stage: stageIndex, deck: picked });
+    // 학교 점수 관문 — 클릭 «안에서 바로»(자동 전체화면 · 처음 한 번 학교 고르기)
+    startRun(go, { mode: 'classic', stage: stageIndex, deck: picked });
   }, 'btn ju big');
 
   function refresh(): void {
@@ -979,11 +935,9 @@ export function reportScreen(go: Go): { node: HTMLElement } {
                 el('th', {}, '갈래'), el('th', {}, '푼 수'), el('th', {}, '정답률'), el('th', {}, '빠르고 정확'), el('th', {}, '4주 변화'))),
               el('tbody', {}, ...rows)))
         : el('p', { class: 'muted' }, '아직 기록이 없어요.'),
-      // 🔴 "어디로도 보내지 않아요"는 주간 순위를 켜면 사실이 아니다 — 이 표의 '푼 수'가
-      //    그대로 순위 점수로 나간다. 켜져 있을 때는 무엇이 나가는지 정확히 적는다.
-      el('p', { class: 'muted' }, d.board.consent
-        ? '이 표는 이 기기에만 저장돼요. 주간 순위에는 별명과 이번 주 숫자(맞힌 문제 수·가장 멀리 간 길)만 올라가요. 설정에서 끌 수 있어요.'
-        : '이 기록은 이 기기에만 저장돼요. 어디로도 보내지 않아요.'),
+      // 개인 주간 순위는 v2.0 에서 없앴다(학교 순위로 교체) — 이 표는 어디로도 나가지 않는다.
+      //    학교 순위에는 «학교별 합계 점수»만 올라가고 아이 기록·별명은 안 나간다.
+      el('p', { class: 'muted' }, '이 기록은 이 기기에만 저장돼요. 학교 순위에는 학교별 점수 합계만 올라가요.'),
     ),
   );
   return { node };
@@ -995,97 +949,6 @@ export function reportScreen(go: Go): { node: HTMLElement } {
  *   1. **보는 것은 동의 없이** 된다. 올리는 것만 동의를 받는다.
  *   2. 동의 문구는 아이가 읽고 이해할 수 있어야 한다 — 약관이 아니라 한 문장이다.
  */
-export function boardScreen(go: Go): { node: HTMLElement; teardown: Teardown } {
-  const d = store.load();
-  // 🔴 화면을 나가면 진행 중인 요청을 끊는다. 안 그러면 응답이 늦게 도착해
-  //    이미 떨어져 나간 DOM 을 만지고, 느린 망에서는 요청이 계속 매달려 있다.
-  const ac = new AbortController();
-  const wk = weekKeyUTC(Date.now());
-  const mine = d.board.week === wk ? d.board : { correct: 0, stage: 0 };
-
-  const listP = el('div', { class: 'rank' }, el('p', { class: 'muted' }, '불러오는 중…'));
-  const listC = el('div', { class: 'rank' }, el('p', { class: 'muted' }, '불러오는 중…'));
-  const myRank = el('p', { class: 'muted' }, '');
-
-  function fill(box: HTMLElement, rows: BoardEntry[], unit: string): void {
-    box.replaceChildren();
-    if (!rows.length) { box.append(el('p', { class: 'muted' }, '이번 주는 아직 아무도 없어요. 첫 번째가 되어 봐요!')); return; }
-    rows.forEach((e, i) => {
-      box.append(el('div', { class: `rank-row${i < 3 ? ' top' : ''}` },
-        el('span', { class: 'rank-n' }, `${i + 1}`),
-        el('span', { class: 'rank-name' }, entryName(e)),
-        el('span', { class: 'rank-v' }, `${e.v.toLocaleString('ko-KR')}${unit}`),
-      ));
-    });
-  }
-
-  const consentCard = el('div', { class: 'card' });
-  function renderConsent(): void {
-    const s = store.load();
-    consentCard.replaceChildren(
-      el('b', {}, s.board.consent ? '내 기록을 순위에 올리는 중' : '순위에 올릴까요?'),
-      el('p', { class: 'muted' },
-        '올리면 자동으로 만든 별명과 이번 주 숫자(맞힌 문제 수·가장 멀리 간 길)만 보내요. '
-        + '이름·나이·학교·연락처는 보내지 않고, 물어보지도 않아요. '
-        + '그만두면 올렸던 기록도 바로 지워요.'),
-      el('div', { class: 'row' },
-        s.board.consent
-          ? btn('그만 올리기', () => { revokeConsent(); myRank.textContent = ''; renderConsent(); }, 'btn sm ghost')
-          : btn('순위에 올릴래요', () => { grantConsent(); void push(); renderConsent(); }, 'btn sm nok'),
-      ),
-      myRank,
-    );
-  }
-
-  /**
-   * 🔴 등수를 숫자 그대로 노출하지 않는다.
-   *    순위표에는 30명만 뜨는데 개인 등수만 캡 없이 보여주면, 저성취 아동이
-   *    "1204위" 같은 숫자를 정면으로 마주하게 된다. 순위표 밖은 뭉뚱그린다.
-   */
-  const rankLabel = (n: number): string => (n <= TOP_N ? `${n}위` : '순위표 밖');
-
-  async function push(): Promise<void> {
-    const r = await submitScore(ac.signal);
-    if (!r || ac.signal.aborted) return;
-    myRank.textContent = `내 자리 — 연습왕 ${rankLabel(r.rank.practice)} · 도전왕 ${rankLabel(r.rank.challenge)}`;
-    void refresh();
-  }
-
-  async function refresh(): Promise<void> {
-    const b = await fetchBoard(ac.signal);
-    if (ac.signal.aborted) return;
-    if (!b) {
-      const msg = '지금은 순위를 불러올 수 없어요. 잠시 뒤에 다시 열어 봐요.';
-      listP.replaceChildren(el('p', { class: 'muted' }, msg));
-      listC.replaceChildren(el('p', { class: 'muted' }, msg));
-      return;
-    }
-    fill(listP, b.practice, '문제');
-    fill(listC, b.challenge, '판');
-  }
-
-  const node = el('section', { class: 'screen' },
-    topbar('주간 순위', go),
-    el('div', { class: 'pane' },
-      el('p', { class: 'muted' }, `${wk.replace('-W', '년 ')}주차 · 월요일마다 새로 시작해요`),
-      el('div', { class: 'result-stats' },
-        stat('이번 주 맞힌 문제', String(mine.correct)),
-        stat('이번 주 가장 멀리', mine.stage ? `${mine.stage}판` : '—'),
-      ),
-      el('div', { class: 'board-cols' },
-        el('div', { class: 'card' }, el('b', {}, '연습왕 — 이번 주 맞힌 문제'), listP),
-        el('div', { class: 'card' }, el('b', {}, '도전왕 — 이번 주 가장 멀리 간 길'), listC),
-      ),
-      consentCard,
-    ),
-  );
-
-  renderConsent();
-  void refresh();
-  if (store.load().board.consent) void push();
-  return { node, teardown: () => ac.abort() };
-}
-
 // ── 설정 ─────────────────────────────────────────────────────────────────
 export function settingsScreen(go: Go): { node: HTMLElement } {
   const d = store.load();
@@ -1118,11 +981,6 @@ export function settingsScreen(go: Go): { node: HTMLElement } {
     go('settings');
   }, `btn sm ${d.settings.music ? '' : 'ghost'}`);
 
-  const boardToggle = btn(d.board.consent ? '순위 올리기: 켜짐' : '순위 올리기: 꺼짐', () => {
-    if (d.board.consent) revokeConsent(); else grantConsent();
-    go('settings');
-  }, `btn sm ${d.board.consent ? '' : 'ghost'}`);
-
   const resetBtn = btn('기록 모두 지우기', () => {
     if (confirmTwice()) { store.reset(); go('menu'); }
   }, 'btn sm ju');
@@ -1143,15 +1001,6 @@ export function settingsScreen(go: Go): { node: HTMLElement } {
         el('b', {}, '내 별명'), el('div', {}, d.profile.nickname),
         el('div', { class: 'muted' }, '이름 대신 쓰는 별명이에요. 우리가 자동으로 지어 줘요.'),
       ),
-      ...(boardEnabled()
-        ? [el('div', { class: 'card' },
-            el('b', {}, '주간 순위'),
-            el('div', {}, boardToggle),
-            el('div', { class: 'muted' }, d.board.consent
-              ? '별명과 이번 주 숫자만 보내요. 끄면 올렸던 기록을 지우고, 이 기기에 남은 표시도 없애요.'
-              : '꺼져 있어요. 순위표를 보기만 하는 건 켜지 않아도 돼요.'),
-          )]
-        : []),
       el('div', { class: 'card' },
         el('b', {}, '알찬 연결'),
         el('div', {}, aapLine.title),

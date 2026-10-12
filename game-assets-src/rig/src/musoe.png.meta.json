@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a sturdy living iron cauldron guardian holding a lid as a shield. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 head",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/musoe.png",
+ "t0": 1791771504.0874481,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/musoe.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/f0b559f5-1923-478a-a625-47e6ed973ef3",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,534,559바이트",
+ "elapsed_s": 89.3,
+ "conversation": "https://chatgpt.com/c/6acc42cb-a0f4-83ec-b73d-bca91de49cf6",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

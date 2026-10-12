@@ -43,6 +43,23 @@ function q(type: QType, level: number, prompt: string, ask: string, answer: numb
 }
 
 /**
+ * 구구단 정복 모드 — 고른 단(2~9)의 곱셈만 낸다(REMASTER-GDD R-2 rule · DoD 8).
+ * 키는 기존 유형(2~5단 = M1 · 6~9단 = M2)과 같은 모양이라 SRS·숙련도가 캠페인과 이어진다.
+ * 곱하는 수는 1~9, 같은 식이 연달아 나오지 않게 recent 를 피한다.
+ */
+export function tableQuestion(table: number, rng: Rng, recent: readonly string[] = []): Question {
+  const t = Math.max(2, Math.min(9, Math.floor(table)));
+  const type: QType = t <= 5 ? 'M1' : 'M2';
+  for (let i = 0; i < 12; i++) {
+    const b = pick(rng, 1, 9);
+    const key = `${type}:${t}x${b}`;
+    if (recent.includes(key) && i < 11) continue;
+    return q(type, b <= 5 ? 2 : 4, `${t} × ${b}`, '', t * b, `${t}x${b}`);
+  }
+  return q(type, 3, `${t} × 5`, '', t * 5, `${t}x5`);
+}
+
+/**
  * 문항을 **절차적으로 생성**한다. 문제은행 파일도, 교재 전사도 없다.
  * → 교재 저작권 리스크를 현저히 낮춘다(0이라고 단정하지는 않는다).
  */
@@ -84,8 +101,17 @@ export function generate(type: QType, level: number, rng: Rng): Question {
       return q(type, L, `${a} × ${b}`, '', a * b, `${a}x${b}`);
     }
     case 'M3': {
-      const a = pick(rng, [12, 14, 16, 18, 24][L - 1]! - 8, [12, 14, 16, 18, 24][L - 1]!);
+      // 🔴 «두 자리 × 한 자리»는 **받아올림이 없을 때만** 낸다(2026-09-22, 전 게임 공통 규칙).
+      //    14 × 3 은 자리 곱에서 12 가 나와 손이 종이를 찾는다 — 적이 다가오는 화면에서는 찍게 된다.
+      //    범위는 그대로 두고, 그 안에서 «자리마다 곱이 9 이하»인 수만 고른다.
+      //    잣대 정본 = ~/Documents/dev/_shared/mental-math.mjs · 집행 = tests/mental-math.spec.ts
+      const hi = [12, 14, 16, 18, 24][L - 1]!;
       const b = pick(rng, 2, L <= 2 ? 5 : 9);
+      const cands: number[] = [];
+      for (let n = hi - 8; n <= hi; n++) {
+        if (String(n).split('').every((c) => Number(c) * b <= 9)) cands.push(n);
+      }
+      const a = cands.length ? cands[pick(rng, 0, cands.length - 1)]! : 11;
       return q(type, L, `${a} × ${b}`, '', a * b, `${a}x${b}`);
     }
     case 'AS1': {

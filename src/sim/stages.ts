@@ -57,7 +57,7 @@ const BACKGROUNDS = ['bg_field', 'bg_wall', 'bg_cave', 'bg_night', 'bg_sea', 'bg
  * 🔴 수문장은 **구역 이름 수(6)와 같아야 한다.** 4종이었을 때는 5·6구역이 1·2구역의
  *    수문장을 다시 만나, 새 배경·새 이름인데 보스만 재탕이었다.
  */
-const BOSSES = ['e_boss', 'e_boss2', 'e_boss3', 'e_boss4', 'e_boss5', 'e_boss6'];
+export const BOSSES = ['e_boss', 'e_boss2', 'e_boss3', 'e_boss4', 'e_boss5', 'e_boss6'];
 
 /** 판 이름 — 구역 안 위치로 붙인다 */
 const POS_NAMES: readonly string[] = ['어귀', '오솔길', '건널목', '너른터', '갈림길', '비탈', '숲그늘', '돌다리', '고갯마루', '수문장'];

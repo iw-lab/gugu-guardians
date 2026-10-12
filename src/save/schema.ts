@@ -61,6 +61,12 @@ export interface SaveData {
   daily: DailyState;
   settings: { sound: boolean; music: boolean; fontScale: 1 | 1.2 | 1.5; reduceMotion: boolean };
   /**
+   * 모드 기록(REMASTER v2.0). 옛 세이브엔 없다 — normalize 가 0 으로 채운다.
+   * time = 번개 전투 최다 성 · survival = 끝없는 방어 최고 파도 · rule = 단별 별(2~9) ·
+   * big = 보스 연전 최단 초(0 = 완주 기록 없음) · daily = 오늘의 전장 마지막 날짜·연속 일수
+   */
+  modes: { time: number; survival: number; rule: Record<string, number>; big: number; daily: { date: string; streak: number } };
+  /**
    * 익명 주간 순위. 기본값은 **보내지 않음**이다(consent: false).
    * device 는 순위에 올리겠다고 누른 순간에만 만들어진다 — 안 쓰는 아이는 토큰조차 없다.
    */
@@ -113,6 +119,7 @@ export function defaultSave(): SaveData {
     edu: { theta: {}, thetaWeekly: [], stats: {}, playMs: 0, diagnostics: [], srs: {}, retentionLog: [], rounds: 0 },
     daily: emptyDaily(),
     settings: { sound: true, music: true, fontScale: 1, reduceMotion: false },
+    modes: { time: 0, survival: 0, rule: {}, big: 0, daily: { date: '', streak: 0 } },
     board: { device: '', consent: false, week: '', correct: 0, stage: 0, playMs: 0 },
   };
 }
@@ -305,6 +312,19 @@ export function normalize(input: unknown): SaveData {
       fontScale,
       reduceMotion: bool(settings['reduceMotion'], false),
     },
+    modes: (() => {
+      const m = isObj(d['modes']) ? d['modes'] : {};
+      const rule: Record<string, number> = {};
+      if (isObj(m['rule'])) for (const [k, v] of Object.entries(m['rule'])) if (/^[2-9]$/.test(k)) rule[k] = Math.floor(num(v, 0, 0, 3));
+      const dd = isObj(m['daily']) ? m['daily'] : {};
+      return {
+        time: Math.floor(num(m['time'], 0, 0, 999)),
+        survival: Math.floor(num(m['survival'], 0, 0, 9999)),
+        rule,
+        big: Math.floor(num(m['big'], 0, 0, 99999)),
+        daily: { date: /^\d{4}-\d{2}-\d{2}$/.test(str(dd['date'], '')) ? str(dd['date'], '') : '', streak: Math.floor(num(dd['streak'], 0, 0, 9999)) },
+      };
+    })(),
     daily: (() => {
       // 🔴 길이를 **강제로 맞춘다.** 임무 수(DAILY_N)를 나중에 바꾸면 옛 세이브의 배열이
       //    짧거나 길어지는데, 그대로 두면 `progress[i]` 가 undefined 가 되어 진행도가

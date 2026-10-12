@@ -119,6 +119,26 @@ export interface StageDef {
   boss: boolean;
   /** 캠페인 구간(1~CAMPAIGN_STAGES) 밖 = 무한 도전 */
   endless: boolean;
+  /** 모드 규칙(REMASTER-GDD R-2) — 없으면 캠페인(classic) 그대로 */
+  mode?: ModeSpec;
+}
+
+export type ModeKind = 'classic' | 'time' | 'survival' | 'rule' | 'big' | 'daily';
+/** 오늘의 전장 비틀기 — 시뮬 수치로 집행된다(그림만 바꾸는 비틀기는 두지 않는다) */
+export type DailyMod = 'fast' | 'rich' | 'giant' | 'swarm';
+
+export interface ModeSpec {
+  kind: ModeKind;
+  /** time — 시작 초 · 성 하나 부술 때 더하는 초 · 오답 하나에 빼는 초 */
+  clock?: { start: number; perCastle: number; perWrong: number };
+  /** survival — 파도 간격(초) · 첫 파도 기준 판 번호 · 파도마다 오르는 판 수 */
+  waves?: { every: number; base: number; step: number };
+  /** big — 차례로 나올 보스 id(앞 보스가 쓰러져야 다음이 나온다) */
+  bossRush?: string[];
+  /** rule — 이 단만 나온다(2~9) */
+  table?: number;
+  /** daily — 비틀기 하나 */
+  mod?: DailyMod;
 }
 
 export interface LiveUnit {

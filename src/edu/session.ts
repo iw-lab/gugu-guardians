@@ -1,7 +1,7 @@
 import { tierTargetP } from '../sim/tier';
 import type { QType } from './curriculum';
 import { difficultyOf, exceedsGrade } from './curriculum';
-import { fromKey, generateFresh, makeRng, type Question, type Rng } from './generator';
+import { fromKey, generateFresh, makeRng, tableQuestion, type Question, type Rng } from './generator';
 import { initialTheta, pickLevel, updateTheta } from './mastery';
 import { dueQueue, newItem, review, type SrsItem } from './srs';
 import { FAST_MS } from './stats';
@@ -22,6 +22,8 @@ export interface SessionOpts {
   layer: Layer;
   /** 이 판의 주력 유형 */
   types: QType[];
+  /** 구구단 정복 — 이 단만 낸다(SRS 복습도 끼우지 않는다: 다른 단이 섞이면 «정복»이 아니다) */
+  table?: number;
   save: SaveData;
   seed: number;
   now?: DayStr;
@@ -48,6 +50,7 @@ const REVIEW_EVERY = 3;
 export class QuizSession {
   readonly layer: Layer;
   readonly types: QType[];
+  readonly table: number | undefined;
   private save: SaveData;
   private rng: Rng;
   private now: DayStr;
@@ -63,6 +66,7 @@ export class QuizSession {
 
   constructor(opts: SessionOpts) {
     this.layer = opts.layer;
+    this.table = opts.table;
     this.save = opts.save;
     this.rng = makeRng(opts.seed);
     this.now = opts.now ?? today();
@@ -87,6 +91,7 @@ export class QuizSession {
     //    ⚠️ 전투와 한 몸이라는 걸 잊지 말 것 — 목표를 낮추면 정답률이 떨어지고,
     //       정답률이 떨어지면 셈력이 줄어 전투도 같이 어려워진다. 그래서 따로 놀리지 않고
     //       전투 난이도와 **같은 단계 하나**로 움직인다.
+    if (this.table) { const tq = tableQuestion(this.table, this.rng, this.recent); this.setCurrent(tq); return tq; }
     const targetP = this.layer === 'L1' ? tierTargetP(this.save.challenge.tier) : 0.6;
 
     // ① SRS 우선 — 단, 이 판의 유형에 속하는 것만(엉뚱한 단원이 튀어나오지 않게)
