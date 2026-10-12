@@ -10,6 +10,9 @@
 import { hubState, hubLoad, hubSave, refreshMe, searchSchool, selectSchool, topSchools, newPack, gradePack,
   newRef, spendTicket, refundTicket, reportResult, onHub, hubKey } from './hubnet.js';
 import { autoEnterFullscreen } from './gb-fullscreen.js';
+// 🔴 분수는 위아래로 쌓아 그린다 — 문항은 허브 «서버»가 만들어 보내서 게임 쪽 분수 게이트가 못 봤다(2026-10-12 티샷 사용자 제보 «2/3 + 2/4»).
+//    gb-frac.js = kit/frac/frac.js 사본(install.sh 가 복사 — 정본은 하나)
+import { fracHTML } from './gb-frac.js';
 
 const SIDO = { B10: '서울', C10: '부산', D10: '대구', E10: '인천', F10: '광주', G10: '대전', H10: '울산', I10: '세종', J10: '경기',
   K10: '강원', M10: '충북', N10: '충남', P10: '전북', Q10: '전남', R10: '경북', S10: '경남', T10: '제주' };
@@ -158,8 +161,8 @@ function renderQuiz() {
   const q = qz.pack && qz.pack.qs[qz.i];
   const body = qz.review ? `<div class="gb-review">${qz.review}</div>`
     : q ? `<div class="gb-qprog">${qz.pack.qs.map((_, k) => `<i class="${k < qz.i ? 'done' : k === qz.i ? 'now' : ''}"></i>`).join('')}</div>
-           <p class="gb-qtext">${esc(q.text)}</p>
-           <div class="gb-choices">${q.choices.map((c, k) => `<button class="gb-choice" data-pick="${k}">${esc(c)}</button>`).join('')}</div>`
+           <p class="gb-qtext">${fracHTML(q.text)}</p>
+           <div class="gb-choices">${q.choices.map((c, k) => `<button class="gb-choice" data-pick="${k}">${fracHTML(c)}</button>`).join('')}</div>`
       : '';
   const goLabel = qz.passed ? (quizThen ? `▶ ${opt.playWord} 시작` : '한 묶음 더 풀기') : qz.pack ? '처음부터 다시' : qz.review ? '다시 도전' : '문제 시작';
   show(`
@@ -199,7 +202,7 @@ async function submitPack() {
     if (j.tooFast) { await new Promise((r) => setTimeout(r, Math.min(8000, j.waitMs + 200))); j = await gradePack(pack.pid, qz.answers); }
     if (gen !== qGen) return;
     if (j.error) throw new Error(j.error);
-    qz.review = pack.qs.map((q, k) => `<div class="${j.right[k] ? 'ok' : 'no'}">${j.right[k] ? '⭕' : '❌'} ${esc(q.text.replace('= ?', '').replace('→ ?', '→'))} <b>${esc(q.choices[j.answers[k]])}</b></div>`).join('');
+    qz.review = pack.qs.map((q, k) => `<div class="${j.right[k] ? 'ok' : 'no'}">${j.right[k] ? '⭕' : '❌'} ${fracHTML(q.text.replace('= ?', '').replace('→ ?', '→'))} <b>${fracHTML(q.choices[j.answers[k]])}</b></div>`).join('');
     if (j.ticket) { qz.passed = true; qz.msg = `🎉 ${j.correct}/${j.total} 정답! <b>이용권 +${j.ticket}</b> (지금 ${j.tix}장)`; opt.sfx?.win?.(); }
     else { qz.passed = false; qz.msg = `${j.correct}/${j.total} — <b>${j.pass}개</b> 이상 맞히면 이용권! 다시 도전해요`; }
   } catch {
