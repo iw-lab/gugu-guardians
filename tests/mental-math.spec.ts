@@ -7,15 +7,23 @@
  *    유일 정본 = ~/Documents/dev/_shared/mental-math.mjs
  */
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — 게임 밖 공용 판정기(자바스크립트, 타입 선언 없음)
-import { isPaper } from '../../_shared/mental-math.mjs';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { generate, makeRng, MAX_LEVEL } from '../src/edu/generator';
 import type { QType } from '../src/edu/curriculum';
 
 const TYPES: QType[] = ['A1', 'S1', 'A2', 'S2', 'M1', 'M2', 'M3', 'AS1', 'AS2', 'D1', 'D2'];
 
+// 🔴 정본은 저장소 밖이라 GitHub CI 에는 없다(2026-10-12 CI 가 «Failed to load url» 로 배포를 막았다).
+//    CI 에서만 건너뛴다 — 학생 사이트 배포(wrangler)는 로컬 `npm run check` 뒤에만 하므로 여기서 집행된다.
+//    로컬에서 정본이 없으면 건너뛰지 않고 실패한다(잣대가 사라진 걸 조용히 넘기지 않는다).
+const JUDGE = fileURLToPath(new URL('../../_shared/mental-math.mjs', import.meta.url));
+const inCi = !!process.env['CI'] && !existsSync(JUDGE);
+
 describe('암산선', () => {
-  it('모든 유형·레벨에서 종이 문제가 0 이다', () => {
+  it.skipIf(inCi)('모든 유형·레벨에서 종이 문제가 0 이다', async () => {
+    expect(existsSync(JUDGE), `공용 판정기 없음: ${JUDGE}`).toBe(true);
+    const { isPaper } = (await import(/* @vite-ignore */ JUDGE)) as { isPaper: (stem: string) => boolean };
     const bad: string[] = [];
     let total = 0;
     for (const t of TYPES) {
