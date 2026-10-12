@@ -10,7 +10,8 @@ import { QuizSession } from '../edu/session';
 import type { Question } from '../edu/generator';
 import { el, btn, type Teardown } from './dom';
 import * as store from '../save/store';
-import { play, playCorrect, playLose, playBossAppear } from '../render/audio';
+import { play } from '../render/audio';
+import { fireBossAppear, fireCorrect, fireLegend, fireWin, fireWrong, playLose } from '../gb/juice-fx';
 import { bumpWeeklyNow } from '../meta/weekly';
 import type { ModeKind, StageDef } from '../sim/types';
 import { dailyMod } from '../sim/modes';
@@ -253,7 +254,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
       //    틀렸을 때는 상자가 흔들리는데 맞혔을 때는 화면이 조용한 역설이었다(진단 영향 7/10).
       renderer.cheer(Math.round(gained), battle.combo);
       renderer.cheersShown++;
-      playCorrect(battle.combo);
+      fireCorrect(battle.combo, { punch: quizBox }); // 🎮 반응(주스) — playCorrect 를 직접 부르지 않고 fire 로 옮겼다(중복 소리 방지)
       qFb.className = 'fb ok';
       // 🔴 그릇이 꽉 차 실제로 못 받은 만큼을 "+46" 이라 적으면 아이에게 거짓말이 된다.
       //    answer() 가 돌려주는 값은 **실제로 담긴 양**이다.
@@ -261,7 +262,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
       setTimeout(() => { if (battle.status === 'playing') nextQuestion(); }, 260);
     } else {
       battle.answer(false, ms);
-      play('wrong');
+      fireWrong();
       qFb.className = 'fb no';
       quizBox.classList.remove('shake');
       void quizBox.offsetWidth;
@@ -362,7 +363,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     if (finished) return;
     finished = true;
     cancelAnimationFrame(raf);
-    if (battle.status === 'win') play('win');
+    if (battle.status === 'win') fireWin({ title: '승리!' });
     else if (battle.status === 'lose') playLose();
     const nx = nextTier(save.challenge.tier, save.challenge.streak, battle.outcome);
     const r: BattleResult = {
@@ -439,7 +440,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
         else if (e.type === 'skill' && e.name) renderer.skill(e.x, e.r ?? 0, e.name, e.side);
         // 전설 강림 — 가장 귀한 셈지기가 나오는 순간은 화면과 소리가 따로 알린다
         else if (e.type === 'summon' && e.defId && ALLY_BY_ID.get(e.defId)?.rarity === 'legend') {
-          renderer.arrive(ALLY_BY_ID.get(e.defId)!.name); play('legend');
+          renderer.arrive(ALLY_BY_ID.get(e.defId)!.name); fireLegend({ title: `${ALLY_BY_ID.get(e.defId)!.name} 강림!` });
         }
       }
       // 🔴 승리 소리('win')를 쓰지 않는다 — 판이 끝난 줄 알게 된다. 기술은 '큰 한 방'이므로
@@ -463,7 +464,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
         bossShown = true;
         renderer.boss(ENEMY_BY_ID.get(bu.defId)?.name ?? '수문장');
         renderer.bossesShown++;
-        playBossAppear();
+        fireBossAppear({ title: `${ENEMY_BY_ID.get(bu.defId)?.name ?? '수문장'} 등장!` });
         renderer.shake(8);
       }
     }

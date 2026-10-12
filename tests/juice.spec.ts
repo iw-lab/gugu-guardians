@@ -16,6 +16,7 @@ describe('타격감 배선', () => {
   const battle = read('src/ui/battle.ts');
   const field = read('src/render/field.ts');
   const audio = read('src/render/audio.ts');
+  const juiceFx = read('src/gb/juice-fx.ts');
 
   it('정답을 맞히면 전장이 반응한다 (renderer.cheer 호출)', () => {
     // 🔴 정답 처리 블록 안에 있어야 한다 — 파일 아무 데나 있으면 의미가 없다
@@ -26,8 +27,11 @@ describe('타격감 배선', () => {
     expect(Math.abs(j - i), 'cheer 호출이 정답 처리와 떨어져 있다').toBeLessThan(400);
   });
 
-  it('콤보가 소리에 반영된다 (playCorrect 가 콤보를 받는다)', () => {
-    expect(battle).toMatch(/playCorrect\(battle\.combo\)/);
+  it('콤보가 소리에 반영된다 (fireCorrect 가 콤보를 받고, juice-fx 가 playCorrect 로 넘긴다)', () => {
+    // 🎮 반응(주스) 배선 이후: playCorrect 직접 호출을 fireCorrect(→juice-fx의 sfx 콜백)로 옮겼다
+    // (중복 소리 방지, check-juice.mjs 가 요구).
+    expect(battle).toMatch(/fireCorrect\(battle\.combo/);
+    expect(juiceFx).toMatch(/playCorrect\(comboN\)/);
     expect(audio).toMatch(/export function playCorrect/);
   });
 
@@ -38,7 +42,9 @@ describe('타격감 배선', () => {
 
   it('수문장 등장에 연출이 있다', () => {
     expect(battle).toMatch(/renderer\.boss\(/);
-    expect(battle).toMatch(/playBossAppear\(\)/);
+    // 🎮 반응(주스) 배선 이후: playBossAppear 직접 호출을 fireBossAppear 로 옮겼다(juice-fx 가 그 안에서 부른다)
+    expect(battle).toMatch(/fireBossAppear\(/);
+    expect(juiceFx).toMatch(/playBossAppear\(\)/);
   });
 
   it('처치 이펙트가 덩치를 받는다 (등급이 화면에서 읽혀야 한다)', () => {
