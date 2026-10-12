@@ -1,0 +1,42 @@
+[
+  {
+    "file": "multikill.wav",
+    "recipe": "multikill",
+    "seed": 23766,
+    "sha1": "19424a85f34ab5f800d2e9e1be2c45e4ccd0c0a7",
+    "sec": 0.57,
+    "bytes": 50318,
+    "license": "self-generated",
+    "source": "game-builder/tools/gen-sfx.py"
+  },
+  {
+    "file": "powerup.wav",
+    "recipe": "powerup",
+    "seed": 15847,
+    "sha1": "9cb53470a06bfce1eb3e5e05221aaa7db00c37e2",
+    "sec": 0.4,
+    "bytes": 35324,
+    "license": "self-generated",
+    "source": "game-builder/tools/gen-sfx.py"
+  },
+  {
+    "file": "special.wav",
+    "recipe": "special",
+    "seed": 7928,
+    "sha1": "921ca6dd50dd56f056d132085aa3ddbd0de36a64",
+    "sec": 0.75,
+    "bytes": 66194,
+    "license": "self-generated",
+    "source": "game-builder/tools/gen-sfx.py"
+  },
+  {
+    "file": "super_cast.wav",
+    "recipe": "super_cast",
+    "seed": 9,
+    "sha1": "3bb13ac6429076e373df0ec3550baa0585d0ecd9",
+    "sec": 0.55,
+    "bytes": 48554,
+    "license": "self-generated",
+    "source": "game-builder/tools/gen-sfx.py"
+  }
+]

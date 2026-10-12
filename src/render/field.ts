@@ -1,4 +1,5 @@
 import type { Battle } from '../sim/core';
+import type { RarityId } from '../sim/types';
 import { MAP_LEN } from '../sim/stages';
 import { ALLY_BY_ID, ENEMY_BY_ID } from '../sim/units';
 import { getImage, getRig } from './assets';
@@ -60,6 +61,9 @@ export function castleBox(w: number, h: number, ally: boolean): { x: number; w: 
   const cx = worldToScreen(ally ? 0 : MAP_LEN, w, h);
   return { x: ally ? cx - c.w : cx, w: c.w, h: c.h };
 }
+
+/** 등급별 전장 키 배율 — 전설은 한눈에 «크다» */
+const RARITY_SCALE: Readonly<Record<RarityId, number>> = { normal: 1, rare: 1, unique: 1.06, epic: 1.14, legend: 1.32 };
 
 export class FieldRenderer {
   private ctx: CanvasRenderingContext2D;
@@ -202,7 +206,25 @@ export class FieldRenderer {
     this.bossName = name;
   }
 
+  /**
+   * 전설 강림 — 전설 셈지기가 출전하는 순간 우리 성 앞에 금빛 기둥이 내리꽂히고 이름이 뜬다.
+   * 🔴 예전엔 전설도 짚신이와 똑같이 성문에서 걸어 나왔다. 가장 귀하게 뽑은 셈지기가
+   *    나오는 순간을 화면이 모르면, 등급은 카드 색에만 있고 전장에는 없는 것이 된다.
+   * 동작 줄이기: 기둥·빛살은 끄고 이름 띠만 남긴다(정보는 줄이지 않는다).
+   */
+  private arrivals: { at: number; name: string }[] = [];
+  private static readonly ARRIVE_MS = 1700;
+
+  arrive(name: string): void {
+    if (this.arrivals.length >= 3) this.arrivals.shift();
+    this.arrivals.push({ at: performance.now(), name });
+    this.arrivalsShown++;
+    this.hitstop();
+    this.shake(6);
+  }
+
   /** 검수 하네스가 읽는다 — 화면을 눈으로 세는 대신 숫자로 확인하려고 둔다 */
+  arrivalsShown = 0;
   cheersShown = 0;
   bossesShown = 0;
   shotsFired = 0;
@@ -314,6 +336,7 @@ export class FieldRenderer {
     this.drawSweep(groundY, now);
     // 특별기술은 맨 위 — 이 게임에서 가장 귀한 순간이라 무엇에도 가리지 않는다
     this.drawBursts(groundY, now);
+    this.drawArrivals(groundY, now);
     this.drawCheers(groundY, now);
     this.drawBoss(now);
     this.drawAmbient(groundY, now, true);
@@ -463,6 +486,83 @@ export class FieldRenderer {
     ctx.fillText('수문장이 나타났다!', 0, 26);
     ctx.restore();
     ctx.globalAlpha = 1;
+  }
+
+  /** 전설 강림 — 금빛 기둥 + 빛살 + 이름 띠 */
+  private drawArrivals(groundY: number, now: number): void {
+    if (!this.arrivals.length) return;
+    const { ctx } = this; const reduce = this.opts.reduceMotion;
+    for (let i = this.arrivals.length - 1; i >= 0; i--) {
+      const a = this.arrivals[i]!;
+      const k = (now - a.at) / FieldRenderer.ARRIVE_MS;
+      if (k >= 1) { this.arrivals.splice(i, 1); continue; }
+      const fade = k < 0.7 ? 1 : (1 - k) / 0.3;
+      const cx = this.sx(40);
+      ctx.save();
+      if (!reduce) {
+        // 하늘에서 내리꽂히는 기둥 — 처음 0.15 동안 위에서 땅까지 뻗는다
+        const drop = Math.min(1, k / 0.15);
+        const bw = 46 + 30 * Math.sin(Math.min(1, k * 2) * Math.PI);
+        const g = ctx.createLinearGradient(0, 0, 0, groundY);
+        g.addColorStop(0, 'rgba(255,240,170,0)'); g.addColorStop(0.5, 'rgba(255,226,120,0.55)'); g.addColorStop(1, 'rgba(255,250,220,0.95)');
+        ctx.globalAlpha = 0.9 * fade; ctx.fillStyle = g;
+        ctx.fillRect(cx - bw / 2, groundY * (1 - drop), bw, groundY * drop);
+        // 가운데 하얀 심 — 밝은 하늘 배경(노을·들판)에서도 기둥이 묻히지 않게
+        ctx.globalAlpha = fade; ctx.fillStyle = 'rgba(255,255,240,0.95)';
+        ctx.fillRect(cx - bw * 0.14, groundY * (1 - drop), bw * 0.28, groundY * drop);
+        // 땅에 닿은 자리의 금빛 고리 + 빛살
+        if (k > 0.12) {
+          const q = (k - 0.12) / 0.88;
+          ctx.globalAlpha = 0.7 * (1 - q);
+          ctx.strokeStyle = '#ffd95a'; ctx.lineWidth = 5 * (1 - q) + 1;
+          ctx.beginPath(); ctx.ellipse(cx, groundY - 4, 30 + q * 150, (30 + q * 150) * 0.32, 0, 0, Math.PI * 2); ctx.stroke();
+          ctx.globalAlpha = 0.45 * fade; ctx.strokeStyle = '#fff3b0'; ctx.lineWidth = 3;
+          for (let r = 0; r < 12; r++) {
+            const th = (r / 12) * Math.PI * 2 + k * 1.5;
+            const r0 = 26 + q * 30, r1 = 60 + q * 110;
+            ctx.beginPath(); ctx.moveTo(cx + Math.cos(th) * r0, groundY - 40 + Math.sin(th) * r0 * 0.6);
+            ctx.lineTo(cx + Math.cos(th) * r1, groundY - 40 + Math.sin(th) * r1 * 0.6); ctx.stroke();
+          }
+        }
+      }
+      // 이름 띠 — 화면 위쪽 가운데
+      const grow = reduce ? 1 : Math.min(1, k * 6);
+      ctx.globalAlpha = fade;
+      ctx.translate(this.w / 2, this.h * 0.22);
+      ctx.scale(grow, grow);
+      ctx.textAlign = 'center';
+      ctx.lineJoin = 'round';
+      ctx.font = '900 16px system-ui, sans-serif';
+      ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(34,29,26,0.92)';
+      ctx.strokeText('✨ 전설 강림 ✨', 0, -30); ctx.fillStyle = '#fff6d0'; ctx.fillText('✨ 전설 강림 ✨', 0, -30);
+      ctx.font = '900 36px system-ui, sans-serif';
+      ctx.lineWidth = 9; ctx.strokeText(a.name, 0, 8);
+      const tg = ctx.createLinearGradient(0, -22, 0, 10);
+      tg.addColorStop(0, '#fff2a8'); tg.addColorStop(1, '#e0a51c');
+      ctx.fillStyle = tg; ctx.fillText(a.name, 0, 8);
+      ctx.restore();
+    }
+  }
+
+  /** 전설 셈지기 발밑의 금빛 기운 — 전장 어디에 있어도 «저게 전설»이 한눈에 보이게 */
+  private drawAura(x: number, groundY: number, h: number, simT: number): void {
+    const { ctx } = this;
+    const p = this.opts.reduceMotion ? 0.5 : 0.5 + 0.5 * Math.sin(simT * 4);
+    ctx.save();
+    const g = ctx.createRadialGradient(x, groundY - 2, 2, x, groundY - 2, h * 0.62);
+    g.addColorStop(0, `rgba(255,222,110,${0.55 + 0.25 * p})`); g.addColorStop(1, 'rgba(255,210,80,0)');
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.ellipse(x, groundY - 2, h * 0.62, h * 0.2, 0, 0, Math.PI * 2); ctx.fill();
+    // 위로 떠오르는 금가루 3알
+    if (!this.opts.reduceMotion) {
+      ctx.fillStyle = '#fff1a6';
+      for (let i = 0; i < 3; i++) {
+        const ph = (simT * 0.9 + i / 3) % 1;
+        ctx.globalAlpha = 1 - ph;
+        ctx.beginPath(); ctx.arc(x + Math.sin(i * 2.1 + simT * 2) * h * 0.3, groundY - ph * h * 1.1, 2.2, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    ctx.restore();
   }
 
   /** 특별기술 — 반경만큼 퍼지는 먹 파동 + 기술 이름 */
@@ -725,7 +825,10 @@ export class FieldRenderer {
     const def = u.side === 1 ? ALLY_BY_ID.get(u.defId) : ENEMY_BY_ID.get(u.defId);
     const img = getImage(u.defId);
     const scale = def && 'hp' in def ? Math.min(1.5, 0.8 + Math.log10(Math.max(10, def.hp)) * 0.16) : 1;
-    const h = SPRITE_H * scale;
+    // 등급이 높을수록 눈에 띄게 크다(체력 비례만으로는 전설과 에픽이 거의 같아 보였다)
+    const rarity = u.side === 1 && def && 'rarity' in def ? def.rarity : undefined;
+    const h = SPRITE_H * scale * (rarity ? RARITY_SCALE[rarity] : 1);
+    if (rarity === 'legend') this.drawAura(this.sx(u.x), groundY, h, simT);
     const w = h;
     const x = this.sx(u.x);
 

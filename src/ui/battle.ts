@@ -437,10 +437,16 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
         // 전설 특별기술 — 시뮬은 피해만 몇 배로 줄 뿐이라, 이 표시가 없으면
         // 가장 귀한 셈지기를 뽑은 보상이 화면에서 통째로 묻힌다
         else if (e.type === 'skill' && e.name) renderer.skill(e.x, e.r ?? 0, e.name, e.side);
+        // 전설 강림 — 가장 귀한 셈지기가 나오는 순간은 화면과 소리가 따로 알린다
+        else if (e.type === 'summon' && e.defId && ALLY_BY_ID.get(e.defId)?.rarity === 'legend') {
+          renderer.arrive(ALLY_BY_ID.get(e.defId)!.name); play('legend');
+        }
       }
       // 🔴 승리 소리('win')를 쓰지 않는다 — 판이 끝난 줄 알게 된다. 기술은 '큰 한 방'이므로
       //    피격음을 쓰되 화면을 더 크게 흔들어 평타와 구분한다(소리 파일을 늘리지 않고).
-      if (battle.events.some((e) => e.type === 'skill')) { renderer.shake(7); play('summon'); }
+      // 전설 특별기술(from 있음)은 전용 소리, 모드 알림(성 함락·파도·보스 — from 없음)은 예전 소리
+      if (battle.events.some((e) => e.type === 'skill' && e.from !== undefined)) { renderer.shake(7); play('skill'); }
+      else if (battle.events.some((e) => e.type === 'skill')) { renderer.shake(7); play('summon'); }
       if (battle.events.some((e) => e.type === 'castleHit')) { renderer.shake(4); play('hit'); }
       else if (battle.events.some((e) => e.type === 'hit')) play('hit');
       battle.events.length = 0;
@@ -487,7 +493,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
       fx: {
         shots: renderer.shotsFired, sweeps: renderer.sweeps, skills: renderer.skills,
         // 타격감 개편(2026-08-12)이 실제로 화면에 닿았는지 — 하네스가 숫자로 확인한다
-        cheers: renderer.cheersShown, bosses: renderer.bossesShown,
+        cheers: renderer.cheersShown, bosses: renderer.bossesShown, arrivals: renderer.arrivalsShown,
       },
       // 자리 상한이 실제로 걸리는지 하네스가 본다 — 순간값은 표본 시점에 이미 비어 있을 수 있다
       maxSlots: Math.max(Number(window.__gugu__?.['maxSlots'] ?? 0), battle.usedSlots),

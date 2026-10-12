@@ -132,6 +132,8 @@ export class Battle {
     side: 1 | -1;
     /** 'skill' 일 때만 — 화면에 띄울 기술 이름 */
     name?: string;
+    /** 'summon' 일 때만 — 나온 셈지기(등급별 등장 연출용 · 그리기 전용) */
+    defId?: string;
     /** 'skill' 일 때만 — 터진 광역 반경 */
     r?: number;
     /** 때린 쪽의 위치. 원거리 공격을 **날아가는 것**으로 그리려면 출발점이 필요하다.
@@ -288,7 +290,7 @@ export class Battle {
       ...(def.aoe ? { aoe: def.aoe } : {}),
       ...(def.skill ? { skill: def.skill } : {}),
     });
-    this.events.push({ type: 'summon', x: 0, side: 1 });
+    this.events.push({ type: 'summon', x: 0, side: 1, defId: def.id });
     return true;
   }
 

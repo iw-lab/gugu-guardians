@@ -7,7 +7,7 @@
  */
 import * as store from '../save/store';
 
-export type Sfx = 'correct' | 'wrong' | 'tap' | 'summon' | 'hit' | 'win';
+export type Sfx = 'correct' | 'wrong' | 'tap' | 'summon' | 'hit' | 'win' | 'legend' | 'skill';
 
 const FILES: Record<Sfx, string> = {
   correct: 'audio/sfx/correct.ogg',
@@ -16,10 +16,13 @@ const FILES: Record<Sfx, string> = {
   summon: 'audio/sfx/summon.ogg',
   hit: 'audio/sfx/hit.ogg',
   win: 'audio/sfx/win.ogg',
+  // 전설 전용(REMASTER v2.0) — 자체 렌더(game-builder gen-sfx.py · 원장 game-assets-src/sfx-legend-ledger.json)
+  legend: 'audio/sfx/legend.ogg',
+  skill: 'audio/sfx/skill.ogg',
 };
 
 const VOLUME: Record<Sfx, number> = {
-  correct: 0.55, wrong: 0.4, tap: 0.25, summon: 0.4, hit: 0.22, win: 0.6,
+  correct: 0.55, wrong: 0.4, tap: 0.25, summon: 0.4, hit: 0.22, win: 0.6, legend: 0.6, skill: 0.5,
 };
 
 let ctx: AudioContext | null = null;
@@ -27,7 +30,7 @@ const buffers = new Map<Sfx, AudioBuffer>();
 let unlocked = false;
 /** 같은 소리가 겹쳐 도배되는 것을 막는다(지속딜 타격음이 초당 수십 번 나면 소음이 된다) */
 const lastPlayed = new Map<Sfx, number>();
-const MIN_GAP_MS: Partial<Record<Sfx, number>> = { hit: 110, summon: 60, tap: 40 };
+const MIN_GAP_MS: Partial<Record<Sfx, number>> = { hit: 110, summon: 60, tap: 40, skill: 160 };
 
 function base(): string {
   return import.meta.env.BASE_URL || './';
