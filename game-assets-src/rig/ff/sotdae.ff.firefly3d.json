@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/sotdae.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:17901b27-8a91-412e-9044-2f4b6ae2429e",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.33.32.glb",
+ "bytes": 2573520,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.618,
+  2.002,
+  1.357
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:36:19.396Z"
+}

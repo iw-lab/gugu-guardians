@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/yeonip.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:533da520-ab17-498e-8349-d5e223daf5b5",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.47.33.glb",
+ "bytes": 2288764,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.957,
+  1.991,
+  1.623
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:50:23.136Z"
+}

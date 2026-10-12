@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/dwiju.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:0d4a2071-3281-4038-90b2-708470d0f2c7",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.46.21.glb",
+ "bytes": 2613444,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.063,
+  1.33,
+  2.049
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:49:06.748Z"
+}

@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: Seolmundae Halmang, a giant grandmother carrying a basket of earth. Front view, standing in a T-pose, arms straight out horizontally, legs slightly apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/seolmun.png",
+ "t0": 1791778539.037799,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/seolmun.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/595c5295-0d5f-4f19-a3d6-8f0de92af8ed",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,405,451바이트",
+ "elapsed_s": 83.8,
+ "conversation": "https://chatgpt.com/c/6acc5d5a-9cc0-83ec-92aa-a205344ac397",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/buchae.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:7152927d-1072-499f-b099-40475e997b3f",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.27.36.glb",
+ "bytes": 2249508,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.412,
+  1.744,
+  2.059
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:30:25.528Z"
+}

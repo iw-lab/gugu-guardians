@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/bungbung.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:4979ff6c-92ca-43b7-a437-b267d956abe1",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.54.05.glb",
+ "bytes": 2102864,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.008,
+  2.008,
+  2.027
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:56:50.428Z"
+}

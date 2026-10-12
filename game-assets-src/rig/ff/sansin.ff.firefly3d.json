@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/sansin.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:aa9e4746-5c48-4882-bcf7-22fa71a68e8f",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.30.10.glb",
+ "bytes": 2712456,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.663,
+  1.999,
+  1.937
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:32:58.814Z"
+}

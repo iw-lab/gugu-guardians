@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a stone child statue (dongjaseok) guardian, round stone body. Front view, standing in a T-pose, arms straight out horizontally, legs slightly apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink ou",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/dongjaseok.png",
+ "t0": 1791771601.427996,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/dongjaseok.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/cc2612fc-789b-4d19-a6ae-7871414ccf2c",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,648,399바이트",
+ "elapsed_s": 87.7,
+ "conversation": "https://chatgpt.com/c/6acc42cb-a0f4-83ec-b73d-bca91de49cf6",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

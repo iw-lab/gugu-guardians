@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/garakji.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:c237a7de-4d1c-41c7-8d4a-b6a559c299f3",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.36.30.glb",
+ "bytes": 2465256,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.893,
+  2.01,
+  1.948
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:39:21.054Z"
+}

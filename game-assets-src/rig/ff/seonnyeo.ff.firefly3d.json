@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/seonnyeo.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:95f6252d-16a3-43b6-8707-a4945ff0d94b",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.39.41.glb",
+ "bytes": 2482108,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.668,
+  2.009,
+  1.916
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:42:43.426Z"
+}

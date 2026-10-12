@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a young lady in hanbok throwing jade rings. Front view, standing in a T-pose, arms straight out horizontally, legs slightly apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outlines, rich danch",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/garakji.png",
+ "t0": 1791777325.328725,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/garakji.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/34283b9a-0954-42c3-9145-ad5c986e4e0c",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,417,501바이트",
+ "elapsed_s": 80.6,
+ "conversation": "https://chatgpt.com/c/6acc592f-26d8-83e8-bd3f-f91b4938afef",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

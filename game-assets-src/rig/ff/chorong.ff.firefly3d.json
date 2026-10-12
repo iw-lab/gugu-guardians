@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/chorong.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:e65c6a41-af49-4a60-88e2-bb53a4329978",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.20.16.glb",
+ "bytes": 2448564,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.759,
+  1.995,
+  1.426
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:23:04.591Z"
+}

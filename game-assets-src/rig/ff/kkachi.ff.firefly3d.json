@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/kkachi.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:b685227f-3fc9-489f-a930-ef85a05a2c0a",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.23.47.glb",
+ "bytes": 1934336,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.13,
+  1.496,
+  2.034
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:26:37.586Z"
+}

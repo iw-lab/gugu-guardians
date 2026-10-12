@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/bulgasari.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:a5469f7c-e55b-40f1-bd36-0ec60bf40a5d",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.36.23.glb",
+ "bytes": 2377696,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.658,
+  1.982,
+  1.886
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:39:15.080Z"
+}

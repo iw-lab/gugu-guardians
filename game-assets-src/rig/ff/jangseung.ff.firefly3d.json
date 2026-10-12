@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/jangseung.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:b3f9eb7b-bf7d-4d81-a637-1818b7d92fd8",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.46.42.glb",
+ "bytes": 2717944,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.724,
+  2.003,
+  1.653
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:49:29.423Z"
+}

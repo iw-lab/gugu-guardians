@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/seolmun.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:1363c8a6-aafe-4a57-8e99-d87f8b417e85",
+ "exportedName": "제목 없음 - 2026년 10월 12일 14.04.42.glb",
+ "bytes": 2621352,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.634,
+  2.002,
+  2.02
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T05:07:29.565Z"
+}

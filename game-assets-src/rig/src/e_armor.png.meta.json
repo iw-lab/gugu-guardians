@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a tangled iron-armored brute monster. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outl",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_armor.png",
+ "t0": 1791781241.37135,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_armor.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/d0d19af0-b921-45f3-90e3-89b5183cd21b",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,541,413바이트",
+ "elapsed_s": 77.3,
+ "conversation": "https://chatgpt.com/c/6acc66e0-7fb0-83ee-958e-ac1499c068fe",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

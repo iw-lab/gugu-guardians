@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a living brush-holder cylinder spirit holding a calligraphy brush like a club. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions ",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/buttong.png",
+ "t0": 1791771881.104204,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/buttong.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/2f35f7a9-391f-42a7-bdae-9cf0f41b1fdb",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,270,318바이트",
+ "elapsed_s": 95.8,
+ "conversation": "https://chatgpt.com/c/6acc42cb-a0f4-83ec-b73d-bca91de49cf6",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

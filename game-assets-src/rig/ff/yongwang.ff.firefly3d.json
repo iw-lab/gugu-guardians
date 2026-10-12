@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/yongwang.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:ce3f6905-540c-4bb4-9490-83d5b72131d0",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.15.12.glb",
+ "bytes": 2638384,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.78,
+  1.999,
+  1.98
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:18:04.596Z"
+}

@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/jorongbak.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:cf1115fa-4085-4e8f-a0ce-c0cc6718d929",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.37.50.glb",
+ "bytes": 2356060,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.039,
+  2.003,
+  1.465
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:40:38.035Z"
+}

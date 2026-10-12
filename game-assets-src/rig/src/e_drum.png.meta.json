@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a drum-bellied monster beating its own drum. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black i",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_drum.png",
+ "t0": 1791780928.1391628,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_drum.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/f28781af-eb53-4922-ba78-176f290cb33d",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,189,114바이트",
+ "elapsed_s": 98.2,
+ "conversation": "https://chatgpt.com/c/6acc66e0-7fb0-83ee-958e-ac1499c068fe",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

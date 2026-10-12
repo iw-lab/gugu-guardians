@@ -1,0 +1,15 @@
+# 구구성 수호대 학교 허브 — simfeelgood 계정(1e5d836b…) — daum D1 상한 10개 꽉 참(2026-10-12). game-builder kit/school-hub 1.1.0 --free-play 로 깔았다.
+# 배포 = tools/hub.sh deploy (로그인 이메일 확인 후). 비밀: QUIZ_KEY · PROXY_KEY(게임 페이지 중계만 받기)
+# FREE_PLAY = 판 자체가 문제 풀이 — 이용권 없이 판 영수증만(사용자 2026-10-12 «이용권 빼기»)
+name = "gugu-hub"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+account_id = "1e5d836bf27b9e18c0f30b35e449ba08"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gugu-hub"
+database_id = "46a75155-f949-4363-ad78-4890123ff597"
+
+[vars]
+FREE_PLAY = "1"

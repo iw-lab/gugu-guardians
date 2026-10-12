@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a living soy sauce jar (jangdok) guardian, round and sturdy. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tal",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/jangdok.png",
+ "t0": 1791775960.9008691,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/jangdok.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/93ee1e2d-dcb0-4f51-9f4b-5da189a7c48a",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,206,114바이트",
+ "elapsed_s": 85.8,
+ "conversation": "https://chatgpt.com/c/6acc52ad-ee9c-83e8-899d-eeee667a3733",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a carved wooden duck bird from a sotdae pole. Front view, wings spread wide open horizontally, body upright facing the viewer, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outlines, rich dancheong",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/sotdae.png",
+ "t0": 1791777235.789199,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/sotdae.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/95acfa95-7c38-4340-bcc5-f1cfecc72ea0",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,131,416바이트",
+ "elapsed_s": 81.5,
+ "conversation": "https://chatgpt.com/c/6acc592f-26d8-83e8-bd3f-f91b4938afef",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

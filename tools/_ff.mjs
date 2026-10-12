@@ -1,0 +1,16 @@
+import puppeteer from 'puppeteer';
+const b = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9230', defaultViewport: null });
+const p = await b.newPage(); await p.setViewport({ width: 1400, height: 900 });
+const W=(ms)=>new Promise(r=>setTimeout(r,ms));
+const deepFind = (pred) => p.evaluate((src)=>{ const f=eval(src); const out=[]; const walk=(n)=>{ if(!n) return; if(n.shadowRoot) walk(n.shadowRoot); for(const c of n.children||[]) walk(c); if(n.nodeType===1 && f(n)) { const b=n.getBoundingClientRect(); if (b.width>0) out.push({tag:n.tagName, t:(n.getAttribute('aria-label')||n.textContent||'').trim().replace(/\s+/g,' ').slice(0,40), x:b.x+b.width/2, y:b.y+b.height/2, w:b.width|0, h:b.height|0}); } }; walk(document.body); return out; }, pred.toString());
+await p.goto('https://firefly.adobe.com/your-stuff?tab=your-files&type=boards&q=' + encodeURIComponent('14.20.30'), { waitUntil: 'domcontentloaded', timeout: 60000 }); await W(10000);
+let s = await deepFind((n)=>n.tagName==='INPUT' && /검색/.test(n.placeholder||''));
+await p.mouse.click(s[0].x, s[0].y); await p.keyboard.type('14.20.30'); await p.keyboard.press('Enter'); await W(9000);
+const title = await deepFind((n)=>[...n.childNodes].some(x=>x.nodeType===3&&/14\.20\.30/.test(x.textContent)));
+console.log('title', JSON.stringify(title));
+const tt = title.find(t=>/제목 없음/.test(t.t));
+await p.mouse.move(tt.x, tt.y - 90); await W(1500);
+const near = await deepFind((n)=>{ const b=n.getBoundingClientRect(); return b.width>0 && b.width<80 && b.height<80 && /BUTTON|CHECKBOX|ACTION|INPUT/.test(n.tagName); });
+console.log('near', JSON.stringify(near.filter(o=>Math.abs(o.x-tt.x)<130 && o.y>tt.y-220 && o.y<tt.y+40)));
+await p.screenshot({ path: '/private/tmp/claude-501/gg/ff/s3.png' });
+await p.close(); b.disconnect();

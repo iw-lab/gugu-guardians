@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/gumiho.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:401084f9-6e1b-491e-8adb-aeec89d7e86c",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.04.55.glb",
+ "bytes": 1868708,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  2.1,
+  1.633,
+  1.889
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:07:44.303Z"
+}

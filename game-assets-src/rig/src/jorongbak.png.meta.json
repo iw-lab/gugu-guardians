@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a bouncy living gourd bottle spirit. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outli",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/jorongbak.png",
+ "t0": 1791771697.180253,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/jorongbak.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/814ac12e-7592-435c-be1c-c090c451083d",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,237,715바이트",
+ "elapsed_s": 88.0,
+ "conversation": "https://chatgpt.com/c/6acc42cb-a0f4-83ec-b73d-bca91de49cf6",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

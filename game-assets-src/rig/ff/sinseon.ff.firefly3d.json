@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/sinseon.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:480d3d04-3663-4d6f-832b-05bb28de0a12",
+ "exportedName": "제목 없음 - 2026년 10월 12일 14.14.48.glb",
+ "bytes": 2372732,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.653,
+  1.982,
+  1.849
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T05:17:41.823Z"
+}

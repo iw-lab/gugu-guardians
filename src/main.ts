@@ -1,18 +1,23 @@
+import './gb/gb-ui.css';
 import './style.css';
 import { mount } from './ui/dom';
 import { loadAll } from './render/assets';
 import { installUnlockHooks, playBgm } from './render/audio';
 import { buildBattle, type BattleResult } from './ui/battle';
 import {
-  menuScreen, mapScreen, prepScreen, gateScreen, resultScreen, summonScreen,
-  codexScreen, srsScreen, reportScreen, settingsScreen, boardScreen,
+  mapScreen, prepScreen, gateScreen, resultScreen, summonScreen,
+  codexScreen, srsScreen, reportScreen, settingsScreen, missionsScreen,
   type ResultPayload, type GatePayload,
 } from './ui/screens';
-import { armAutoFullscreen } from './ui/fullscreen';
+import { homeScreen, tableScreen, finishRun, leaveRun, type RunPayload } from './ui/home';
+import { modeResultScreen } from './ui/modeResult';
+import { modeStage } from './sim/modes';
+import { reconcileDeck } from './sim/units';
+import { ownedIds } from './ui/screens';
 import { matchInk } from './sim/economy';
 import { bump, rollDaily } from './meta/daily';
 import * as store from './save/store';
-import { submitScore } from './net/board';
+import { revokeConsent } from './net/board';
 import { initAap, aapState } from './net/aap';
 import { showAapBadge } from './ui/aapBadge';
 import { weekKey, today } from './edu/date';
@@ -59,11 +64,22 @@ function bgmFor(screen: string, payload?: unknown): void {
   playBgm('field');
 }
 
+let currentScreen = '';
 function go(screen: string, payload?: unknown): void {
+  currentScreen = screen;
   bgmFor(screen, payload);
   switch (screen) {
     case 'menu':
-      mount(root, () => menuScreen(go));
+      mount(root, () => homeScreen(go));
+      break;
+    case 'missions':
+      mount(root, () => missionsScreen(go));
+      break;
+    case 'table':
+      mount(root, () => tableScreen(go));
+      break;
+    case 'modeResult':
+      mount(root, () => modeResultScreen(go, payload as BattleResult));
       break;
     case 'map':
       mount(root, () => mapScreen(go, payload));
@@ -75,11 +91,14 @@ function go(screen: string, payload?: unknown): void {
       mount(root, () => prepScreen(go, Number(payload)));
       break;
     case 'battle': {
-      const p = payload as { stage: number; deck: string[] };
-      mount(root, () => buildBattle(p.stage, p.deck, (r: BattleResult) => {
+      const p = payload as RunPayload;
+      const save0 = store.load();
+      const deck = p.deck ?? reconcileDeck(save0.deck, ownedIds());
+      const date = today();
+      const mstage = p.mode === 'classic' ? undefined : modeStage(p.mode, save0.progress.maxStage, { table: p.table, date });
+      const stageN = p.stage ?? mstage?.index ?? Math.max(1, save0.progress.maxStage + 1);
+      mount(root, () => buildBattle(stageN, deck, (r: BattleResult) => {
         snapshotWeekly();
-        // 순위 갱신은 동의했을 때만 나가고, 실패해도 조용히 넘어간다(게임을 막지 않는다)
-        void submitScore();
         /**
          * 🔴 **판 보상은 승패와 무관하게 여기서 준다.** 관문(gate)은 이겨야 가는 곳이라
          *    거기서만 주면 패배가 보상 0 이 되고, 그러면 막힌 아이는 전력을 올릴 방법이
@@ -101,10 +120,14 @@ function go(screen: string, payload?: unknown): void {
           if (r.status === 'win') s = bump(s, 'clear', 1);
           d.daily = s;
         });
+        // 학교 점수 정산(판 하나에 한 번 · 이기든 지든) — 판 보상 지급 «뒤»에 둔다(match-reward 배선 시험)
+        void finishRun(r.status === 'win');
+        // 모드 판은 모드 결과 화면으로(캠페인 진도·별과 섞지 않는다)
+        if (r.mode !== 'classic') { go('modeResult', { ...r, matchInk: ink }); return; }
         // 이겼을 때만 봉인 해제(관문)로 간다. 졌으면 바로 결과 — 학습은 이미 전투 중에 했다.
         if (r.status === 'win') go('gate', { ...r, matchInk: ink });
         else go('result', { ...r, starN: 0, gateCorrect: 0, gateTotal: 5, matchInk: ink });
-      }));
+      }, { ...(mstage ? { stage: mstage } : {}), ...(p.table ? { table: p.table } : {}), date, onQuit: () => { leaveRun(); go('menu'); } }));
       break;
     }
     case 'gate':
@@ -122,16 +145,14 @@ function go(screen: string, payload?: unknown): void {
     case 'report':
       mount(root, () => reportScreen(go));
       break;
-    case 'board':
-      mount(root, () => boardScreen(go));
-      break;
     case 'settings':
       mount(root, () => settingsScreen(go));
       break;
     default:
-      mount(root, () => menuScreen(go));
+      mount(root, () => homeScreen(go));
   }
   window.__gugu__ = { ...(window.__gugu__ ?? {}), screen, ready: true, aap: aapState() };
+  syncRotate();
 }
 
 async function boot(): Promise<void> {
@@ -154,6 +175,9 @@ async function boot(): Promise<void> {
   });
 
   snapshotWeekly();
+  // 개인 주간 순위 폐지(v2.0 · 사용자 2026-10-12 «학교 순위로 교체») — 예전에 켠 기기는 한 번 «잊어 줘»를 보내
+  //   서버에 남은 별명·기록을 지우고 동의를 내린다(revokeConsent = /forget). 다시 켤 단추는 없다.
+  if (store.load().board.consent) revokeConsent();
   go('menu');
 
   // 🔴 **신원을 기다리지 않는다.** 처음엔 여기서 `await identity` 를 했는데, 그러면 바로 위
@@ -174,14 +198,22 @@ async function boot(): Promise<void> {
 const rotate = document.getElementById('rotate-hint');
 function syncRotate(): void {
   if (!rotate) return;
-  rotate.hidden = window.innerWidth >= window.innerHeight;
+  // 세로 폰: 첫 화면·도감·학교 고르기는 세로로도 쓴다. 가로가 꼭 필요한 건 전장뿐이다
+  rotate.hidden = window.innerWidth >= window.innerHeight || currentScreen !== 'battle';
 }
 window.addEventListener('resize', syncRotate);
+// 큰 화면(PC 1920·전자칠판 4K) — 글자·단추·카드를 화면에 비례해 키운다(CSS 의 zoom: var(--k)). 1280×720 이하는 1.
+function syncScale(): void {
+  const k = Math.max(1, Math.min(3, Math.min(window.innerWidth / 1280, window.innerHeight / 720)));
+  document.documentElement.style.setProperty('--k', k.toFixed(3));
+}
+window.addEventListener('resize', syncScale);
+syncScale();
 window.addEventListener('orientationchange', syncRotate);
 syncRotate();
 
-// 가로로 돌린 휴대폰은 첫 터치에 전체화면으로 — 왜 '첫 터치'인지는 모듈 머리말 참고
-armAutoFullscreen();
+// 전체화면은 키트(gb-fullscreen)가 맡는다 — 출전 단추(gbGate) 안에서 자동 · 홈·전장의 ⛶ 단추.
+//   옛 «가로 폰 첫 터치 자동»(ui/fullscreen.ts)은 키트와 둘이 같이 돌면 토글이 엇갈려 뺐다.
 
 boot().catch((e: unknown) => {
   root.replaceChildren();

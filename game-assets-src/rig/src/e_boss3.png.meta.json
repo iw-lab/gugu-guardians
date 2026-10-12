@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: the Infinite Tangle boss, a giant made of endless looping ropes. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_boss3.png",
+ "t0": 1791782214.674301,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_boss3.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/2b3a9034-7ab4-4c0b-85b1-edbd4e2a6e89",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,982,407바이트",
+ "elapsed_s": 100.2,
+ "conversation": "https://chatgpt.com/c/6acc6b88-451c-83ee-bb83-2f601e81e301",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

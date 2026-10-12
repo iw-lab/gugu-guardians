@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: the Jumble King boss, crown of scrambled numbers, big belly. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tal",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_boss.png",
+ "t0": 1791782020.758086,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_boss.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/2cffe90e-897e-4daf-b8f2-837fcf032dd8",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,870,109바이트",
+ "elapsed_s": 91.8,
+ "conversation": "https://chatgpt.com/c/6acc6b88-451c-83ee-bb83-2f601e81e301",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

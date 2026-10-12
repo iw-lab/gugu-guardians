@@ -1,0 +1,1735 @@
+{
+ "characters": [
+  {
+   "id": "jipsin",
+   "src": "game-assets-src/rig/src/jipsin.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/jipsin.webp"
+   ]
+  },
+  {
+   "id": "kkachi",
+   "src": "game-assets-src/rig/src/kkachi.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/kkachi.webp"
+   ]
+  },
+  {
+   "id": "musoe",
+   "src": "game-assets-src/rig/src/musoe.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/musoe.webp"
+   ]
+  },
+  {
+   "id": "dongjaseok",
+   "src": "game-assets-src/rig/src/dongjaseok.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/dongjaseok.webp"
+   ]
+  },
+  {
+   "id": "jorongbak",
+   "src": "game-assets-src/rig/src/jorongbak.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/jorongbak.webp"
+   ]
+  },
+  {
+   "id": "onggi",
+   "src": "game-assets-src/rig/src/onggi.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/onggi.webp"
+   ]
+  },
+  {
+   "id": "buttong",
+   "src": "game-assets-src/rig/src/buttong.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/buttong.webp"
+   ]
+  },
+  {
+   "id": "yeonip",
+   "src": "game-assets-src/rig/src/yeonip.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/yeonip.webp"
+   ]
+  },
+  {
+   "id": "bitjaru",
+   "src": "game-assets-src/rig/src/bitjaru.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/bitjaru.webp"
+   ]
+  },
+  {
+   "id": "bungbung",
+   "src": "game-assets-src/rig/src/bungbung.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/bungbung.webp"
+   ]
+  },
+  {
+   "id": "namak",
+   "src": "game-assets-src/rig/src/namak.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/namak.webp"
+   ]
+  },
+  {
+   "id": "ttokttak",
+   "src": "game-assets-src/rig/src/ttokttak.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/ttokttak.webp"
+   ]
+  },
+  {
+   "id": "chotbul",
+   "src": "game-assets-src/rig/src/chotbul.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/chotbul.webp"
+   ]
+  },
+  {
+   "id": "dolhareubang",
+   "src": "game-assets-src/rig/src/dolhareubang.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/dolhareubang.webp"
+   ]
+  },
+  {
+   "id": "dokkabi",
+   "src": "game-assets-src/rig/src/dokkabi.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/dokkabi.webp"
+   ]
+  },
+  {
+   "id": "sotdu",
+   "src": "game-assets-src/rig/src/sotdu.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/sotdu.webp"
+   ]
+  },
+  {
+   "id": "mulbangul",
+   "src": "game-assets-src/rig/src/mulbangul.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/mulbangul.webp"
+   ]
+  },
+  {
+   "id": "chorong",
+   "src": "game-assets-src/rig/src/chorong.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/chorong.webp"
+   ]
+  },
+  {
+   "id": "kkwaenggwari",
+   "src": "game-assets-src/rig/src/kkwaenggwari.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/kkwaenggwari.webp"
+   ]
+  },
+  {
+   "id": "butdaegam",
+   "src": "game-assets-src/rig/src/butdaegam.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/butdaegam.webp"
+   ]
+  },
+  {
+   "id": "samjogo",
+   "src": "game-assets-src/rig/src/samjogo.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/samjogo.webp"
+   ]
+  },
+  {
+   "id": "talchum",
+   "src": "game-assets-src/rig/src/talchum.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/talchum.webp"
+   ]
+  },
+  {
+   "id": "haetae",
+   "src": "game-assets-src/rig/src/haetae.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/haetae.webp"
+   ]
+  },
+  {
+   "id": "bulgasari",
+   "src": "game-assets-src/rig/src/bulgasari.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/bulgasari.webp"
+   ]
+  },
+  {
+   "id": "baekho",
+   "src": "game-assets-src/rig/src/baekho.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/baekho.webp"
+   ]
+  },
+  {
+   "id": "seonnyeo",
+   "src": "game-assets-src/rig/src/seonnyeo.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/seonnyeo.webp"
+   ]
+  },
+  {
+   "id": "cheongryong",
+   "src": "game-assets-src/rig/src/cheongryong.png",
+   "shape": "worm",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/cheongryong.webp"
+   ]
+  },
+  {
+   "id": "jangseung",
+   "src": "game-assets-src/rig/src/jangseung.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/jangseung.webp"
+   ]
+  },
+  {
+   "id": "dokkabidae",
+   "src": "game-assets-src/rig/src/dokkabidae.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/dokkabidae.webp"
+   ]
+  },
+  {
+   "id": "hyeonmu",
+   "src": "game-assets-src/rig/src/hyeonmu.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/hyeonmu.webp"
+   ]
+  },
+  {
+   "id": "bulgae",
+   "src": "game-assets-src/rig/src/bulgae.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/bulgae.webp"
+   ]
+  },
+  {
+   "id": "jujak",
+   "src": "game-assets-src/rig/src/jujak.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/jujak.webp"
+   ]
+  },
+  {
+   "id": "eosa",
+   "src": "game-assets-src/rig/src/eosa.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/eosa.webp"
+   ]
+  },
+  {
+   "id": "gumiho",
+   "src": "game-assets-src/rig/src/gumiho.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/gumiho.webp"
+   ]
+  },
+  {
+   "id": "sansin",
+   "src": "game-assets-src/rig/src/sansin.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/sansin.webp"
+   ]
+  },
+  {
+   "id": "cheollima",
+   "src": "game-assets-src/rig/src/cheollima.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/cheollima.webp"
+   ]
+  },
+  {
+   "id": "seondol",
+   "src": "game-assets-src/rig/src/seondol.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/seondol.webp"
+   ]
+  },
+  {
+   "id": "yongwang",
+   "src": "game-assets-src/rig/src/yongwang.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/yongwang.webp"
+   ]
+  },
+  {
+   "id": "kkotsin",
+   "src": "game-assets-src/rig/src/kkotsin.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/kkotsin.webp"
+   ]
+  },
+  {
+   "id": "jangdok",
+   "src": "game-assets-src/rig/src/jangdok.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/jangdok.webp"
+   ]
+  },
+  {
+   "id": "dotjari",
+   "src": "game-assets-src/rig/src/dotjari.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/dotjari.webp"
+   ]
+  },
+  {
+   "id": "buchae",
+   "src": "game-assets-src/rig/src/buchae.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/buchae.webp"
+   ]
+  },
+  {
+   "id": "bokjori",
+   "src": "game-assets-src/rig/src/bokjori.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/bokjori.webp"
+   ]
+  },
+  {
+   "id": "sotdae",
+   "src": "game-assets-src/rig/src/sotdae.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/sotdae.webp"
+   ]
+  },
+  {
+   "id": "garakji",
+   "src": "game-assets-src/rig/src/garakji.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/garakji.webp"
+   ]
+  },
+  {
+   "id": "meokgal",
+   "src": "game-assets-src/rig/src/meokgal.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/meokgal.webp"
+   ]
+  },
+  {
+   "id": "baragi",
+   "src": "game-assets-src/rig/src/baragi.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/baragi.webp"
+   ]
+  },
+  {
+   "id": "dwiju",
+   "src": "game-assets-src/rig/src/dwiju.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/dwiju.webp"
+   ]
+  },
+  {
+   "id": "jangmyeong",
+   "src": "game-assets-src/rig/src/jangmyeong.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/jangmyeong.webp"
+   ]
+  },
+  {
+   "id": "hwangso",
+   "src": "game-assets-src/rig/src/hwangso.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/hwangso.webp"
+   ]
+  },
+  {
+   "id": "jokduri",
+   "src": "game-assets-src/rig/src/jokduri.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/jokduri.webp"
+   ]
+  },
+  {
+   "id": "kkachiho",
+   "src": "game-assets-src/rig/src/kkachiho.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/kkachiho.webp"
+   ]
+  },
+  {
+   "id": "seolmun",
+   "src": "game-assets-src/rig/src/seolmun.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/seolmun.webp"
+   ]
+  },
+  {
+   "id": "gwimyeon",
+   "src": "game-assets-src/rig/src/gwimyeon.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/gwimyeon.webp"
+   ]
+  },
+  {
+   "id": "bangmangi",
+   "src": "game-assets-src/rig/src/bangmangi.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/bangmangi.webp"
+   ]
+  },
+  {
+   "id": "sinseon",
+   "src": "game-assets-src/rig/src/sinseon.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/sinseon.webp"
+   ]
+  },
+  {
+   "id": "geumgang",
+   "src": "game-assets-src/rig/src/geumgang.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/geumgang.webp"
+   ]
+  },
+  {
+   "id": "samsin",
+   "src": "game-assets-src/rig/src/samsin.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SE",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/samsin.webp"
+   ]
+  },
+  {
+   "id": "e_swarm",
+   "src": "game-assets-src/rig/src/e_swarm.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_swarm.webp"
+   ]
+  },
+  {
+   "id": "e_zero",
+   "src": "game-assets-src/rig/src/e_zero.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_zero.webp"
+   ]
+  },
+  {
+   "id": "e_bat",
+   "src": "game-assets-src/rig/src/e_bat.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_bat.webp"
+   ]
+  },
+  {
+   "id": "e_splitlet",
+   "src": "game-assets-src/rig/src/e_splitlet.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_splitlet.webp"
+   ]
+  },
+  {
+   "id": "e_arch",
+   "src": "game-assets-src/rig/src/e_arch.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_arch.webp"
+   ]
+  },
+  {
+   "id": "e_mul",
+   "src": "game-assets-src/rig/src/e_mul.png",
+   "shape": "worm",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_mul.webp"
+   ]
+  },
+  {
+   "id": "e_dash",
+   "src": "game-assets-src/rig/src/e_dash.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_dash.webp"
+   ]
+  },
+  {
+   "id": "e_minus",
+   "src": "game-assets-src/rig/src/e_minus.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_minus.webp"
+   ]
+  },
+  {
+   "id": "e_split",
+   "src": "game-assets-src/rig/src/e_split.png",
+   "shape": "worm",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_split.webp"
+   ]
+  },
+  {
+   "id": "e_sky",
+   "src": "game-assets-src/rig/src/e_sky.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_sky.webp"
+   ]
+  },
+  {
+   "id": "e_drum",
+   "src": "game-assets-src/rig/src/e_drum.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_drum.webp"
+   ]
+  },
+  {
+   "id": "e_knot",
+   "src": "game-assets-src/rig/src/e_knot.png",
+   "shape": "worm",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_knot.webp"
+   ]
+  },
+  {
+   "id": "e_ghost",
+   "src": "game-assets-src/rig/src/e_ghost.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_ghost.webp"
+   ]
+  },
+  {
+   "id": "e_armor",
+   "src": "game-assets-src/rig/src/e_armor.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_armor.webp"
+   ]
+  },
+  {
+   "id": "e_thorn",
+   "src": "game-assets-src/rig/src/e_thorn.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_thorn.webp"
+   ]
+  },
+  {
+   "id": "e_rock",
+   "src": "game-assets-src/rig/src/e_rock.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_rock.webp"
+   ]
+  },
+  {
+   "id": "e_shield",
+   "src": "game-assets-src/rig/src/e_shield.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_shield.webp"
+   ]
+  },
+  {
+   "id": "e_boss",
+   "src": "game-assets-src/rig/src/e_boss.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 224,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_boss.webp"
+   ]
+  },
+  {
+   "id": "e_boss2",
+   "src": "game-assets-src/rig/src/e_boss2.png",
+   "shape": "worm",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 224,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_boss2.webp"
+   ]
+  },
+  {
+   "id": "e_boss3",
+   "src": "game-assets-src/rig/src/e_boss3.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 224,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_boss3.webp"
+   ]
+  },
+  {
+   "id": "e_boss4",
+   "src": "game-assets-src/rig/src/e_boss4.png",
+   "shape": "worm",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 224,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_boss4.webp"
+   ]
+  },
+  {
+   "id": "e_windbell",
+   "src": "game-assets-src/rig/src/e_windbell.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_windbell.webp"
+   ]
+  },
+  {
+   "id": "e_abacus",
+   "src": "game-assets-src/rig/src/e_abacus.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_abacus.webp"
+   ]
+  },
+  {
+   "id": "e_comma",
+   "src": "game-assets-src/rig/src/e_comma.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_comma.webp"
+   ]
+  },
+  {
+   "id": "e_fraction",
+   "src": "game-assets-src/rig/src/e_fraction.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_fraction.webp"
+   ]
+  },
+  {
+   "id": "e_fractlet",
+   "src": "game-assets-src/rig/src/e_fractlet.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_fractlet.webp"
+   ]
+  },
+  {
+   "id": "e_lantern",
+   "src": "game-assets-src/rig/src/e_lantern.png",
+   "shape": "fly",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_lantern.webp"
+   ]
+  },
+  {
+   "id": "e_bracket",
+   "src": "game-assets-src/rig/src/e_bracket.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_bracket.webp"
+   ]
+  },
+  {
+   "id": "e_mirror",
+   "src": "game-assets-src/rig/src/e_mirror.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_mirror.webp"
+   ]
+  },
+  {
+   "id": "e_hourglass",
+   "src": "game-assets-src/rig/src/e_hourglass.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_hourglass.webp"
+   ]
+  },
+  {
+   "id": "e_ox",
+   "src": "game-assets-src/rig/src/e_ox.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 160,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_ox.webp"
+   ]
+  },
+  {
+   "id": "e_boss5",
+   "src": "game-assets-src/rig/src/e_boss5.png",
+   "shape": "biped",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 224,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_boss5.webp"
+   ]
+  },
+  {
+   "id": "e_boss6",
+   "src": "game-assets-src/rig/src/e_boss6.png",
+   "shape": "quad",
+   "actions": [
+    "idle",
+    "walk",
+    "punch"
+   ],
+   "dir": "SW",
+   "size": 224,
+   "frames": 8,
+   "out": "public/assets/rig",
+   "replaces": [
+    "public/assets/e_boss6.webp"
+   ]
+  }
+ ],
+ "exempt": {
+  "public/assets/rig/jipsin.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/jipsin.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/kkachi.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/kkachi.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/musoe.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/musoe.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/dongjaseok.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/dongjaseok.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/jorongbak.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/jorongbak.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/onggi.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/onggi.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/buttong.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/buttong.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/yeonip.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/yeonip.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/bitjaru.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/bitjaru.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/bungbung.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/bungbung.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/namak.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/namak.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/ttokttak.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/ttokttak.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/chotbul.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/chotbul.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/dolhareubang.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/dolhareubang.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/dokkabi.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/dokkabi.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/sotdu.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/sotdu.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/mulbangul.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/mulbangul.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/chorong.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/chorong.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/kkwaenggwari.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/kkwaenggwari.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/butdaegam.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/butdaegam.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/samjogo.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/samjogo.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/talchum.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/talchum.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/haetae.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/haetae.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/bulgasari.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/bulgasari.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/baekho.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/baekho.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/seonnyeo.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/seonnyeo.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/cheongryong.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/cheongryong.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/jangseung.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/jangseung.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/dokkabidae.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/dokkabidae.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/hyeonmu.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/hyeonmu.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/bulgae.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/bulgae.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/jujak.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/jujak.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/eosa.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/eosa.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/gumiho.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/gumiho.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/sansin.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/sansin.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/cheollima.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/cheollima.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/seondol.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/seondol.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/yongwang.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/yongwang.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/kkotsin.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/kkotsin.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/jangdok.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/jangdok.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/dotjari.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/dotjari.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/buchae.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/buchae.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/bokjori.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/bokjori.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/sotdae.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/sotdae.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/garakji.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/garakji.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/meokgal.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/meokgal.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/baragi.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/baragi.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/dwiju.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/dwiju.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/jangmyeong.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/jangmyeong.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/hwangso.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/hwangso.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/jokduri.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/jokduri.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/kkachiho.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/kkachiho.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/seolmun.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/seolmun.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/gwimyeon.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/gwimyeon.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/bangmangi.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/bangmangi.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/sinseon.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/sinseon.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/geumgang.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/geumgang.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/samsin.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/samsin.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_swarm.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_swarm.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_zero.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_zero.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_bat.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_bat.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_splitlet.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_splitlet.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_arch.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_arch.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_mul.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_mul.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_dash.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_dash.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_minus.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_minus.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_split.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_split.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_sky.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_sky.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_drum.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_drum.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_knot.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_knot.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_ghost.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_ghost.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_armor.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_armor.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_thorn.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_thorn.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_rock.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_rock.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_shield.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_shield.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_boss.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_boss.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_boss2.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_boss2.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_boss3.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_boss3.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_boss4.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_boss4.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_windbell.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_windbell.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_abacus.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_abacus.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_comma.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_comma.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_fraction.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_fraction.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_fractlet.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_fractlet.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_lantern.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_lantern.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_bracket.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_bracket.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_mirror.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_mirror.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_hourglass.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_hourglass.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_ox.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_ox.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_boss5.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_boss5.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)",
+  "public/assets/rig/e_boss6.webp": "배포용 webp 변환본(tools/rig-pack.py) — 원본 png 는 원장 sha 와 대조된다",
+  "public/assets/rig/card/e_boss6.webp": "도감·덱 카드 얼굴 — 리그 아틀라스 idle 0프레임을 잘라 만든 것(rig-pack.py)"
+ }
+}

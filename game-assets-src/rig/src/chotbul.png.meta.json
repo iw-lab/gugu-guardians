@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a young scholar boy holding a lit candle torch. Front view, standing in a T-pose, arms straight out horizontally, legs slightly apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outlines, rich d",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/chotbul.png",
+ "t0": 1791772844.787874,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/chotbul.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/e5fee47a-94a2-4860-a163-eaee65e898d8",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,207,941바이트",
+ "elapsed_s": 81.7,
+ "conversation": "https://chatgpt.com/c/6acc4763-5084-83ee-9008-dab1d97a21e0",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

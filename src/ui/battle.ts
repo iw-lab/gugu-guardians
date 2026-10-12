@@ -5,13 +5,15 @@ import { ALLY_BY_ID, ALLY_CAP, ENEMY_BY_ID, slotsOf } from '../sim/units';
 import { rarityColor } from './rarity';
 import { comboMul, hasteLabel, MIN_ANSWER_MS } from '../sim/economy';
 import { FieldRenderer } from '../render/field';
-import { assetUrl } from '../render/assets';
+import { assetUrl, preloadRigs } from '../render/assets';
 import { QuizSession } from '../edu/session';
 import type { Question } from '../edu/generator';
 import { el, btn, type Teardown } from './dom';
 import * as store from '../save/store';
 import { play, playCorrect, playLose, playBossAppear } from '../render/audio';
 import { bumpWeeklyNow } from '../meta/weekly';
+import type { ModeKind, StageDef } from '../sim/types';
+import { dailyMod } from '../sim/modes';
 
 /**
  * 전투 화면 — Canvas 전장 + DOM UI(숫자패드·덱·HUD).
@@ -50,17 +52,37 @@ export interface BattleResult {
   fastCorrect: number;
   /** 이 판에서 단계가 오른 엉킴 봉인 수 — 오늘의 임무용 */
   srsAdvanced: number;
+  /** 모드(REMASTER v2.0) — 캠페인은 'classic' */
+  mode: ModeKind;
+  /** 모드 기록 값 — time=부순 성 · survival=버틴 파도 · big=보스 쓰러뜨림 · rule=단 */
+  score: number;
+  table?: number;
+  /** 오늘의 전장 날짜(YYYY-MM-DD) */
+  date?: string;
 }
 
-export function buildBattle(stageIndex: number, deck: string[], onDone: (r: BattleResult) => void): { node: HTMLElement; teardown: Teardown } {
+export interface BattleOpts {
+  /** 모드 판 정의(modeStage) — 없으면 캠페인 stageDef(stageIndex) */
+  stage?: StageDef;
+  /** 구구단 정복의 단 */
+  table?: number;
+  date?: string;
+  /** 일시정지에서 «그만하기» */
+  onQuit?: () => void;
+}
+
+export function buildBattle(stageIndex: number, deck: string[], onDone: (r: BattleResult) => void, opts: BattleOpts = {}): { node: HTMLElement; teardown: Teardown } {
   const save = store.load();
-  const stage = stageDef(stageIndex);
+  const stage = opts.stage ?? stageDef(stageIndex);
+  const mode: ModeKind = stage.mode?.kind ?? 'classic';
   // 승급 레벨을 그대로 넘긴다 — 도감에서 키운 셈지기가 전장에서도 세져야 한다
   const levels: Record<string, number> = {};
   for (const [id, e] of Object.entries(save.roster)) levels[id] = e.level;
   const battle = new Battle(stage, levels, save.upgrades, save.challenge.tier);
-  battle.setDeck(deck);   // 진단 계측(셈력 마름)의 기준 — 전투 수치에는 영향 없다
-  const quiz = new QuizSession({ layer: 'L1', types: stage.quizTypes, save, seed: Date.now() % 100000 });
+  battle.setDeck(deck);
+  // 이 판에 나올 캐릭터 아틀라스만 받는다 — 덱 · 출전표 적 · 보스 연전 보스(분열 새끼는 부모와 함께)
+  preloadRigs([...deck, ...stage.spawns.map((s) => s.id), ...(stage.mode?.bossRush ?? []), 'e_splitlet', 'e_fractlet']);   // 진단 계측(셈력 마름)의 기준 — 전투 수치에는 영향 없다
+  const quiz = new QuizSession({ layer: 'L1', types: stage.quizTypes, save, seed: Date.now() % 100000, ...(opts.table ? { table: opts.table } : {}) });
 
   // ── DOM ────────────────────────────────────────────────────────────────
   const manaFill = el('i');
@@ -71,12 +93,16 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
   const slotText = el('b', { class: 'slot-use' }, '');
   const timeText = el('span', { class: 'muted' }, '');
   const pauseBtn = btn('⏸ 잠깐', () => togglePause(), 'btn sm ghost');
+  // 일시정지 중에만 보이는 «그만하기» — 판을 접고 첫 화면으로(학교 점수 영수증은 onQuit 이 정산)
+  const quitBtn = btn('🏳 그만하기', () => { if (finished) return; finished = true; cancelAnimationFrame(raf); opts.onQuit?.(); }, 'btn sm ghost quit');
+  quitBtn.hidden = true;
+  const modeText = el('b', { class: 'mode-hud' }, '');
 
   const hud = el('div', { class: 'bhud' },
     el('span', {}, '셈력'),
     el('div', { class: 'gauge' }, manaFill),
     manaText, slotText, comboText, speedText,
-    el('span', { class: 'spacer' }), timeText, pauseBtn,
+    el('span', { class: 'spacer' }), modeText, timeText, quitBtn, pauseBtn,
   );
 
   const deckCol = el('div', { class: 'deck-row' });
@@ -129,7 +155,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
   const PAD_LAYOUT: (string | 'back' | 'hint')[] = ['7', '8', '9', 'back', '4', '5', '6', 'hint', '1', '2', '3', '0'];
   for (const k of PAD_LAYOUT) {
     const b = k === 'back' ? btn('⌫', () => press('back'), 'btn wide')
-      : k === 'hint' ? btn('힌트', () => showHint(), 'btn wide')
+      : k === 'hint' ? btn(mode === 'survival' ? '힌트 없음' : '힌트', () => showHint(), mode === 'survival' ? 'btn wide off' : 'btn wide')
       : btn(k, () => press(k));
     // 🔴 좁은 화면에서 패드가 6열로 접히면 DOM 순서 그대로 흘러 계산기 배열이 부서진다
     //    (7 8 9 ⌫ 4 5 / 6 힌트 1 2 3 0 — '1'을 찾으려면 둘째 줄 힌트 옆을 봐야 한다).
@@ -207,7 +233,8 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
   }
 
   function showHint() {
-    if (!current) return;
+    // 끝없는 방어는 «힌트 없음»이 규칙이다(REMASTER-GDD R-2) — 단추는 꺼져 보이고 눌러도 안 열린다
+    if (!current || mode === 'survival') return;
     qFb.className = 'fb';
     qFb.textContent = `💡 ${quiz.useHint()}`;
   }
@@ -256,6 +283,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
   function togglePause() {
     paused = !paused;
     pauseBtn.textContent = paused ? '▶ 계속' : '⏸ 잠깐';
+    quitBtn.hidden = !paused || !opts.onQuit;
     // 🔴 여기서 requestAnimationFrame(loop) 을 부르면 안 된다. loop 은 **일시정지 중에도**
     //    맨 앞에서 자기 자신을 계속 예약하고 있다(멈추는 건 시뮬 갱신뿐). 재개할 때 한 번 더
     //    예약하면 rAF 사슬이 하나씩 늘어나, 잠깐 버튼을 N번 누르면 N+1개가 동시에 돈다.
@@ -306,7 +334,21 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     manaText.classList.toggle('full', full);
     comboText.textContent = battle.combo >= 3 ? `콤보 ×${comboMul(battle.combo).toFixed(1)} ⚡${battle.combo}` : '';
     speedText.textContent = hasteLabel(battle.haste);
-    timeText.textContent = `${Math.floor(battle.t)}초 / ${MAX_SEC}초`;
+    if (mode === 'time') {
+      const left = battle.clockLeft;
+      timeText.textContent = `⏱ ${Math.ceil(left)}초`;
+      timeText.classList.toggle('urgent', left <= 10);
+      modeText.textContent = `🏯 부순 성 ${battle.castlesBroken}`;
+    } else if (mode === 'survival') {
+      timeText.textContent = `${Math.floor(battle.t)}초`;
+      modeText.textContent = `🌊 파도 ${battle.wave}`;
+    } else if (mode === 'big') {
+      timeText.textContent = `${Math.floor(battle.t)}초`;
+      modeText.textContent = `👑 보스 ${battle.bossesDown}/${stage.mode?.bossRush?.length ?? 6}`;
+    } else {
+      timeText.textContent = `${Math.floor(battle.t)}초 / ${MAX_SEC}초`;
+      modeText.textContent = mode === 'rule' ? `✖ ${opts.table}단` : mode === 'daily' && stage.mode?.mod ? `📅 ${dailyMod(opts.date ?? '').label.split(' — ')[0]}` : '';
+    }
   }
 
   /** 🔴 종료 처리는 **정확히 한 번**이어야 한다 — 두 번 돌면 판 수·놀이시간·주간 점수가 곱절이 된다.
@@ -338,17 +380,24 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
       maxCombo: battle.maxCombo,
       fastCorrect: quiz.fastCorrect,
       srsAdvanced: quiz.srsAdvanced,
+      mode,
+      score: mode === 'time' ? battle.castlesBroken : mode === 'survival' ? battle.wave : mode === 'big' ? battle.bossesDown : mode === 'rule' ? (opts.table ?? 0) : 0,
+      ...(opts.table ? { table: opts.table } : {}),
+      ...(opts.date ? { date: opts.date } : {}),
     };
     store.update((d) => {
       d.edu.playMs += playMs;
       d.edu.rounds += 1;
       // 🔴 다음 판 난이도를 이 판의 결과로 정한다. 올릴 땐 두 판 연속 여유롭게 이겼을 때만,
       //    내릴 땐 한 판만 져도 바로 — 비대칭이 의도다(막히는 아이를 붙잡아 두지 않는다).
-      d.challenge.tier = nx.tier;
-      d.challenge.streak = nx.streak;
+      // 모드 판(번개·파도·보스 연전)은 규칙이 달라 캠페인 난이도의 근거가 못 된다 — 캠페인·오늘의 전장·구구단만 반영
+      if (mode === 'classic' || mode === 'daily' || mode === 'rule') {
+        d.challenge.tier = nx.tier;
+        d.challenge.streak = nx.streak;
+      }
       // 주간 순위 버킷. 동의 여부와 무관하게 로컬에는 쌓는다 —
       // 나중에 켰을 때 "이번 주 기록이 0"이 되면 아이 입장에선 손해다.
-      bumpWeeklyNow(d, { correct: battle.correct, playMs, stage: r.status === 'win' ? stageIndex : 0 });
+      bumpWeeklyNow(d, { correct: battle.correct, playMs, stage: r.status === 'win' && mode === 'classic' ? stageIndex : 0 });
     });
     onDone(r);
   }

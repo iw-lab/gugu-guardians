@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/buttong.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:df303b2b-6600-459e-b02d-a973911abfb6",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.44.12.glb",
+ "bytes": 2428364,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.648,
+  1.998,
+  1.568
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:47:07.414Z"
+}

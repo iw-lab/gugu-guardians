@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a mask dancer in a white Korean talchum mask with long sleeves. Front view, standing in a T-pose, arms straight out horizontally, legs slightly apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink ",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/talchum.png",
+ "t0": 1791774013.866545,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/talchum.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/c6edbbf5-f123-494f-93ca-7769565f65d0",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,296,237바이트",
+ "elapsed_s": 80.3,
+ "conversation": "https://chatgpt.com/c/6acc4bd2-c7a8-83ee-ad1f-b3d2c9751d9a",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}
