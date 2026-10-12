@@ -473,6 +473,8 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     window.__gugu__ = {
       ...(window.__gugu__ ?? {}),
       units: battle.units.length, t: battle.t, status: battle.status,
+      // 모드 진행(실측 플레이 하네스 e2e-play 가 읽는다)
+      mode, wave: battle.wave, castlesBroken: battle.castlesBroken, bossesDown: battle.bossesDown,
       tier: battle.tier,
       breakers: battle.units.filter((u) => u.side === -1 && u.hp > 0 && u.breaker).length,
       money: battle.money, manaMax: battle.manaMax, haste: battle.haste,

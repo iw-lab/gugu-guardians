@@ -69,6 +69,10 @@ export const RESERVE_COVER = 0.85;
  *    다만 이 근사는 "빠른 적이 아군 무리를 지나쳐 성을 때리는" 누수를 완전히 막지 못하므로,
  *    렌더 계층에서 유닛을 겹쳐 그리되 **적이 아군 전선을 지나치지 못하도록** 전진 상한을 둔다(아래 참조).
  */
+/** 보스 연전 보스 체력 배율(이 아이의 판 배율 위에) · 보스마다 더해지는 몫 — tests/modes.spec.ts «보스 연전» 이 완주 시간으로 묶는다 */
+export const RUSH_HP = 0.7;
+export const RUSH_STEP = 0.12;
+
 export class Battle {
   readonly stage: StageDef;
   t = 0;
@@ -388,7 +392,8 @@ export class Battle {
     if (kind === 'big') {
       if (this.bossesDown >= (this.stage.mode!.bossRush?.length ?? 0)) { this.status = 'win'; return; }
       if (this.playerCastleHp <= 0) { this.playerCastleHp = 0; this.status = 'lose'; return; }
-      if (this.t >= MAX_SEC * 2) this.status = 'draw';
+      // 시간 상한은 다른 판과 같다(7분) — 못 끝내면 «보스 N마리» 기록으로 끝난다. 예전 ×2(14분)는 한 판으로 너무 길었다
+      if (this.t >= MAX_SEC) this.status = 'draw';
       return;
     }
     if (this.castleHp <= 0) { this.castleHp = 0; this.status = 'win'; return; }
@@ -428,10 +433,11 @@ export class Battle {
         const id = m.bossRush[this.rushIdx]!;
         const e = ENEMY_BY_ID.get(id);
         if (e) {
-          // 보스 체력 = 그 보스가 원래 나오는 판(10·20·30…)의 수문장 예산 — 순서대로 세진다
-          const at = (this.rushIdx + 1) * 10;
-          const boss = stageDef(at).spawns.find((s) => s.every >= 9999);
-          const hpMul = (boss?.hpMul ?? 1) * enemyMult(at) / this.stage.mult * 0.8;
+          // 보스 체력 = **이 아이의 판**(stage.mult) 기준 × 보스마다 조금씩 세진다.
+          // 🔴 예전엔 «그 보스가 원래 나오는 판»(10·20·…·60)의 배율을 썼다 — 적 배율이 판마다 지수라
+          //    (10판 3배 → 40판 73배 → 60판 330배) 갓 시작한 아이는 4번째 보스(26.8만)에서 영영 못 넘어갔다.
+          //    정답률 100% 봇도 840초 무승부(2026-10-12 실측 플레이). 연전의 상대는 «내 실력»이어야 한다.
+          const hpMul = RUSH_HP * (1 + RUSH_STEP * this.rushIdx);
           const u = this.makeEnemy(e, hpMul, false);
           (u as LiveUnit & { rush?: boolean }).rush = true;
           this.units.push(u);

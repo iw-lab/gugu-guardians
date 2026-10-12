@@ -71,7 +71,7 @@ function bestText(kind: ModeKind): string {
     case 'time': return m.time ? `최고 ${modeScoreLabel('time', m.time)}` : '';
     case 'survival': return m.survival ? `최고 ${modeScoreLabel('survival', m.survival)}` : '';
     case 'rule': { const n = Object.values(m.rule).reduce((s, v) => s + v, 0); return n ? `★ ${n}/24` : ''; }
-    case 'big': return m.big ? `최단 ${modeScoreLabel('big', m.big)}` : '';
+    case 'big': return m.big ? `최단 ${modeScoreLabel('big', m.big)}` : m.bigBest ? `최고 보스 ${m.bigBest}마리` : '';
     case 'daily': return m.daily.date === today() ? `오늘 승리 ✓ · 총 ${m.daily.streak}일` : m.daily.streak ? `총 ${m.daily.streak}일 승리` : '';
   }
 }

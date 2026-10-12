@@ -149,6 +149,17 @@ describe('보스 연전(big) — DoD 9', () => {
     expect(b.status).toBe('win');
     expect(lastLive).toBeGreaterThan(0);
   });
+  it('보스 체력은 «내 판» 기준 — 갓 시작한 아이도 잘 풀면 완주하고, 판은 7분 안에 끝난다(실측 플레이 2026-10-12)', () => {
+    // 🔴 예전엔 보스가 원래 나오는 판(10·20·…·60)의 배율이라 4번째 보스가 26.8만 — 정답률 100% 봇도 840초 무승부였다
+    const starter = run(modeStage('big', 0), 0.95, 900, 11);
+    expect(starter.bossesDown).toBe(6);
+    const mid = run(modeStage('big', 25), 0.75, 900, 11);
+    expect(mid.status).toBe('win');
+    // 못 끝내도 7분이면 끝난다 — «보스 N마리»가 기록
+    const weak = run(modeStage('big', 0), 0.4, 900, 11);
+    expect(weak.status === 'win' || weak.t <= 420 + DT).toBe(true);
+    expect(weak.bossesDown).toBeGreaterThanOrEqual(1);
+  });
 });
 
 describe('오늘의 전장(daily) — DoD 10', () => {

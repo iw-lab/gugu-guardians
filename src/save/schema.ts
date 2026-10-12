@@ -63,9 +63,9 @@ export interface SaveData {
   /**
    * 모드 기록(REMASTER v2.0). 옛 세이브엔 없다 — normalize 가 0 으로 채운다.
    * time = 번개 전투 최다 성 · survival = 끝없는 방어 최고 파도 · rule = 단별 별(2~9) ·
-   * big = 보스 연전 최단 초(0 = 완주 기록 없음) · daily = 오늘의 전장 마지막 날짜·연속 일수
+   * big = 보스 연전 최단 초(0 = 완주 기록 없음) · bigBest = 가장 많이 쓰러뜨린 보스 수(완주 못 해도 남는다 — 2026-10-12 실측: 새 아이는 7분에 3마리) · daily = 오늘의 전장 마지막 날짜·연속 일수
    */
-  modes: { time: number; survival: number; rule: Record<string, number>; big: number; daily: { date: string; streak: number } };
+  modes: { time: number; survival: number; rule: Record<string, number>; big: number; bigBest: number; daily: { date: string; streak: number } };
   /**
    * 익명 주간 순위. 기본값은 **보내지 않음**이다(consent: false).
    * device 는 순위에 올리겠다고 누른 순간에만 만들어진다 — 안 쓰는 아이는 토큰조차 없다.
@@ -119,7 +119,7 @@ export function defaultSave(): SaveData {
     edu: { theta: {}, thetaWeekly: [], stats: {}, playMs: 0, diagnostics: [], srs: {}, retentionLog: [], rounds: 0 },
     daily: emptyDaily(),
     settings: { sound: true, music: true, fontScale: 1, reduceMotion: false },
-    modes: { time: 0, survival: 0, rule: {}, big: 0, daily: { date: '', streak: 0 } },
+    modes: { time: 0, survival: 0, rule: {}, big: 0, bigBest: 0, daily: { date: '', streak: 0 } },
     board: { device: '', consent: false, week: '', correct: 0, stage: 0, playMs: 0 },
   };
 }
@@ -322,6 +322,7 @@ export function normalize(input: unknown): SaveData {
         survival: Math.floor(num(m['survival'], 0, 0, 9999)),
         rule,
         big: Math.floor(num(m['big'], 0, 0, 99999)),
+        bigBest: Math.floor(num(m['bigBest'], 0, 0, 6)),
         daily: { date: /^\d{4}-\d{2}-\d{2}$/.test(str(dd['date'], '')) ? str(dd['date'], '') : '', streak: Math.floor(num(dd['streak'], 0, 0, 9999)) },
       };
     })(),
