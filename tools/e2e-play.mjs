@@ -19,7 +19,7 @@ const url = process.argv[2];
 const out = process.argv[3] || '/tmp/gugu-play';
 if (!url) { console.log('사용: node tools/e2e-play.mjs <주소> [스크린샷 폴더]'); process.exit(2); }
 fs.mkdirSync(out, { recursive: true });
-const b = await puppeteer.launch({ executablePath: process.env.CHROME || undefined, headless: 'new', pipe: true,
+const b = await puppeteer.launch({ executablePath: process.env.CHROME || undefined, headless: 'new', pipe: true, dumpio: !!process.env.PLAY_DUMPIO,
   args: ['--no-sandbox', '--autoplay-policy=no-user-gesture-required', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows'] });
 const fails = [];
 const ok = (c, m) => { console.log(`${c ? '✅' : '❌'} ${m}`); if (!c) fails.push(m); };
@@ -28,6 +28,11 @@ const p = await b.newPage();
 await p.setViewport({ width: 1280, height: 720 });
 const errs = []; const rigHits = new Map();
 p.on('pageerror', (e) => errs.push(e.message));
+// 탭이 죽으면(렌더러 충돌) 그 사실과 직전 상태를 남긴다 — «Target closed» 만으로는 원인을 못 가른다
+p.on('error', (e) => console.log(`💥 페이지 충돌: ${e.message}`));
+b.on('disconnected', () => console.log('💥 브라우저 연결 끊김'));
+const cdp = await p.target().createCDPSession();
+const mem = async (tag) => { try { const c = await cdp.send('Memory.getDOMCounters'); const h = await p.evaluate(() => Math.round((performance.memory?.usedJSHeapSize ?? 0) / 1e6)); console.log(`   📊 ${tag} 노드 ${c.nodes} · 리스너 ${c.jsEventListeners} · 문서 ${c.documents} · 힙 ${h}MB`); } catch (e) { console.log(`   📊 ${tag} 측정 실패 ${e.message}`); } };
 p.on('console', (m) => { if (m.type() === 'error' && !/favicon|404|api\/hub/.test(m.text())) errs.push(m.text()); });
 // 다시 받을 땐 캐시 응답(304)이 앞 200 을 덮는다 — 한 번이라도 받아졌으면(200·304) 성공으로 센다
 p.on('response', (r) => { const m = r.url().match(/assets\/rig\/([a-z_0-9]+)\.webp/); if (m && (rigHits.get(m[1]) !== 200)) rigHits.set(m[1], r.status() === 304 ? 200 : r.status()); });
@@ -66,6 +71,7 @@ async function playToEnd(label, limitMs, wrongWhen = () => false) {
     const s = await screen();
     if (s !== 'battle') { last = s; break; }
     const g = await p.evaluate(() => window.__gugu__ || {});
+    if (Date.now() - t0 > 0 && (Date.now() - t0) % 60000 < 400) await mem(`${label} ${Math.round((Date.now() - t0) / 1000)}초`);
     await answer(wrongWhen(g));
     await act();
     await wait(380);
@@ -123,12 +129,14 @@ for (const [id, label, limit, wrongWhen, check] of MODES) {
   ok(res.screen === 'modeResult', `P1 ${label} 끝까지 ${res.sec}초 → ${res.screen} «${head}»`);
   const sv = await save();
   ok(check(sv), `P2 ${label} 기록 ${JSON.stringify(sv.modes?.[id])}`);
+  await mem(`${label} 뒤`);
   await clickText('첫 화면'); await wait(1500);
   if ((await screen()) !== 'menu') { await p.goto(url, { waitUntil: 'networkidle2' }); await wait(1500); }
 }
 
 const rigOk = [...rigHits.values()].filter((s) => s === 200).length;
-ok(rigOk >= 5, `P3 뼈대 아틀라스 실제 요청 ${rigOk}장 200 (${[...rigHits.keys()].slice(0, 8).join(',')}…)`);
+// 새 세이브 덱 = 기본 셈지기 3종 — 그 셋은 반드시 뼈대로 받아져야 한다(적은 묶인 만큼 더 늘어난다)
+ok(['jipsin', 'kkachi', 'musoe'].every((id) => rigHits.get(id) === 200) && rigOk >= 3, `P3 뼈대 아틀라스 실제 요청 ${rigOk}장 200 (${[...rigHits.keys()].slice(0, 8).join(',')}…)`);
 
 // ── 화면 4종 — 가로 넘침·주 단추·키패드
 for (const [w, h] of [[1280, 720], [900, 310], [1920, 1080], [3840, 2160]]) {
