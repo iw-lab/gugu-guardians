@@ -70,6 +70,9 @@ export function assetUrl(key: string): string {
 export interface RigEntry { cell: number; frames: number; rows: Record<string, number>; pivot: [number, number]; dir: string }
 const RIG_INDEX = rigIndexRaw as unknown as Record<string, RigEntry>;
 const rigImages = new Map<string, HTMLImageElement>();
+/** 받기 실패 시각 — 학교 와이파이가 한 번 끊겼다고 그 판 내내 정지 그림으로 남지 않게 5초 뒤 다시 받는다(2026-10-12 교차검증 grok) */
+const rigFailedAt = new Map<string, number>();
+const RIG_RETRY_MS = 5000;
 
 /** 판에 나올 캐릭터 아틀라스만 미리 받는다(전체 91장을 첫 화면에서 받지 않는다 — 성능 예산 R-5) */
 export function preloadRigs(ids: Iterable<string>): void {
@@ -77,6 +80,7 @@ export function preloadRigs(ids: Iterable<string>): void {
     if (!RIG_INDEX[id] || rigImages.has(id)) continue;
     const img = new Image();
     img.decoding = 'async';
+    img.onerror = () => { if (rigImages.get(id) === img) { rigImages.delete(id); rigFailedAt.set(id, performance.now()); } };
     img.src = resolve(`assets/rig/${id}.webp`);
     rigImages.set(id, img);
   }
@@ -86,7 +90,11 @@ export function getRig(id: string): { img: HTMLImageElement; ent: RigEntry } | n
   const ent = RIG_INDEX[id];
   if (!ent) return null;
   let img = rigImages.get(id);
-  if (!img) { preloadRigs([id]); img = rigImages.get(id); }
+  if (!img) {
+    const failed = rigFailedAt.get(id);
+    if (failed !== undefined && performance.now() - failed < RIG_RETRY_MS) return null;
+    preloadRigs([id]); img = rigImages.get(id);
+  }
   return img && img.complete && img.naturalWidth > 0 ? { img, ent } : null;
 }
 export function rigged(): string[] { return Object.keys(RIG_INDEX); }

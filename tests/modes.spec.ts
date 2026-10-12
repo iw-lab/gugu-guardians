@@ -85,6 +85,18 @@ describe('끝없는 방어(survival) — DoD 7', () => {
     expect(ws.length).toBeGreaterThanOrEqual(2);
     expect(hpByWave.get(ws[ws.length - 1]!)!).toBeGreaterThan(hpByWave.get(ws[0]!)!);
   });
+  it('아군이 없는 성(엉킴의 문)을 때리지 않는다 · 지난 파도 출전표가 쌓이지 않는다', () => {
+    let allyCastleHits = 0, maxSpawns = 0;
+    const b = run(modeStage('survival', 6), 0.95, 900, 5, (x) => {
+      allyCastleHits += x.events.filter((e) => e.type === 'castleHit' && e.side === 1 && e.x < 1000).length;
+      maxSpawns = Math.max(maxSpawns, (x as unknown as { spawns: unknown[] }).spawns.length);
+      x.events.length = 0;
+    });
+    expect(b.wave).toBeGreaterThanOrEqual(6);
+    expect(allyCastleHits).toBe(0);
+    // 파도 하나 ≈ 출전표 몇 줄 — 다 나온 파도를 걷지 않으면 파도 수에 비례해 끝없이 는다
+    expect(maxSpawns).toBeLessThan(b.wave * 3);
+  });
   it('아무것도 안 하면 결국 성이 무너진다(무한 판 없음)', () => {
     const b = new Battle(modeStage('survival', 3));
     while (b.status === 'playing' && b.t < 1200) b.step(DT);

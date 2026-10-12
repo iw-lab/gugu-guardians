@@ -209,7 +209,7 @@ function syncScale(): void {
 }
 window.addEventListener('resize', syncScale);
 syncScale();
-window.addEventListener('orientationchange', syncRotate);
+window.addEventListener('orientationchange', () => { syncRotate(); syncScale(); });
 syncRotate();
 
 // 전체화면은 키트(gb-fullscreen)가 맡는다 — 출전 단추(gbGate) 안에서 자동 · 홈·전장의 ⛶ 단추.

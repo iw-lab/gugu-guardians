@@ -404,6 +404,12 @@ export class Battle {
     const m = this.stage.mode;
     if (!m) return;
     if (m.kind === 'survival' && m.waves && this.t >= this.nextWaveAt) {
+      // 다 나온 지난 파도 항목은 걷어 낸다 — 오래 버티면 출전표·시계가 끝없이 쌓였다(2026-10-12 교차검증 codex·grok)
+      this.spawns = this.spawns.filter((s) => {
+        const k = (s as SpawnEntry & { k?: string }).k;
+        if (!k || (this.spawnCount.get(k) ?? 0) < s.cap) return true;
+        this.spawnNext.delete(k); this.spawnCount.delete(k); return false;
+      });
       this.wave++;
       this.nextWaveAt = this.t + m.waves.every;
       const idx = m.waves.base + (this.wave - 1) * m.waves.step;
@@ -578,6 +584,9 @@ export class Battle {
       //    평균 0.8초 만에 죽었다. 아이 눈에는 "적이 아예 안 나온다"로 보인 그 증상이다.
       //    적의 enemyFloor(아군 전선을 60 넘게 못 파고든다)와 대칭인 상한이다.
       const atCeil = u.side === 1 && u.x >= ALLY_CEIL - 1e-6;
+      // 성이 없는 모드(끝없는 방어·보스 연전): 아군은 «엉킴의 문» 앞에서 다음 적을 기다린다 — 없는 성을 때리면
+      // 피해 없이 castleHit 만 나가 화면이 계속 흔들리고 타격음이 끊이지 않았다(2026-10-12 검수)
+      if (!target && u.side === 1 && this.noFoeCastle && (castleDist <= u.range || atCeil)) continue;
       if (!target && (castleDist <= u.range || atCeil)) {
         if (this.t >= u.atkAt) {
           // 성에도 특별기술이 걸린다(광역은 의미가 없으니 배율만). 안 걸면 전선이 성에 닿은 뒤로
