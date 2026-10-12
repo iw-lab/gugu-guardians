@@ -1,0 +1,532 @@
+{
+ "frames": {
+  "dwiju_idle_00": {
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_idle_01": {
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_idle_02": {
+   "frame": {
+    "x": 320,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_idle_03": {
+   "frame": {
+    "x": 480,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_idle_04": {
+   "frame": {
+    "x": 640,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_idle_05": {
+   "frame": {
+    "x": 800,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_idle_06": {
+   "frame": {
+    "x": 960,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_idle_07": {
+   "frame": {
+    "x": 1120,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_00": {
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_01": {
+   "frame": {
+    "x": 160,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_02": {
+   "frame": {
+    "x": 320,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_03": {
+   "frame": {
+    "x": 480,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_04": {
+   "frame": {
+    "x": 640,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_05": {
+   "frame": {
+    "x": 800,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_06": {
+   "frame": {
+    "x": 960,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_walk_07": {
+   "frame": {
+    "x": 1120,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_00": {
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_01": {
+   "frame": {
+    "x": 160,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_02": {
+   "frame": {
+    "x": 320,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_03": {
+   "frame": {
+    "x": 480,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_04": {
+   "frame": {
+    "x": 640,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_05": {
+   "frame": {
+    "x": 800,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_06": {
+   "frame": {
+    "x": 960,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dwiju_punch_07": {
+   "frame": {
+    "x": 1120,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  }
+ },
+ "meta": {
+  "app": "game-builder/rig-characters.py",
+  "image": "dwiju.png",
+  "size": {
+   "w": 1280,
+   "h": 480
+  },
+  "scale": "1",
+  "pivotPx": [
+   80.0,
+   127.98
+  ],
+  "dir": "SE",
+  "frames": 8,
+  "firefly": "game-assets-src/rig/ff/dwiju.glb",
+  "anims": {
+   "dwiju_idle": [
+    "dwiju_idle_00",
+    "dwiju_idle_01",
+    "dwiju_idle_02",
+    "dwiju_idle_03",
+    "dwiju_idle_04",
+    "dwiju_idle_05",
+    "dwiju_idle_06",
+    "dwiju_idle_07"
+   ],
+   "dwiju_walk": [
+    "dwiju_walk_00",
+    "dwiju_walk_01",
+    "dwiju_walk_02",
+    "dwiju_walk_03",
+    "dwiju_walk_04",
+    "dwiju_walk_05",
+    "dwiju_walk_06",
+    "dwiju_walk_07"
+   ],
+   "dwiju_punch": [
+    "dwiju_punch_00",
+    "dwiju_punch_01",
+    "dwiju_punch_02",
+    "dwiju_punch_03",
+    "dwiju_punch_04",
+    "dwiju_punch_05",
+    "dwiju_punch_06",
+    "dwiju_punch_07"
+   ]
+  }
+ }
+}

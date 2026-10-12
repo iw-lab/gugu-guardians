@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a Jeju dolhareubang stone grandfather statue. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/dolhareubang.png",
+ "t0": 1791772934.539239,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/dolhareubang.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/942d042c-9364-499b-a19d-e77520afd5f9",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,503,826바이트",
+ "elapsed_s": 85.7,
+ "conversation": "https://chatgpt.com/c/6acc4763-5084-83ee-9008-dab1d97a21e0",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

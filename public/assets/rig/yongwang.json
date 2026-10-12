@@ -1,0 +1,532 @@
+{
+ "frames": {
+  "yongwang_idle_00": {
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_idle_01": {
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_idle_02": {
+   "frame": {
+    "x": 320,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_idle_03": {
+   "frame": {
+    "x": 480,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_idle_04": {
+   "frame": {
+    "x": 640,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_idle_05": {
+   "frame": {
+    "x": 800,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_idle_06": {
+   "frame": {
+    "x": 960,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_idle_07": {
+   "frame": {
+    "x": 1120,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_00": {
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_01": {
+   "frame": {
+    "x": 160,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_02": {
+   "frame": {
+    "x": 320,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_03": {
+   "frame": {
+    "x": 480,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_04": {
+   "frame": {
+    "x": 640,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_05": {
+   "frame": {
+    "x": 800,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_06": {
+   "frame": {
+    "x": 960,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_walk_07": {
+   "frame": {
+    "x": 1120,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_00": {
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_01": {
+   "frame": {
+    "x": 160,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_02": {
+   "frame": {
+    "x": 320,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_03": {
+   "frame": {
+    "x": 480,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_04": {
+   "frame": {
+    "x": 640,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_05": {
+   "frame": {
+    "x": 800,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_06": {
+   "frame": {
+    "x": 960,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "yongwang_punch_07": {
+   "frame": {
+    "x": 1120,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  }
+ },
+ "meta": {
+  "app": "game-builder/rig-characters.py",
+  "image": "yongwang.png",
+  "size": {
+   "w": 1280,
+   "h": 480
+  },
+  "scale": "1",
+  "pivotPx": [
+   80.0,
+   145.39
+  ],
+  "dir": "SE",
+  "frames": 8,
+  "firefly": "game-assets-src/rig/ff/yongwang.glb",
+  "anims": {
+   "yongwang_idle": [
+    "yongwang_idle_00",
+    "yongwang_idle_01",
+    "yongwang_idle_02",
+    "yongwang_idle_03",
+    "yongwang_idle_04",
+    "yongwang_idle_05",
+    "yongwang_idle_06",
+    "yongwang_idle_07"
+   ],
+   "yongwang_walk": [
+    "yongwang_walk_00",
+    "yongwang_walk_01",
+    "yongwang_walk_02",
+    "yongwang_walk_03",
+    "yongwang_walk_04",
+    "yongwang_walk_05",
+    "yongwang_walk_06",
+    "yongwang_walk_07"
+   ],
+   "yongwang_punch": [
+    "yongwang_punch_00",
+    "yongwang_punch_01",
+    "yongwang_punch_02",
+    "yongwang_punch_03",
+    "yongwang_punch_04",
+    "yongwang_punch_05",
+    "yongwang_punch_06",
+    "yongwang_punch_07"
+   ]
+  }
+ }
+}

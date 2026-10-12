@@ -1,0 +1,532 @@
+{
+ "frames": {
+  "dokkabidae_idle_00": {
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_idle_01": {
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_idle_02": {
+   "frame": {
+    "x": 320,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_idle_03": {
+   "frame": {
+    "x": 480,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_idle_04": {
+   "frame": {
+    "x": 640,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_idle_05": {
+   "frame": {
+    "x": 800,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_idle_06": {
+   "frame": {
+    "x": 960,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_idle_07": {
+   "frame": {
+    "x": 1120,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_00": {
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_01": {
+   "frame": {
+    "x": 160,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_02": {
+   "frame": {
+    "x": 320,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_03": {
+   "frame": {
+    "x": 480,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_04": {
+   "frame": {
+    "x": 640,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_05": {
+   "frame": {
+    "x": 800,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_06": {
+   "frame": {
+    "x": 960,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_walk_07": {
+   "frame": {
+    "x": 1120,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_00": {
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_01": {
+   "frame": {
+    "x": 160,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_02": {
+   "frame": {
+    "x": 320,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_03": {
+   "frame": {
+    "x": 480,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_04": {
+   "frame": {
+    "x": 640,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_05": {
+   "frame": {
+    "x": 800,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_06": {
+   "frame": {
+    "x": 960,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "dokkabidae_punch_07": {
+   "frame": {
+    "x": 1120,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  }
+ },
+ "meta": {
+  "app": "game-builder/rig-characters.py",
+  "image": "dokkabidae.png",
+  "size": {
+   "w": 1280,
+   "h": 480
+  },
+  "scale": "1",
+  "pivotPx": [
+   80.0,
+   134.7
+  ],
+  "dir": "SE",
+  "frames": 8,
+  "firefly": "game-assets-src/rig/ff/dokkabidae.glb",
+  "anims": {
+   "dokkabidae_idle": [
+    "dokkabidae_idle_00",
+    "dokkabidae_idle_01",
+    "dokkabidae_idle_02",
+    "dokkabidae_idle_03",
+    "dokkabidae_idle_04",
+    "dokkabidae_idle_05",
+    "dokkabidae_idle_06",
+    "dokkabidae_idle_07"
+   ],
+   "dokkabidae_walk": [
+    "dokkabidae_walk_00",
+    "dokkabidae_walk_01",
+    "dokkabidae_walk_02",
+    "dokkabidae_walk_03",
+    "dokkabidae_walk_04",
+    "dokkabidae_walk_05",
+    "dokkabidae_walk_06",
+    "dokkabidae_walk_07"
+   ],
+   "dokkabidae_punch": [
+    "dokkabidae_punch_00",
+    "dokkabidae_punch_01",
+    "dokkabidae_punch_02",
+    "dokkabidae_punch_03",
+    "dokkabidae_punch_04",
+    "dokkabidae_punch_05",
+    "dokkabidae_punch_06",
+    "dokkabidae_punch_07"
+   ]
+  }
+ }
+}

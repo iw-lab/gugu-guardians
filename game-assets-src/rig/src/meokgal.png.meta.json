@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a living ink-stick spirit grinding ink, strong arms. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/meokgal.png",
+ "t0": 1791777413.9152799,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/meokgal.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/a578cbff-0a52-4931-9aab-dd0d3b2fcd7c",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,142,825바이트",
+ "elapsed_s": 92.6,
+ "conversation": "https://chatgpt.com/c/6acc592f-26d8-83e8-bd3f-f91b4938afef",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

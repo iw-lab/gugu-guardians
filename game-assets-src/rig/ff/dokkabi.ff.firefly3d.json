@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/dokkabi.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:89ab82c1-0708-4911-9d4b-78610f9f9949",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.10.38.glb",
+ "bytes": 2311288,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.541,
+  2.005,
+  1.976
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:13:28.009Z"
+}

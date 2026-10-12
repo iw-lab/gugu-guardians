@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/dongjaseok.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:0e07806e-9873-4797-ba5d-6f2ad7c5d5dc",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.34.04.glb",
+ "bytes": 2587488,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.569,
+  1.956,
+  2.056
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:36:56.441Z"
+}

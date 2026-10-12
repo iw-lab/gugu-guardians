@@ -1,0 +1,532 @@
+{
+ "frames": {
+  "hyeonmu_idle_00": {
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_idle_01": {
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_idle_02": {
+   "frame": {
+    "x": 320,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_idle_03": {
+   "frame": {
+    "x": 480,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_idle_04": {
+   "frame": {
+    "x": 640,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_idle_05": {
+   "frame": {
+    "x": 800,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_idle_06": {
+   "frame": {
+    "x": 960,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_idle_07": {
+   "frame": {
+    "x": 1120,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_00": {
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_01": {
+   "frame": {
+    "x": 160,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_02": {
+   "frame": {
+    "x": 320,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_03": {
+   "frame": {
+    "x": 480,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_04": {
+   "frame": {
+    "x": 640,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_05": {
+   "frame": {
+    "x": 800,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_06": {
+   "frame": {
+    "x": 960,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_walk_07": {
+   "frame": {
+    "x": 1120,
+    "y": 160,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_00": {
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_01": {
+   "frame": {
+    "x": 160,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_02": {
+   "frame": {
+    "x": 320,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_03": {
+   "frame": {
+    "x": 480,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_04": {
+   "frame": {
+    "x": 640,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_05": {
+   "frame": {
+    "x": 800,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_06": {
+   "frame": {
+    "x": 960,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  },
+  "hyeonmu_punch_07": {
+   "frame": {
+    "x": 1120,
+    "y": 320,
+    "w": 160,
+    "h": 160
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 160
+   },
+   "sourceSize": {
+    "w": 160,
+    "h": 160
+   }
+  }
+ },
+ "meta": {
+  "app": "game-builder/rig-characters.py",
+  "image": "hyeonmu.png",
+  "size": {
+   "w": 1280,
+   "h": 480
+  },
+  "scale": "1",
+  "pivotPx": [
+   80.0,
+   129.94
+  ],
+  "dir": "SE",
+  "frames": 8,
+  "firefly": "game-assets-src/rig/ff/hyeonmu.glb",
+  "anims": {
+   "hyeonmu_idle": [
+    "hyeonmu_idle_00",
+    "hyeonmu_idle_01",
+    "hyeonmu_idle_02",
+    "hyeonmu_idle_03",
+    "hyeonmu_idle_04",
+    "hyeonmu_idle_05",
+    "hyeonmu_idle_06",
+    "hyeonmu_idle_07"
+   ],
+   "hyeonmu_walk": [
+    "hyeonmu_walk_00",
+    "hyeonmu_walk_01",
+    "hyeonmu_walk_02",
+    "hyeonmu_walk_03",
+    "hyeonmu_walk_04",
+    "hyeonmu_walk_05",
+    "hyeonmu_walk_06",
+    "hyeonmu_walk_07"
+   ],
+   "hyeonmu_punch": [
+    "hyeonmu_punch_00",
+    "hyeonmu_punch_01",
+    "hyeonmu_punch_02",
+    "hyeonmu_punch_03",
+    "hyeonmu_punch_04",
+    "hyeonmu_punch_05",
+    "hyeonmu_punch_06",
+    "hyeonmu_punch_07"
+   ]
+  }
+ }
+}

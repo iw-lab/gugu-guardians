@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: the Shadow Count King boss, a tall shadow wearing a gat hat. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tal",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_boss5.png",
+ "t0": 1791784252.577858,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_boss5.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/445b3e0b-4a15-46b2-9768-4cbab8b2ea11",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 3,007,813바이트",
+ "elapsed_s": 79.7,
+ "conversation": "https://chatgpt.com/c/6acc74fd-7928-83ee-af50-e4dbc60ae46f",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/mulbangul.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:b022230e-898e-4742-8f39-a4d2b13e1612",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.17.05.glb",
+ "bytes": 2408600,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.905,
+  1.998,
+  1.692
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:19:56.093Z"
+}

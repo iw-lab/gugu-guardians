@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/chotbul.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:36a96b33-e02b-4584-9471-edd2252650ea",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.04.09.glb",
+ "bytes": 2392188,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.561,
+  1.997,
+  1.457
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:06:58.603Z"
+}

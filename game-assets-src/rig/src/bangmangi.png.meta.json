@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a living magic dokkaebi club (bangmangi) spirit. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold bla",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/bangmangi.png",
+ "t0": 1791778748.490564,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/bangmangi.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/5e6229ea-61fb-43b1-bf9d-d8d544f06fc1",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,375,101바이트",
+ "elapsed_s": 85.5,
+ "conversation": "https://chatgpt.com/c/6acc5d5a-9cc0-83ec-92aa-a205344ac397",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

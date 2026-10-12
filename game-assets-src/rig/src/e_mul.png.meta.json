@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a question-mark shaped caterpillar monster. Front view, body stretched in a gentle S curve, head up facing the viewer, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outlines, rich dancheong colors ",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_mul.png",
+ "t0": 1791780039.991943,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_mul.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/2ac27c57-4f11-4afe-8a07-c82eb18cef75",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,224,354바이트",
+ "elapsed_s": 87.7,
+ "conversation": "https://chatgpt.com/c/6acc6236-2fa4-83ec-89c0-922550dc14ce",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

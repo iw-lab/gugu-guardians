@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/kkotsin.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:3e5f56ed-c621-45d1-bdce-001833e3ad17",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.18.20.glb",
+ "bytes": 2649220,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.561,
+  1.986,
+  1.526
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:21:13.739Z"
+}

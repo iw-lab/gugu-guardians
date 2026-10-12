@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/namak.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:ab4df686-db28-41d1-9638-8ba3c94b34c4",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.57.15.glb",
+ "bytes": 2262252,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.783,
+  2.002,
+  1.696
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:00:02.619Z"
+}

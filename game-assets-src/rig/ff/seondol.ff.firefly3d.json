@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/seondol.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:0baac0a1-f90a-4386-b3ed-8a6bdf7640fd",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.11.50.glb",
+ "bytes": 2651460,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.862,
+  1.995,
+  1.942
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:14:42.482Z"
+}

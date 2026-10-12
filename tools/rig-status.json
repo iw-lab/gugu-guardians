@@ -136,5 +136,1463 @@
   "replaces": [
    "public/assets/musoe.webp"
   ]
+ },
+ "dongjaseok": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/dongjaseok.png",
+  "ts": "2026-10-12T11:33:57",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/dongjaseok.glb",
+  "glbSha": "b7b67b84b3045d13",
+  "srcSha": "622a9a2634e5acb7",
+  "atlas": "public/assets/rig/dongjaseok.png",
+  "atlasSha": "535c4e9168a8ebca",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/dongjaseok.webp"
+  ]
+ },
+ "jorongbak": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/jorongbak.png",
+  "ts": "2026-10-12T11:37:45",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/jorongbak.glb",
+  "glbSha": "f0e10bd30019dd70",
+  "srcSha": "f64e951b73bb77bf",
+  "atlas": "public/assets/rig/jorongbak.png",
+  "atlasSha": "57b72e875b561341",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/jorongbak.webp"
+  ]
+ },
+ "onggi": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/onggi.png",
+  "ts": "2026-10-12T11:40:57",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/onggi.glb",
+  "glbSha": "2c7d4005f3d65a4e",
+  "srcSha": "8a385e867d0a6e4e",
+  "atlas": "public/assets/rig/onggi.png",
+  "atlasSha": "91b073686d45e2c5",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/onggi.webp"
+  ]
+ },
+ "buttong": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/buttong.png",
+  "ts": "2026-10-12T11:44:09",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/buttong.glb",
+  "glbSha": "1b636d45ed8cb6dc",
+  "srcSha": "e4d2a3f4c45d095a",
+  "atlas": "public/assets/rig/buttong.png",
+  "atlasSha": "6191187386043a07",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/buttong.webp"
+  ]
+ },
+ "yeonip": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/yeonip.png",
+  "ts": "2026-10-12T11:47:29",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/yeonip.glb",
+  "glbSha": "b32067a739df3e36",
+  "srcSha": "11621651a417b5ac",
+  "atlas": "public/assets/rig/yeonip.png",
+  "atlasSha": "ac61d967f55fcf9e",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/yeonip.webp"
+  ]
+ },
+ "bitjaru": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/bitjaru.png",
+  "ts": "2026-10-12T11:50:41",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/bitjaru.glb",
+  "glbSha": "c6a947d4439eed29",
+  "srcSha": "f5dc3f2a5102aec1",
+  "atlas": "public/assets/rig/bitjaru.png",
+  "atlasSha": "3ace479b9e7dca79",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/bitjaru.webp"
+  ]
+ },
+ "bungbung": {
+  "ok": true,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/bungbung.png",
+  "ts": "2026-10-12T11:54:01",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/bungbung.glb",
+  "glbSha": "a4e03a63f5554008",
+  "srcSha": "0343ad6625c1b8ad",
+  "atlas": "public/assets/rig/bungbung.png",
+  "atlasSha": "2baa4ddb76362832",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/bungbung.webp"
+  ]
+ },
+ "namak": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/namak.png",
+  "ts": "2026-10-12T11:57:11",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/namak.glb",
+  "glbSha": "4302819721b2aee2",
+  "srcSha": "15e15e253d87dec0",
+  "atlas": "public/assets/rig/namak.png",
+  "atlasSha": "b8975eb3becd8b66",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/namak.webp"
+  ]
+ },
+ "ttokttak": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/ttokttak.png",
+  "ts": "2026-10-12T12:00:39",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/ttokttak.glb",
+  "glbSha": "25565a2a0a2989dc",
+  "srcSha": "1a051aba442f42d8",
+  "atlas": "public/assets/rig/ttokttak.png",
+  "atlasSha": "f407cf7a359b9935",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/ttokttak.webp"
+  ]
+ },
+ "chotbul": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/chotbul.png",
+  "ts": "2026-10-12T12:04:05",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/chotbul.glb",
+  "glbSha": "d6281752f0fa47d0",
+  "srcSha": "566034f4f213c121",
+  "atlas": "public/assets/rig/chotbul.png",
+  "atlasSha": "c5c0e73bb31da38e",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/chotbul.webp"
+  ]
+ },
+ "dolhareubang": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/dolhareubang.png",
+  "ts": "2026-10-12T12:07:22",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/dolhareubang.glb",
+  "glbSha": "6de1ba3790e2f007",
+  "srcSha": "64a56c55e1494efa",
+  "atlas": "public/assets/rig/dolhareubang.png",
+  "atlasSha": "e016efb90ea1d6b4",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/dolhareubang.webp"
+  ]
+ },
+ "dokkabi": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/dokkabi.png",
+  "ts": "2026-10-12T12:10:35",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/dokkabi.glb",
+  "glbSha": "1c9e7897b30eb632",
+  "srcSha": "c06381c9968634d8",
+  "atlas": "public/assets/rig/dokkabi.png",
+  "atlasSha": "4b91202db2d069e2",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/dokkabi.webp"
+  ]
+ },
+ "sotdu": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/sotdu.png",
+  "ts": "2026-10-12T12:13:49",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/sotdu.glb",
+  "glbSha": "0e096b33c7b17cf1",
+  "srcSha": "6522968b7f22cf3a",
+  "atlas": "public/assets/rig/sotdu.png",
+  "atlasSha": "2e640a42c7f4811f",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/sotdu.webp"
+  ]
+ },
+ "mulbangul": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/mulbangul.png",
+  "ts": "2026-10-12T12:17:02",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/mulbangul.glb",
+  "glbSha": "e238be2d0d7586e8",
+  "srcSha": "954f53f6e96fdb30",
+  "atlas": "public/assets/rig/mulbangul.png",
+  "atlasSha": "51758f54fd263c52",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/mulbangul.webp"
+  ]
+ },
+ "chorong": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/chorong.png",
+  "ts": "2026-10-12T12:20:13",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/chorong.glb",
+  "glbSha": "45e2ab163961051b",
+  "srcSha": "9b4c35d95e9c41fc",
+  "atlas": "public/assets/rig/chorong.png",
+  "atlasSha": "1a28a0fdfc0036bc",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/chorong.webp"
+  ]
+ },
+ "kkwaenggwari": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/kkwaenggwari.png",
+  "ts": "2026-10-12T12:23:18",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/kkwaenggwari.glb",
+  "glbSha": "079ef3043932fa59",
+  "srcSha": "ff750252c47588f5",
+  "atlas": "public/assets/rig/kkwaenggwari.png",
+  "atlasSha": "7ce3bbef4435ff05",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/kkwaenggwari.webp"
+  ]
+ },
+ "butdaegam": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/butdaegam.png",
+  "ts": "2026-10-12T12:26:33",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/butdaegam.glb",
+  "glbSha": "b615684e77153f3c",
+  "srcSha": "87b7c33298242f7b",
+  "atlas": "public/assets/rig/butdaegam.png",
+  "atlasSha": "b555563b0284c341",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/butdaegam.webp"
+  ]
+ },
+ "talchum": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/talchum.png",
+  "ts": "2026-10-12T12:29:48",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/talchum.glb",
+  "glbSha": "0553984ac20ed0db",
+  "srcSha": "262ef06f439c7e87",
+  "atlas": "public/assets/rig/talchum.png",
+  "atlasSha": "5a31c8c1808f5554",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/talchum.webp"
+  ]
+ },
+ "haetae": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/haetae.png",
+  "ts": "2026-10-12T12:33:03",
+  "amp": "0.6",
+  "glb": "game-assets-src/rig/ff/haetae.glb",
+  "glbSha": "aa79a39dd00d2350",
+  "srcSha": "9bc55076f54f6104",
+  "atlas": "public/assets/rig/haetae.png",
+  "atlasSha": "21bb18eacd1e1217",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/haetae.webp"
+  ]
+ },
+ "bulgasari": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/bulgasari.png",
+  "ts": "2026-10-12T12:36:19",
+  "amp": "0.6",
+  "glb": "game-assets-src/rig/ff/bulgasari.glb",
+  "glbSha": "edb09a90002e985d",
+  "srcSha": "6e3c4ebc82f52719",
+  "atlas": "public/assets/rig/bulgasari.png",
+  "atlasSha": "604096716ea2434c",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/bulgasari.webp"
+  ]
+ },
+ "seonnyeo": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/seonnyeo.png",
+  "ts": "2026-10-12T12:39:38",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/seonnyeo.glb",
+  "glbSha": "b8cda02cf535c160",
+  "srcSha": "3c6efeade5154e97",
+  "atlas": "public/assets/rig/seonnyeo.png",
+  "atlasSha": "9cf746482a68205d",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/seonnyeo.webp"
+  ]
+ },
+ "cheongryong": {
+  "ok": true,
+  "shape": "worm",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/cheongryong.png",
+  "ts": "2026-10-12T12:43:11",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/cheongryong.glb",
+  "glbSha": "971b12c69cffd6b2",
+  "srcSha": "4bcc42697b72071d",
+  "atlas": "public/assets/rig/cheongryong.png",
+  "atlasSha": "5a31935ae9c7f9bd",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/cheongryong.webp"
+  ]
+ },
+ "jangseung": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/jangseung.png",
+  "ts": "2026-10-12T12:46:37",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/jangseung.glb",
+  "glbSha": "0a68ce245ef9a84e",
+  "srcSha": "91842499dfa8c621",
+  "atlas": "public/assets/rig/jangseung.png",
+  "atlasSha": "252c30a23762a493",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/jangseung.webp"
+  ]
+ },
+ "dokkabidae": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/dokkabidae.png",
+  "ts": "2026-10-12T12:50:03",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/dokkabidae.glb",
+  "glbSha": "655faba968114743",
+  "srcSha": "0fdee4017e57a85d",
+  "atlas": "public/assets/rig/dokkabidae.png",
+  "atlasSha": "de6b86b89902e8a8",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/dokkabidae.webp"
+  ]
+ },
+ "hyeonmu": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/hyeonmu.png",
+  "ts": "2026-10-12T12:53:32",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/hyeonmu.glb",
+  "glbSha": "4abc487c0decfa51",
+  "srcSha": "9c211159d13e64ad",
+  "atlas": "public/assets/rig/hyeonmu.png",
+  "atlasSha": "31d5c411bd749544",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/hyeonmu.webp"
+  ]
+ },
+ "bulgae": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/bulgae.png",
+  "ts": "2026-10-12T12:56:02",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/bulgae.glb",
+  "glbSha": "909a30d5c888ccd5",
+  "srcSha": "e262c8dfaaa23ea0",
+  "atlas": "public/assets/rig/bulgae.png",
+  "atlasSha": "946dc22321f86ff2",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/bulgae.webp"
+  ]
+ },
+ "jujak": {
+  "ok": true,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/jujak.png",
+  "ts": "2026-10-12T12:59:50",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/jujak.glb",
+  "glbSha": "3e8a7a4a730e9713",
+  "srcSha": "d4a7549141984370",
+  "atlas": "public/assets/rig/jujak.png",
+  "atlasSha": "deecbbb95f50f653",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/jujak.webp"
+  ]
+ },
+ "eosa": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/eosa.png",
+  "ts": "2026-10-12T13:01:26",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/eosa.glb",
+  "glbSha": "5f03cc02249b1f4b",
+  "srcSha": "ffd2855d58d68e8b",
+  "atlas": "public/assets/rig/eosa.png",
+  "atlasSha": "c2e686122b68b127",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/eosa.webp"
+  ]
+ },
+ "gumiho": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/gumiho.png",
+  "ts": "2026-10-12T13:04:50",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/gumiho.glb",
+  "glbSha": "94753b357edeb3bd",
+  "srcSha": "7e4bf862f352b9fd",
+  "atlas": "public/assets/rig/gumiho.png",
+  "atlasSha": "3c7ae9b8804fec47",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/gumiho.webp"
+  ]
+ },
+ "cheollima": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/cheollima.png",
+  "ts": "2026-10-12T13:08:13",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/cheollima.glb",
+  "glbSha": "026685e95a6fce91",
+  "srcSha": "8e5da8b9f234e6cf",
+  "atlas": "public/assets/rig/cheollima.png",
+  "atlasSha": "dffc7f2fba547d18",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/cheollima.webp"
+  ]
+ },
+ "seondol": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/seondol.png",
+  "ts": "2026-10-12T13:11:45",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/seondol.glb",
+  "glbSha": "9f4317505f06515a",
+  "srcSha": "f690dc689400cad5",
+  "atlas": "public/assets/rig/seondol.png",
+  "atlasSha": "e0cbc63331538945",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/seondol.webp"
+  ]
+ },
+ "yongwang": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/yongwang.png",
+  "ts": "2026-10-12T13:15:07",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/yongwang.glb",
+  "glbSha": "610370f078d7ff32",
+  "srcSha": "c964d788d8c7c075",
+  "atlas": "public/assets/rig/yongwang.png",
+  "atlasSha": "bedb0ee44ad2ad1b",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/yongwang.webp"
+  ]
+ },
+ "kkotsin": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/kkotsin.png",
+  "ts": "2026-10-12T13:18:17",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/kkotsin.glb",
+  "glbSha": "c3e47c3d1584c103",
+  "srcSha": "e179b01a567f7990",
+  "atlas": "public/assets/rig/kkotsin.png",
+  "atlasSha": "25d4e83817773cef",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/kkotsin.webp"
+  ]
+ },
+ "jangdok": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/jangdok.png",
+  "ts": "2026-10-12T13:21:35",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/jangdok.glb",
+  "glbSha": "fbbbbd4fba2eb7b9",
+  "srcSha": "e663d74b50890b5a",
+  "atlas": "public/assets/rig/jangdok.png",
+  "atlasSha": "23f707129934a7b3",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/jangdok.webp"
+  ]
+ },
+ "dotjari": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/dotjari.png",
+  "ts": "2026-10-12T13:24:35",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/dotjari.glb",
+  "glbSha": "98717f4aed2a3414",
+  "srcSha": "cb4f8efae31ed557",
+  "atlas": "public/assets/rig/dotjari.png",
+  "atlasSha": "a1f56caf25b8c8de",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/dotjari.webp"
+  ]
+ },
+ "buchae": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/buchae.png",
+  "ts": "2026-10-12T13:27:34",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/buchae.glb",
+  "glbSha": "c0b2a659924d2124",
+  "srcSha": "d58b9c19a87bb839",
+  "atlas": "public/assets/rig/buchae.png",
+  "atlasSha": "cd9f259dc0365a3b",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/buchae.webp"
+  ]
+ },
+ "bokjori": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/bokjori.png",
+  "ts": "2026-10-12T13:30:35",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/bokjori.glb",
+  "glbSha": "1ac27306a2549208",
+  "srcSha": "29857d227c7ce394",
+  "atlas": "public/assets/rig/bokjori.png",
+  "atlasSha": "fed82c2599388e01",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/bokjori.webp"
+  ]
+ },
+ "sotdae": {
+  "ok": true,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/sotdae.png",
+  "ts": "2026-10-12T13:33:29",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/sotdae.glb",
+  "glbSha": "1728276b7fd46d62",
+  "srcSha": "e989272c8f182c67",
+  "atlas": "public/assets/rig/sotdae.png",
+  "atlasSha": "e3394e1ec6d65349",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/sotdae.webp"
+  ]
+ },
+ "garakji": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/garakji.png",
+  "ts": "2026-10-12T13:36:27",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/garakji.glb",
+  "glbSha": "0daffa81cf6e93f1",
+  "srcSha": "f17629d1f1cda3c5",
+  "atlas": "public/assets/rig/garakji.png",
+  "atlasSha": "039c92ff3dc98420",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/garakji.webp"
+  ]
+ },
+ "meokgal": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/meokgal.png",
+  "ts": "2026-10-12T13:39:31",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/meokgal.glb",
+  "glbSha": "17583b16ca36e7dd",
+  "srcSha": "cc35fe6e14ef81cd",
+  "atlas": "public/assets/rig/meokgal.png",
+  "atlasSha": "d3a4c27f033834d8",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/meokgal.webp"
+  ]
+ },
+ "baragi": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/baragi.png",
+  "ts": "2026-10-12T13:42:50",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/baragi.glb",
+  "glbSha": "bde5fb4e9da394f8",
+  "srcSha": "98b8e89db7240d53",
+  "atlas": "public/assets/rig/baragi.png",
+  "atlasSha": "ee602a4b4c6d367b",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/baragi.webp"
+  ]
+ },
+ "dwiju": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/dwiju.png",
+  "ts": "2026-10-12T13:46:15",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/dwiju.glb",
+  "glbSha": "bdc9f138cb6368bf",
+  "srcSha": "90d155c883a82c55",
+  "atlas": "public/assets/rig/dwiju.png",
+  "atlasSha": "6bda303ec5a1cf29",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/dwiju.webp"
+  ]
+ },
+ "jangmyeong": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/jangmyeong.png",
+  "ts": "2026-10-12T14:40:51",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  21s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  21s] [1/1] jangmyeong.png → jangmyeong.ff.glb\n[  70s]    「이미지를 3D로」 메뉴 없음\n[  70s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  99s]    드롭 재시도\n[ 170s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 170s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "hwangso": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/hwangso.png",
+  "ts": "2026-10-12T13:55:39",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/hwangso.glb",
+  "glbSha": "e6dd9762cd76518b",
+  "srcSha": "aad267c251bea36a",
+  "atlas": "public/assets/rig/hwangso.png",
+  "atlasSha": "39833fc5af0fc8b3",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/hwangso.webp"
+  ]
+ },
+ "jokduri": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/jokduri.png",
+  "ts": "2026-10-12T13:58:39",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/jokduri.glb",
+  "glbSha": "c5fc67c2d5266853",
+  "srcSha": "25e1f5b8f189f184",
+  "atlas": "public/assets/rig/jokduri.png",
+  "atlasSha": "edde4e66c8d6931d",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/jokduri.webp"
+  ]
+ },
+ "kkachiho": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/kkachiho.png",
+  "ts": "2026-10-12T14:01:39",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/kkachiho.glb",
+  "glbSha": "7857cb603d14c8c8",
+  "srcSha": "8e491685555e904e",
+  "atlas": "public/assets/rig/kkachiho.png",
+  "atlasSha": "b539ccb3525f728b",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/kkachiho.webp"
+  ]
+ },
+ "seolmun": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/seolmun.png",
+  "ts": "2026-10-12T14:04:39",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/seolmun.glb",
+  "glbSha": "62bcecbe19630494",
+  "srcSha": "a8b29b05868a8ad2",
+  "atlas": "public/assets/rig/seolmun.png",
+  "atlasSha": "7b65ed02098685db",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/seolmun.webp"
+  ]
+ },
+ "gwimyeon": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/gwimyeon.png",
+  "ts": "2026-10-12T14:08:07",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/gwimyeon.glb",
+  "glbSha": "1e95e55c8c936924",
+  "srcSha": "6da5ce29c2330ee0",
+  "atlas": "public/assets/rig/gwimyeon.png",
+  "atlasSha": "c690ee9aee8f05c3",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/gwimyeon.webp"
+  ]
+ },
+ "bangmangi": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/bangmangi.png",
+  "ts": "2026-10-12T14:11:20",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/bangmangi.glb",
+  "glbSha": "5812a2b4855e1f49",
+  "srcSha": "00fb92baa8b688e3",
+  "atlas": "public/assets/rig/bangmangi.png",
+  "atlasSha": "6193d8357ead1737",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/bangmangi.webp"
+  ]
+ },
+ "sinseon": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/sinseon.png",
+  "ts": "2026-10-12T14:14:41",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/sinseon.glb",
+  "glbSha": "d53f3380ea0d6171",
+  "srcSha": "cef4f715b1579853",
+  "atlas": "public/assets/rig/sinseon.png",
+  "atlasSha": "ce125c8406afeed7",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/sinseon.webp"
+  ]
+ },
+ "geumgang": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/geumgang.png",
+  "ts": "2026-10-12T14:18:13",
+  "srcSha": "093be71d739d2bc0",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/geumgang.glb",
+  "glbSha": "54bd4288f92bc0ad",
+  "atlas": "public/assets/rig/geumgang.png",
+  "atlasSha": "31338f1ec967ea3c",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/geumgang.webp"
+  ]
+ },
+ "samsin": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/samsin.png",
+  "ts": "2026-10-12T14:43:42",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   0s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] samsin.png → samsin.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_swarm": {
+  "ok": false,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_swarm.png",
+  "ts": "2026-10-12T14:46:27",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_swarm.png → e_swarm.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_zero": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_zero.png",
+  "ts": "2026-10-12T14:49:12",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_zero.png → e_zero.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_bat": {
+  "ok": false,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_bat.png",
+  "ts": "2026-10-12T14:51:58",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_bat.png → e_bat.ff.glb\n[  67s]    「이미지를 3D로」 메뉴 없음\n[  67s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  95s]    드롭 재시도\n[ 166s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 166s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_splitlet": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_splitlet.png",
+  "ts": "2026-10-12T14:54:45",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_splitlet.png → e_splitlet.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_arch": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_arch.png",
+  "ts": "2026-10-12T14:57:30",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   0s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_arch.png → e_arch.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_mul": {
+  "ok": false,
+  "shape": "worm",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_mul.png",
+  "ts": "2026-10-12T15:00:16",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_mul.png → e_mul.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_dash": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_dash.png",
+  "ts": "2026-10-12T15:03:01",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_dash.png → e_dash.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_minus": {
+  "ok": false,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_minus.png",
+  "ts": "2026-10-12T15:05:46",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_minus.png → e_minus.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_split": {
+  "ok": false,
+  "shape": "worm",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_split.png",
+  "ts": "2026-10-12T15:08:32",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_split.png → e_split.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_sky": {
+  "ok": false,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_sky.png",
+  "ts": "2026-10-12T15:11:18",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_sky.png → e_sky.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_drum": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_drum.png",
+  "ts": "2026-10-12T15:14:04",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_drum.png → e_drum.ff.glb\n[  68s]    「이미지를 3D로」 메뉴 없음\n[  68s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  96s]    드롭 재시도\n[ 167s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 167s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_knot": {
+  "ok": false,
+  "shape": "worm",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_knot.png",
+  "ts": "2026-10-12T15:16:52",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   0s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_knot.png → e_knot.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_ghost": {
+  "ok": false,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_ghost.png",
+  "ts": "2026-10-12T15:19:38",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_ghost.png → e_ghost.ff.glb\n[  66s]    「이미지를 3D로」 메뉴 없음\n[  66s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_armor": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_armor.png",
+  "ts": "2026-10-12T15:22:24",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_armor.png → e_armor.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_thorn": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_thorn.png",
+  "ts": "2026-10-12T15:25:10",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_thorn.png → e_thorn.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_rock": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_rock.png",
+  "ts": "2026-10-12T15:27:56",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_rock.png → e_rock.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_shield": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_shield.png",
+  "ts": "2026-10-12T15:30:41",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_shield.png → e_shield.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_boss": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_boss.png",
+  "ts": "2026-10-12T15:33:27",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_boss.png → e_boss.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_boss2": {
+  "ok": false,
+  "shape": "worm",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_boss2.png",
+  "ts": "2026-10-12T15:36:12",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_boss2.png → e_boss2.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+ },
+ "e_boss3": {
+  "ok": false,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_boss3.png",
+  "ts": "2026-10-12T15:38:57",
+  "why": "Firefly 3D(img3d.py) 실패",
+  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_boss3.png → e_boss3.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
  }
 }

@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/jujak.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:fd9f2834-40cd-4d2f-a4ab-e4cb63db9698",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.59.55.glb",
+ "bytes": 2305292,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.288,
+  1.669,
+  2.099
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:00:54.256Z"
+}

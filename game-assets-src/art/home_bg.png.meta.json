@@ -1,0 +1,14 @@
+{
+ "prompt": "Generate an image (wide landscape 16:9 image): Wide 16:9 key art background for a Korean folk-painting (minhwa) styled children's math defense game. A grand Korean fortress gate with dancheong painted eaves on the left, glowing golden multiplication numbers drifting in the sky like lanterns, cute guardian spirits (haetae, magpie, dokkaebi with club, white tiger) standing proudly on the castle wall",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/art/home_bg.png",
+ "t0": 1791784528.775172,
+ "w": 1672,
+ "h": 941,
+ "src": "blob:https://chatgpt.com/dabc377b-244b-4804-a651-1b92a82ae2c9",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1672x941 · 3,845,974바이트",
+ "elapsed_s": 114.6,
+ "conversation": "https://chatgpt.com/c/6acc7665-614c-83ee-a786-0ffcfd8fabce",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

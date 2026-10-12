@@ -10,17 +10,17 @@
     },
     {
       "key": "bangmangi",
-      "path": "assets/bangmangi.webp",
+      "path": "assets/rig/card/bangmangi.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "baragi",
-      "path": "assets/baragi.webp",
+      "path": "assets/rig/card/baragi.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "bg_cave",
@@ -66,59 +66,59 @@
     },
     {
       "key": "bitjaru",
-      "path": "assets/bitjaru.webp",
+      "path": "assets/rig/card/bitjaru.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "bokjori",
-      "path": "assets/bokjori.webp",
+      "path": "assets/rig/card/bokjori.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "buchae",
-      "path": "assets/buchae.webp",
+      "path": "assets/rig/card/buchae.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "bulgae",
-      "path": "assets/bulgae.webp",
+      "path": "assets/rig/card/bulgae.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "bulgasari",
-      "path": "assets/bulgasari.webp",
+      "path": "assets/rig/card/bulgasari.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "bungbung",
-      "path": "assets/bungbung.webp",
+      "path": "assets/rig/card/bungbung.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "butdaegam",
-      "path": "assets/butdaegam.webp",
+      "path": "assets/rig/card/butdaegam.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "buttong",
-      "path": "assets/buttong.webp",
+      "path": "assets/rig/card/buttong.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "castle_ally",
@@ -136,31 +136,31 @@
     },
     {
       "key": "cheollima",
-      "path": "assets/cheollima.webp",
+      "path": "assets/rig/card/cheollima.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "cheongryong",
-      "path": "assets/cheongryong.webp",
+      "path": "assets/rig/card/cheongryong.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "chorong",
-      "path": "assets/chorong.webp",
+      "path": "assets/rig/card/chorong.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "chotbul",
-      "path": "assets/chotbul.webp",
+      "path": "assets/rig/card/chotbul.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "crest_haetae",
@@ -171,45 +171,45 @@
     },
     {
       "key": "dokkabi",
-      "path": "assets/dokkabi.webp",
+      "path": "assets/rig/card/dokkabi.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "dokkabidae",
-      "path": "assets/dokkabidae.webp",
+      "path": "assets/rig/card/dokkabidae.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "dolhareubang",
-      "path": "assets/dolhareubang.webp",
+      "path": "assets/rig/card/dolhareubang.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "dongjaseok",
-      "path": "assets/dongjaseok.webp",
+      "path": "assets/rig/card/dongjaseok.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "dotjari",
-      "path": "assets/dotjari.webp",
+      "path": "assets/rig/card/dotjari.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "dwiju",
-      "path": "assets/dwiju.webp",
+      "path": "assets/rig/card/dwiju.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "e_abacus",
@@ -444,66 +444,66 @@
     },
     {
       "key": "eosa",
-      "path": "assets/eosa.webp",
+      "path": "assets/rig/card/eosa.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "garakji",
-      "path": "assets/garakji.webp",
+      "path": "assets/rig/card/garakji.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "geumgang",
-      "path": "assets/geumgang.webp",
+      "path": "assets/rig/card/geumgang.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "gumiho",
-      "path": "assets/gumiho.webp",
+      "path": "assets/rig/card/gumiho.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "gwimyeon",
-      "path": "assets/gwimyeon.webp",
+      "path": "assets/rig/card/gwimyeon.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "haetae",
-      "path": "assets/haetae.webp",
+      "path": "assets/rig/card/haetae.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "hwangso",
-      "path": "assets/hwangso.webp",
+      "path": "assets/rig/card/hwangso.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "hyeonmu",
-      "path": "assets/hyeonmu.webp",
+      "path": "assets/rig/card/hyeonmu.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "jangdok",
-      "path": "assets/jangdok.webp",
+      "path": "assets/rig/card/jangdok.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "jangmyeong",
@@ -514,10 +514,10 @@
     },
     {
       "key": "jangseung",
-      "path": "assets/jangseung.webp",
+      "path": "assets/rig/card/jangseung.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "jipsin",
@@ -528,24 +528,24 @@
     },
     {
       "key": "jokduri",
-      "path": "assets/jokduri.webp",
+      "path": "assets/rig/card/jokduri.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "jorongbak",
-      "path": "assets/jorongbak.webp",
+      "path": "assets/rig/card/jorongbak.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "jujak",
-      "path": "assets/jujak.webp",
+      "path": "assets/rig/card/jujak.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "kkachi",
@@ -556,59 +556,59 @@
     },
     {
       "key": "kkachiho",
-      "path": "assets/kkachiho.webp",
+      "path": "assets/rig/card/kkachiho.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "kkotsin",
-      "path": "assets/kkotsin.webp",
+      "path": "assets/rig/card/kkotsin.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "kkwaenggwari",
-      "path": "assets/kkwaenggwari.webp",
+      "path": "assets/rig/card/kkwaenggwari.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "meokgal",
-      "path": "assets/meokgal.webp",
+      "path": "assets/rig/card/meokgal.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "mulbangul",
-      "path": "assets/mulbangul.webp",
+      "path": "assets/rig/card/mulbangul.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "musoe",
-      "path": "assets/musoe.webp",
+      "path": "assets/rig/card/musoe.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "namak",
-      "path": "assets/namak.webp",
+      "path": "assets/rig/card/namak.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "onggi",
-      "path": "assets/onggi.webp",
+      "path": "assets/rig/card/onggi.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "samjogo",
@@ -626,80 +626,87 @@
     },
     {
       "key": "sansin",
-      "path": "assets/sansin.webp",
+      "path": "assets/rig/card/sansin.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "seolmun",
-      "path": "assets/seolmun.webp",
+      "path": "assets/rig/card/seolmun.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "seondol",
-      "path": "assets/seondol.webp",
+      "path": "assets/rig/card/seondol.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "seonnyeo",
-      "path": "assets/seonnyeo.webp",
+      "path": "assets/rig/card/seonnyeo.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "sinseon",
-      "path": "assets/sinseon.webp",
+      "path": "assets/rig/card/sinseon.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "sotdae",
-      "path": "assets/sotdae.webp",
+      "path": "assets/rig/card/sotdae.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "sotdu",
-      "path": "assets/sotdu.webp",
+      "path": "assets/rig/card/sotdu.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "talchum",
-      "path": "assets/talchum.webp",
+      "path": "assets/rig/card/talchum.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "ttokttak",
-      "path": "assets/ttokttak.webp",
+      "path": "assets/rig/card/ttokttak.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "yeonip",
-      "path": "assets/yeonip.webp",
+      "path": "assets/rig/card/yeonip.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
     },
     {
       "key": "yongwang",
-      "path": "assets/yongwang.webp",
+      "path": "assets/rig/card/yongwang.webp",
       "kind": "unit",
       "origin": "ai",
-      "license": "Meta AI 생성 · 프로젝트 내 사용. 핵심 IP는 상용화 전 인간 디자이너 최종화 필요"
+      "license": "GPT 웹앱 원화 → Adobe Firefly 3D → 자체 뼈대(game-builder rig-characters) · 프로젝트 내 사용"
+    },
+    {
+      "key": "home_bg",
+      "path": "assets/home_bg.webp",
+      "kind": "bg",
+      "origin": "ai",
+      "license": "GPT 웹앱 생성(game-builder gb-image) · 프로젝트 내 사용"
     }
   ]
 }

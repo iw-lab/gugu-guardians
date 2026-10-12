@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a round zero-shaped ghost goblin, hollow middle. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold bla",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_zero.png",
+ "t0": 1791779659.340645,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_zero.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/e3d3cd97-ea06-4942-973f-8de1f9c2171a",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,168,574바이트",
+ "elapsed_s": 77.0,
+ "conversation": "https://chatgpt.com/c/6acc6236-2fa4-83ec-89c0-922550dc14ce",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

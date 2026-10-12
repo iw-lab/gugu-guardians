@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/dotjari.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:3a3623ef-cf68-4095-9c2c-8c5ba890d5f3",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.24.38.glb",
+ "bytes": 2951204,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.99,
+  1.995,
+  1.655
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:27:26.702Z"
+}

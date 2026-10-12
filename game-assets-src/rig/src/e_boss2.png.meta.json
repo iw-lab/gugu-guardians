@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: the Ten-Knot King boss, a huge serpent tied in ten knots. Front view, body stretched in a gentle S curve, head up facing the viewer, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bold black ink outlines, rich dan",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_boss2.png",
+ "t0": 1791782120.576125,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/e_boss2.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/1c954d52-3fa6-461f-8dce-46cc0457db65",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,570,264바이트",
+ "elapsed_s": 86.1,
+ "conversation": "https://chatgpt.com/c/6acc6b88-451c-83ee-bb83-2f601e81e301",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

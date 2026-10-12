@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/ttokttak.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:c39e3192-3b1d-41c8-8fb3-92e2454dbfc4",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.00.46.glb",
+ "bytes": 2058724,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.12,
+  1.998,
+  2.067
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:03:34.974Z"
+}

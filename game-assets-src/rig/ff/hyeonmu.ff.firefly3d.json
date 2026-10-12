@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/hyeonmu.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:07b7c9f6-aa35-4605-ad3e-145255b19aee",
+ "exportedName": "제목 없음 - 2026년 10월 12일 12.53.38.glb",
+ "bytes": 2402716,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  2.014,
+  1.602,
+  1.488
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T03:54:40.824Z"
+}

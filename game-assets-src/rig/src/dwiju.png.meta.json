@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a living wooden rice chest (dwiju) guardian, thick and boxy. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tal",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/dwiju.png",
+ "t0": 1791777599.006814,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/dwiju.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/e323d38e-4903-48e0-8415-053ed7f05b32",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,378,411바이트",
+ "elapsed_s": 89.1,
+ "conversation": "https://chatgpt.com/c/6acc592f-26d8-83e8-bd3f-f91b4938afef",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

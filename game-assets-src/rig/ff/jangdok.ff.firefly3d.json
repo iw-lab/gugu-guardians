@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/jangdok.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:8be4493d-daf8-4eae-9676-c5438ac2f71c",
+ "exportedName": "제목 없음 - 2026년 10월 12일 13.21.39.glb",
+ "bytes": 2180880,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.174,
+  1.743,
+  1.986
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T04:24:24.709Z"
+}

@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: the folk-painting tiger with a magpie on its head (kkachi-horangi), funny face. Front view, standing on four legs, body facing the viewer, legs clearly separated, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about 3 heads tall), bol",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/kkachiho.png",
+ "t0": 1791778443.01379,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/kkachiho.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/e70f6447-9366-42de-9219-da1c4f7192b2",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,384,732바이트",
+ "elapsed_s": 88.0,
+ "conversation": "https://chatgpt.com/c/6acc5d5a-9cc0-83ec-92aa-a205344ac397",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}

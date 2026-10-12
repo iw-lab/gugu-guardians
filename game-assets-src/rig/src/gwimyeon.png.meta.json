@@ -1,0 +1,17 @@
+{
+ "prompt": "Generate an image (square 1:1 image): Full-body character design for a Korean folk-painting (minhwa) styled children's game: a living goblin-face roof tile (gwimyeonwa) guardian with stubby limbs. Front view, standing upright in a T-pose with arms (or stubby limbs) stretched out horizontally, legs apart, symmetric, the whole body visible from head to toe with margin, cute chibi proportions (about ",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/gwimyeon.png",
+ "t0": 1791778630.86749,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/ref/gwimyeon.png"
+ ],
+ "w": 1254,
+ "h": 1254,
+ "src": "blob:https://chatgpt.com/4f9b9040-3b68-41f6-944c-25b8ef99c26d",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1254x1254 · 2,840,438바이트",
+ "elapsed_s": 109.6,
+ "conversation": "https://chatgpt.com/c/6acc5d5a-9cc0-83ec-92aa-a205344ac397",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}
