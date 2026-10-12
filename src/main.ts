@@ -202,6 +202,13 @@ function syncRotate(): void {
   rotate.hidden = window.innerWidth >= window.innerHeight || currentScreen !== 'battle';
 }
 window.addEventListener('resize', syncRotate);
+// 큰 화면(PC 1920·전자칠판 4K) — 글자·단추·카드를 화면에 비례해 키운다(CSS 의 zoom: var(--k)). 1280×720 이하는 1.
+function syncScale(): void {
+  const k = Math.max(1, Math.min(3, Math.min(window.innerWidth / 1280, window.innerHeight / 720)));
+  document.documentElement.style.setProperty('--k', k.toFixed(3));
+}
+window.addEventListener('resize', syncScale);
+syncScale();
 window.addEventListener('orientationchange', syncRotate);
 syncRotate();
 

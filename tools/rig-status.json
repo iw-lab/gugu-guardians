@@ -46,18 +46,27 @@
   ]
  },
  "sansin": {
-  "ok": false,
-  "shape": "human",
+  "ok": true,
+  "shape": "biped",
   "actions": [
    "idle",
    "walk",
-   "attack"
+   "punch"
   ],
   "dir": "SE",
   "src": "game-assets-src/rig/src/sansin.png",
-  "ts": "2026-10-12T11:17:30",
-  "why": "뼈대(creature) 게이트 FAIL",
-  "log": "0°\n[bl] attack 오른손 이동 0.250 m (키의 14%)\n[bl] 리그 rig.glb — 뼈 14 · 액션 ['idle', 'walk', 'attack'] · 정점 4937 · 2086KB\n❌ [gate] 오른손 높이 0.29 가 팔 띠 0.02~0.25 밖 — 팔이 아닌 것(귀·모자챙)을 팔로 읽었다\n❌ [gate] 랜드마크 순서가 사람형이 아니다 {'H': np.float64(1.8), 'crotch': np.float64(0.011), 'shoulder': np.float64(0.253), 'neck': np.float64(0.799), 'legX': 0.177, 'shoulderX': 0.232, 'handL': [0.762, -0.05, 0.155], 'handR': [-0.376, 0.009, 0.293]}\n❌ [gate] walk 발이 엇갈리지 않는다(f6 L-R -0.199 · f18 0.083, 기준 ±0.144) — 다리 회전축·웨이트\n❌ [gate] FAIL 3건 — 리포트 /Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/work/sansin/rig.json\n"
+  "ts": "2026-10-12T11:30:06",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/sansin.glb",
+  "glbSha": "c5ad5cc8bd6bed74",
+  "srcSha": "cdab58cfe0f7e7a6",
+  "atlas": "public/assets/rig/sansin.png",
+  "atlasSha": "e521d944359a4641",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/sansin.webp"
+  ]
  },
  "jipsin": {
   "ok": true,
@@ -80,6 +89,52 @@
   "size": 160,
   "replaces": [
    "public/assets/jipsin.webp"
+  ]
+ },
+ "kkachi": {
+  "ok": true,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/kkachi.png",
+  "ts": "2026-10-12T11:23:42",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/kkachi.glb",
+  "glbSha": "52d20c796267adbe",
+  "srcSha": "f62c85c722acb766",
+  "atlas": "public/assets/rig/kkachi.png",
+  "atlasSha": "0d844a6fddd0e2c1",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/kkachi.webp"
+  ]
+ },
+ "musoe": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SE",
+  "src": "game-assets-src/rig/src/musoe.png",
+  "ts": "2026-10-12T11:26:57",
+  "amp": "0.6",
+  "glb": "game-assets-src/rig/ff/musoe.glb",
+  "glbSha": "013875e73b320bc4",
+  "srcSha": "38b85b50fcdd7be4",
+  "atlas": "public/assets/rig/musoe.png",
+  "atlasSha": "c4ebccecfc680d0f",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/musoe.webp"
   ]
  }
 }

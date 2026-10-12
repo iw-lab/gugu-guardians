@@ -66,6 +66,8 @@ export class FieldRenderer {
   private dpr = 1;
   private w = 0;
   private h = 0;
+  /** 큰 화면 배율(1 이상) — resize 참고 */
+  private K = 1;
   shakeUntil = 0;
   private shakeMag = 0;
 
@@ -82,11 +84,15 @@ export class FieldRenderer {
     const r = this.canvas.getBoundingClientRect();
     // 저사양 기기에서 DPR 2 이상은 픽셀을 4배로 늘려 프레임을 먹는다 → 1.5로 캡
     this.dpr = Math.min(this.opts.lowSpec ? 1 : 1.5, globalThis.devicePixelRatio || 1);
-    this.w = Math.max(1, Math.floor(r.width));
-    this.h = Math.max(1, Math.floor(r.height));
-    this.canvas.width = Math.floor(this.w * this.dpr);
-    this.canvas.height = Math.floor(this.h * this.dpr);
-    this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    // 🔴 큰 화면(PC 1920·전자칠판 4K) 배율 — 그리기 좌표는 «1280×480 급 논리 화면»으로 두고 변환 하나로 키운다.
+    //    예전엔 화면이 커져도 유닛·성·글자가 고정 px 라 4K 칠판에서 개미만 했다(v2.0 실측: 전장 3840×1858 에 유닛 키 ~100px).
+    //    좌표계 하나만 바꾸므로 그리기 코드·castleBox 계산·field-geometry 시험은 손대지 않는다.
+    this.K = Math.max(1, Math.min(r.width / 1280, r.height / 480));
+    this.w = Math.max(1, Math.floor(r.width / this.K));
+    this.h = Math.max(1, Math.floor(r.height / this.K));
+    this.canvas.width = Math.floor(r.width * this.dpr);
+    this.canvas.height = Math.floor(r.height * this.dpr);
+    this.ctx.setTransform(this.dpr * this.K, 0, 0, this.dpr * this.K, 0, 0);
   }
 
   /**
@@ -702,7 +708,7 @@ export class FieldRenderer {
     else if (moving && ent.rows['walk'] !== undefined) { row = ent.rows['walk']!; f = reduce ? 0 : Math.floor(simT * 11 + id * 0.37) % ent.frames; }
     else { f = reduce ? 0 : Math.floor(simT * 6 + id * 0.53) % ent.frames; }
     // 칸 안 인물은 칸 높이의 ~70% — 옛 정지 그림(h)과 같은 키로 보이게 칸을 키운다
-    const k = (h * 1.45) / ent.cell;
+    const k = (h * 1.28) / ent.cell;
     const dw = ent.cell * k, dh = ent.cell * k;
     const dx = -ent.pivot[0] * k, dy = -ent.pivot[1] * k;
     ctx.drawImage(img, f * ent.cell, row * ent.cell, ent.cell, ent.cell, dx, dy, dw, dh);

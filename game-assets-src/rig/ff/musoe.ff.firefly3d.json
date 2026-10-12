@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/musoe.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:b03d1707-313c-44d5-b6ba-cd7cb92dc7b7",
+ "exportedName": "제목 없음 - 2026년 10월 12일 11.27.00.glb",
+ "bytes": 2242320,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.972,
+  1.822,
+  2.02
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T02:29:46.988Z"
+}

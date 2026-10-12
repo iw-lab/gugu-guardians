@@ -734,13 +734,9 @@ table.rep td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .home-cols { grid-template-columns: minmax(300px, 400px) minmax(0, 1fr); align-items: start; }
   .home-screen .gb-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (orientation: landscape) and (min-width: 1500px) {
-  .home-screen .gb-home { max-width: 1500px; }
-  .home-screen .gb-modes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .home-screen .gb-mode { min-height: 120px; }
-  .home-screen .gb-mode-name { font-size: 20px; } .home-screen .gb-mode-desc { font-size: 15px; }
-}
-@media (min-width: 2400px) and (min-height: 1300px) { .home-screen .gb-home { zoom: 1.6; } }
+
+/* 큰 화면 배율 — main.ts syncScale 이 --k(1~3)를 넣는다. 캔버스 전장은 FieldRenderer 가 따로 키운다 */
+.home-screen .gb-home, .battle .bhud, .battle .control, .mode-result .mr-card, .table-screen > *, .screen > .topbar, .screen > .pane { zoom: var(--k, 1); }
 
 /* 구구단 정복 — 단 고르기 */
 .table-screen { background: var(--hanji); background-image: var(--hanji-tex); overflow-y: auto; padding: 0 0 16px; }

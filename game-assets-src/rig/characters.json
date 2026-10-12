@@ -54,11 +54,11 @@
   {
    "id": "dongjaseok",
    "src": "game-assets-src/rig/src/dongjaseok.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -122,11 +122,11 @@
   {
    "id": "yeonip",
    "src": "game-assets-src/rig/src/yeonip.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -139,11 +139,11 @@
   {
    "id": "bitjaru",
    "src": "game-assets-src/rig/src/bitjaru.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -173,11 +173,11 @@
   {
    "id": "namak",
    "src": "game-assets-src/rig/src/namak.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -207,11 +207,11 @@
   {
    "id": "chotbul",
    "src": "game-assets-src/rig/src/chotbul.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -258,11 +258,11 @@
   {
    "id": "sotdu",
    "src": "game-assets-src/rig/src/sotdu.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -275,11 +275,11 @@
   {
    "id": "mulbangul",
    "src": "game-assets-src/rig/src/mulbangul.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -309,11 +309,11 @@
   {
    "id": "kkwaenggwari",
    "src": "game-assets-src/rig/src/kkwaenggwari.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -326,11 +326,11 @@
   {
    "id": "butdaegam",
    "src": "game-assets-src/rig/src/butdaegam.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -360,11 +360,11 @@
   {
    "id": "talchum",
    "src": "game-assets-src/rig/src/talchum.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -428,11 +428,11 @@
   {
    "id": "seonnyeo",
    "src": "game-assets-src/rig/src/seonnyeo.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -547,11 +547,11 @@
   {
    "id": "eosa",
    "src": "game-assets-src/rig/src/eosa.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -581,11 +581,11 @@
   {
    "id": "sansin",
    "src": "game-assets-src/rig/src/sansin.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -632,11 +632,11 @@
   {
    "id": "yongwang",
    "src": "game-assets-src/rig/src/yongwang.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -683,11 +683,11 @@
   {
    "id": "dotjari",
    "src": "game-assets-src/rig/src/dotjari.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -700,11 +700,11 @@
   {
    "id": "buchae",
    "src": "game-assets-src/rig/src/buchae.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -717,11 +717,11 @@
   {
    "id": "bokjori",
    "src": "game-assets-src/rig/src/bokjori.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -751,11 +751,11 @@
   {
    "id": "garakji",
    "src": "game-assets-src/rig/src/garakji.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -785,11 +785,11 @@
   {
    "id": "baragi",
    "src": "game-assets-src/rig/src/baragi.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -853,11 +853,11 @@
   {
    "id": "jokduri",
    "src": "game-assets-src/rig/src/jokduri.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -887,11 +887,11 @@
   {
    "id": "seolmun",
    "src": "game-assets-src/rig/src/seolmun.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -938,11 +938,11 @@
   {
    "id": "sinseon",
    "src": "game-assets-src/rig/src/sinseon.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -955,11 +955,11 @@
   {
    "id": "geumgang",
    "src": "game-assets-src/rig/src/geumgang.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,
@@ -972,11 +972,11 @@
   {
    "id": "samsin",
    "src": "game-assets-src/rig/src/samsin.png",
-   "shape": "human",
+   "shape": "biped",
    "actions": [
     "idle",
     "walk",
-    "attack"
+    "punch"
    ],
    "dir": "SE",
    "size": 160,

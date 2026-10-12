@@ -125,7 +125,9 @@ for cid, (shape, desc) in D.items():
          + ("Make it look powerful and big, a boss. " if boss else "")
          + "Keep the same character identity, colors and face as the reference image, but redraw it cleaner and more detailed in this pose.")
     jobs.append({'prompt': p, 'out': os.path.join(ROOT, 'game-assets-src/rig/src', cid + '.png'), 'aspect': '1:1', 'refs': [ref] if os.path.exists(ref) else []})
-    chars.append({'id': cid, 'src': f'game-assets-src/rig/src/{cid}.png', 'shape': shape, 'actions': ['idle', 'walk', 'attack'] if shape == 'human' else ['idle', 'walk', 'punch'],
+    # 뼈대 shape: 사람형도 creature biped 로 — 한복 도포·지팡이·부채를 든 원화는 rig.py 의 사람 랜드마크 게이트에 걸린다(산신령 실측)
+    rshape = 'biped' if shape == 'human' else shape
+    chars.append({'id': cid, 'src': f'game-assets-src/rig/src/{cid}.png', 'shape': rshape, 'actions': ['idle', 'walk', 'punch'],
                   'dir': 'SE' if cid in allies else 'SW', 'size': 224 if boss else 160, 'frames': 8, 'out': 'public/assets/rig',
                   'replaces': [f'public/assets/{cid}.webp']})
 os.makedirs(os.path.join(ROOT, 'game-assets-src/rig'), exist_ok=True)
