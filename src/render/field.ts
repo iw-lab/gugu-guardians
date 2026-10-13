@@ -452,7 +452,7 @@ export class FieldRenderer {
       ctx.textAlign = 'left';
       ctx.lineWidth = 4;
       ctx.strokeStyle = 'rgba(250,246,238,0.95)';
-      const label = c.combo >= 3 ? `+${c.gained}  ⚡${c.combo}` : `+${c.gained}`;
+      const label = c.combo >= 3 ? `+${c.gained}  ${c.combo}연속` : `+${c.gained}`;
       ctx.strokeText(label, x, y);
       ctx.fillStyle = color;
       ctx.fillText(label, x, y);
@@ -534,7 +534,17 @@ export class FieldRenderer {
       ctx.lineJoin = 'round';
       ctx.font = '900 16px system-ui, sans-serif';
       ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(34,29,26,0.92)';
-      ctx.strokeText('✨ 전설 강림 ✨', 0, -30); ctx.fillStyle = '#fff6d0'; ctx.fillText('✨ 전설 강림 ✨', 0, -30);
+      ctx.strokeText('전설 강림', 0, -30); ctx.fillStyle = '#fff6d0'; ctx.fillText('전설 강림', 0, -30);
+      // 양옆 반짝이 — 이모지(✨)는 기기마다 모양이 달라 직접 그린다
+      const tw = ctx.measureText('전설 강림').width / 2 + 14;
+      for (const sx of [-tw, tw]) {
+        ctx.beginPath();
+        for (let i = 0; i < 8; i++) {
+          const r = i % 2 ? 2.4 : 7, t = (i / 8) * Math.PI * 2 - Math.PI / 2;
+          ctx.lineTo(sx + Math.cos(t) * r, -35 + Math.sin(t) * r);
+        }
+        ctx.closePath(); ctx.lineWidth = 3; ctx.stroke(); ctx.fillStyle = '#ffe27a'; ctx.fill();
+      }
       ctx.font = '900 36px system-ui, sans-serif';
       ctx.lineWidth = 9; ctx.strokeText(a.name, 0, 8);
       const tg = ctx.createLinearGradient(0, -22, 0, 10);

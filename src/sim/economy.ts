@@ -212,10 +212,14 @@ export function hasteOf(boost: number): number {
  * @returns 표시할 문자열. 평소 속도면 빈 문자열
  */
 export function hasteLabel(haste: number): string {
-  if (haste >= 1.6) return '⚡⚡⚡ 신바람';
-  if (haste >= 1.35) return '⚡⚡ 빨라짐';
-  if (haste >= 1.12) return '⚡ 빨라짐';
+  if (haste >= 1.6) return '신바람';
+  if (haste >= 1.12) return '빨라짐';
   return '';
+}
+
+/** 빨라짐 단계(번개 아이콘 개수) — 0 = 평소. 화면은 이모지 대신 SVG 번개를 이만큼 그린다 */
+export function hasteLevel(haste: number): number {
+  return haste >= 1.6 ? 3 : haste >= 1.35 ? 2 : haste >= 1.12 ? 1 : 0;
 }
 
 // ── 먹 대포 ────────────────────────────────────────────────────────────────

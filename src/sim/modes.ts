@@ -1,5 +1,6 @@
 import { BOSSES, stageDef, CHAPTER_LEN } from './stages';
 import type { DailyMod, ModeKind, SpawnEntry, StageDef } from './types';
+import type { IconName } from '../ui/icons';
 
 /** 수문장(보스) 출전 항목 — stageDef 는 보스를 every 9999 · cap 1 로 세운다 */
 export const isGatekeeper = (e: SpawnEntry): boolean => e.cap === 1 && e.every >= 9999;
@@ -13,19 +14,20 @@ export const isGatekeeper = (e: SpawnEntry): boolean => e.cap === 1 && e.every >
 
 export interface ModeInfo {
   id: ModeKind;
-  emoji: string;
+  /** 화면 아이콘 이름(src/ui/icons.ts) — 이모지 금지 */
+  icon: IconName;
   label: string;
   /** 카드 설명 한 줄(키트 게이트 B4 — 두 줄이면 카드 높이가 갈라진다) */
   desc: string;
 }
 
 export const MODES: readonly ModeInfo[] = [
-  { id: 'classic', emoji: '🏯', label: '구역 원정', desc: '판을 하나씩 깨며 셈나라를 되찾아요' },
-  { id: 'time', emoji: '⏱', label: '번개 전투', desc: '90초 · 성 부수면 +12초 · 오답 −3초' },
-  { id: 'survival', emoji: '🛡', label: '끝없는 방어', desc: '점점 세지는 파도를 몇 번 버틸까?' },
-  { id: 'rule', emoji: '✖', label: '구구단 정복', desc: '한 단만 나와요 · 단 대장을 쓰러뜨려요' },
-  { id: 'big', emoji: '👑', label: '보스 연전', desc: '보스 6마리를 차례로 · 전자칠판 추천' },
-  { id: 'daily', emoji: '📅', label: '오늘의 전장', desc: '하루 한 판 · 매일 규칙 하나가 바뀌어요' },
+  { id: 'classic', icon: 'castle', label: '구역 원정', desc: '판을 하나씩 깨며 셈나라를 되찾아요' },
+  { id: 'time', icon: 'timer', label: '번개 전투', desc: '90초 · 성 부수면 +12초 · 오답 −3초' },
+  { id: 'survival', icon: 'shield', label: '끝없는 방어', desc: '점점 세지는 파도를 몇 번 버틸까?' },
+  { id: 'rule', icon: 'times', label: '구구단 정복', desc: '한 단만 나와요 · 단 대장을 쓰러뜨려요' },
+  { id: 'big', icon: 'crown', label: '보스 연전', desc: '보스 6마리를 차례로 · 전자칠판 추천' },
+  { id: 'daily', icon: 'calendar', label: '오늘의 전장', desc: '하루 한 판 · 매일 규칙 하나가 바뀌어요' },
 ];
 
 const DAILY_MODS: readonly { id: DailyMod; label: string }[] = [

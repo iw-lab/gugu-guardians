@@ -1,3 +1,4 @@
+import { icon, iconSvg, type IconName } from './icons';
 import { el, btn } from './dom';
 import * as store from '../save/store';
 import { MODES, modeScoreLabel, dailyMod } from '../sim/modes';
@@ -51,13 +52,13 @@ export async function finishRun(won: boolean): Promise<void> {
   const ref = ticket; ticket = null;
   if (!ref) return;
   const r = await gbFinish(ref, won);
-  if (r && r.added > 0 && r.school) toast(`🏫 ${r.school} +${r.added}점!`);
+  if (r && r.added > 0 && r.school) toast(`${r.school} +${r.added}점!`, 'school');
 }
 /** 판 중간에 나감 */
 export function leaveRun(): void { const ref = ticket; ticket = null; if (ref) void gbLeave(ref); }
 
-export function toast(text: string): void {
-  const t = el('div', { class: 'gg-toast', role: 'status' }, text);
+export function toast(text: string, ic?: IconName): void {
+  const t = el('div', { class: 'gg-toast', role: 'status' }, ...(ic ? [icon(ic), ' ', text] : [text]));
   document.body.append(t);
   setTimeout(() => t.classList.add('out'), 2400);
   setTimeout(() => t.remove(), 3000);
@@ -84,7 +85,7 @@ export function homeScreen(go: Go): { node: HTMLElement; teardown?: () => void }
   bindFullscreenButton(fsBtn);
   const rank = el('div', { id: 'schoolRank' });
   const grid = el('div', { id: 'modeGrid' });
-  renderModeCards(grid, MODES.map((m) => ({ id: m.id, kind: m.id, emoji: m.emoji, label: m.label, desc: m.id === 'daily' ? `오늘: ${dailyMod(today()).label.split(' — ')[0]}` : m.desc, best: bestText(m.id) })), (id) => {
+  renderModeCards(grid, MODES.map((m) => ({ id: m.id, kind: m.id, icon: iconSvg(m.icon), label: m.label, desc: m.id === 'daily' ? `오늘: ${dailyMod(today()).label.split(' — ')[0]}` : m.desc, best: bestText(m.id) })), (id) => {
     const kind = id as ModeKind;
     play('tap');
     if (kind === 'classic') { go('map'); return; }
@@ -97,17 +98,17 @@ export function homeScreen(go: Go): { node: HTMLElement; teardown?: () => void }
   playBtn.dataset['gbMode'] = 'classic';
   const owned = Object.keys(d.roster).length;
   const sub = el('div', { class: 'gb-sub' },
-    btn('🐉 소환', () => go('summon')),
-    btn(`📖 도감 ${owned}/${ALLIES.length}`, () => go('codex')),
-    btn('📋 임무', () => go('missions')),
-    btn('🪢 봉인', () => go('srs')),
-    btn('📊 기록', () => go('report')),
+    btn([icon('summon'), ' 소환'], () => go('summon')),
+    btn([icon('book'), ` 도감 ${owned}/${ALLIES.length}`], () => go('codex')),
+    btn([icon('list'), ' 임무'], () => go('missions')),
+    btn([icon('seal'), ' 봉인'], () => go('srs')),
+    btn([icon('chart'), ' 기록'], () => go('report')),
   );
   const node = el('section', { class: 'screen home-screen' },
     el('div', { class: 'gb-home' },
       el('div', { class: 'gb-home-top' },
         el('div', { class: 'gb-brand' }, el('img', { src: assetUrl('crest_haetae'), alt: '', class: 'brand-crest' }), '구구성 수호대'),
-        el('div', { class: 'gb-tools' }, fsBtn, btn('⚙', () => go('settings'), 'gb-icon')),
+        el('div', { class: 'gb-tools' }, fsBtn, btn([icon('gear')], () => go('settings'), 'gb-icon')),
       ),
       el('div', { class: 'home-cols' },
         el('div', { class: 'home-left' }, rank, playBtn, sub),
@@ -131,7 +132,7 @@ export function tableScreen(go: Go): { node: HTMLElement } {
     return b;
   });
   const node = el('section', { class: 'screen table-screen' },
-    el('div', { class: 'topbar' }, btn('← 뒤로', () => go('menu'), 'btn sm ghost'), el('h2', {}, '✖ 구구단 정복'), el('span', {})),
+    el('div', { class: 'topbar' }, btn('← 뒤로', () => go('menu'), 'btn sm ghost'), el('h2', {}, icon('times'), ' 구구단 정복'), el('span', {})),
     el('p', { class: 'muted' }, '고른 단만 나와요. 단 대장을 쓰러뜨리면 별을 받아요(정답률 70%·85%·95%).'),
     el('div', { class: 'table-grid' }, ...cells),
   );

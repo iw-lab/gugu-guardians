@@ -3,6 +3,7 @@ import { MODES, modeScoreLabel } from '../sim/modes';
 import type { BattleResult } from './battle';
 import { startRun } from './home';
 import { recordMode } from '../meta/modeRecord';
+import { icon } from './icons';
 export { recordMode, ruleStars } from '../meta/modeRecord';
 
 type Go = (screen: string, payload?: unknown) => void;
@@ -22,9 +23,9 @@ export function modeResultScreen(go: Go, r: BattleResult): { node: HTMLElement }
   const again = r.mode === 'rule' ? { mode: r.mode, table: r.table } : { mode: r.mode };
   const node = el('section', { class: `screen mode-result ${won ? 'win' : 'lose'}` },
     el('div', { class: 'mr-card' },
-      el('div', { class: 'mr-mode' }, `${info.emoji} ${info.label}`),
+      el('div', { class: 'mr-mode' }, icon(info.icon), ` ${info.label}`),
       el('h2', { class: 'mr-head' }, headline),
-      best ? el('div', { class: 'mr-best' }, '🎉 새 기록!') : el('span', {}),
+      best ? el('div', { class: 'mr-best' }, icon('star'), ' 새 기록!') : el('span', {}),
       el('div', { class: 'mr-stats' },
         el('span', {}, `푼 문제 ${r.solved}`), el('span', {}, `정답률 ${acc}%`), el('span', {}, `최고 콤보 ${r.maxCombo}`), el('span', {}, `${Math.round(r.seconds)}초`),
       ),

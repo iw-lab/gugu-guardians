@@ -15,8 +15,8 @@ export function el<K extends keyof HTMLElementTagNameMap>(
   return n;
 }
 
-export function btn(label: string, onClick: () => void, cls = 'btn'): HTMLButtonElement {
-  const b = el('button', { class: cls, type: 'button' }, label);
+export function btn(label: string | (Node | string)[], onClick: () => void, cls = 'btn'): HTMLButtonElement {
+  const b = el('button', { class: cls, type: 'button' }, ...(Array.isArray(label) ? label : [label]));
   b.addEventListener('click', onClick);
   return b;
 }

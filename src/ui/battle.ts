@@ -3,7 +3,8 @@ import { Battle } from '../sim/core';
 import { stageDef, stageBackground, MAP_LEN, MAX_SEC } from '../sim/stages';
 import { ALLY_BY_ID, ALLY_CAP, ENEMY_BY_ID, slotsOf } from '../sim/units';
 import { rarityColor } from './rarity';
-import { comboMul, hasteLabel, MIN_ANSWER_MS } from '../sim/economy';
+import { comboMul, hasteLabel, hasteLevel, MIN_ANSWER_MS } from '../sim/economy';
+import { icon, type IconName } from './icons';
 import { FieldRenderer } from '../render/field';
 import { assetUrl, preloadRigs } from '../render/assets';
 import { QuizSession } from '../edu/session';
@@ -95,11 +96,19 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
   // 전장 자리 — 센 셈지기가 여러 칸을 먹으므로 "몇 마리"가 아니라 "몇 칸"을 보여 준다
   const slotText = el('b', { class: 'slot-use' }, '');
   const timeText = el('span', { class: 'muted' }, '');
-  const pauseBtn = btn('⏸ 잠깐', () => togglePause(), 'btn sm ghost');
+  const pauseBtn = btn([icon('pause'), ' 잠깐'], () => togglePause(), 'btn sm ghost');
   // 일시정지 중에만 보이는 «그만하기» — 판을 접고 첫 화면으로(학교 점수 영수증은 onQuit 이 정산)
-  const quitBtn = btn('🏳 그만하기', () => { if (finished) return; finished = true; cancelAnimationFrame(raf); opts.onQuit?.(); }, 'btn sm ghost quit');
+  const quitBtn = btn([icon('flag'), ' 그만하기'], () => { if (finished) return; finished = true; cancelAnimationFrame(raf); opts.onQuit?.(); }, 'btn sm ghost quit');
   quitBtn.hidden = true;
   const modeText = el('b', { class: 'mode-hud' }, '');
+  // 모드 HUD = 아이콘 + 글자. 아이콘은 판 동안 안 바뀌니 처음 한 번만 넣고, 글자 칸만 매 프레임 고친다
+  const modeLabel = document.createTextNode('');
+  let modeIcon: IconName | null = null;
+  let shownHaste = -1;
+  function setMode(name: IconName, text: string): void {
+    if (modeIcon !== name) { modeIcon = name; modeText.replaceChildren(icon(name), ' ', modeLabel); }
+    if (modeLabel.data !== text) modeLabel.data = text;
+  }
 
   const hud = el('div', { class: 'bhud' },
     el('span', {}, '셈력'),
@@ -178,7 +187,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
   const cannonFill = el('i');
   const cannonBtn = el('button', {
     class: 'cannon', type: 'button', 'aria-label': '먹 대포 쏘기',
-  }, el('span', { class: 'ic' }, '💥'), el('span', { class: 'lb' }, '먹 대포'), cannonFill) as HTMLButtonElement;
+  }, el('span', { class: 'ic' }, icon('burst')), el('span', { class: 'lb' }, '먹 대포'), cannonFill) as HTMLButtonElement;
   cannonBtn.addEventListener('click', () => {
     if (!battle.fireCannon()) return;
     renderer.cannonSweep();
@@ -245,7 +254,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     // 끝없는 방어는 «힌트 없음»이 규칙이다(REMASTER-GDD R-2) — 단추는 꺼져 보이고 눌러도 안 열린다
     if (!current || mode === 'survival') return;
     qFb.className = 'fb';
-    qFb.textContent = `💡 ${quiz.useHint()}`;
+    qFb.replaceChildren(icon('bulb'), ` ${quiz.useHint()}`);
   }
 
   function submit() {
@@ -291,7 +300,7 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
 
   function togglePause() {
     paused = !paused;
-    pauseBtn.textContent = paused ? '▶ 계속' : '⏸ 잠깐';
+    pauseBtn.replaceChildren(icon(paused ? 'play' : 'pause'), paused ? ' 계속' : ' 잠깐');
     quitBtn.hidden = !paused || !opts.onQuit;
     // 🔴 여기서 requestAnimationFrame(loop) 을 부르면 안 된다. loop 은 **일시정지 중에도**
     //    맨 앞에서 자기 자신을 계속 예약하고 있다(멈추는 건 시뮬 갱신뿐). 재개할 때 한 번 더
@@ -341,22 +350,27 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
     manaFill.classList.toggle('full', full);
     manaText.textContent = `${Math.floor(battle.money)} / ${battle.manaMax}`;
     manaText.classList.toggle('full', full);
-    comboText.textContent = battle.combo >= 3 ? `콤보 ×${comboMul(battle.combo).toFixed(1)} ⚡${battle.combo}` : '';
-    speedText.textContent = hasteLabel(battle.haste);
+    comboText.textContent = battle.combo >= 3 ? `콤보 ×${comboMul(battle.combo).toFixed(1)} · ${battle.combo}연속` : '';
+    const lv = hasteLevel(battle.haste);
+    if (lv !== shownHaste) {   // 아이콘은 단계가 바뀔 때만 다시 그린다(매 프레임 DOM 교체 금지)
+      shownHaste = lv;
+      speedText.replaceChildren(...Array.from({ length: lv }, () => icon('bolt')), lv ? ` ${hasteLabel(battle.haste)}` : '');
+    }
     if (mode === 'time') {
       const left = battle.clockLeft;
-      timeText.textContent = `⏱ ${Math.ceil(left)}초`;
+      timeText.textContent = `${Math.ceil(left)}초`;
       timeText.classList.toggle('urgent', left <= 10);
-      modeText.textContent = `🏯 부순 성 ${battle.castlesBroken}`;
+      setMode('castle', `부순 성 ${battle.castlesBroken}`);
     } else if (mode === 'survival') {
       timeText.textContent = `${Math.floor(battle.t)}초`;
-      modeText.textContent = `🌊 파도 ${battle.wave}`;
+      setMode('wave', `파도 ${battle.wave}`);
     } else if (mode === 'big') {
       timeText.textContent = `${Math.floor(battle.t)}초`;
-      modeText.textContent = `👑 보스 ${battle.bossesDown}/${stage.mode?.bossRush?.length ?? 6}`;
+      setMode('crown', `보스 ${battle.bossesDown}/${stage.mode?.bossRush?.length ?? 6}`);
     } else {
       timeText.textContent = `${Math.floor(battle.t)}초 / ${MAX_SEC}초`;
-      modeText.textContent = mode === 'rule' ? `✖ ${opts.table}단` : mode === 'daily' && stage.mode?.mod ? `📅 ${dailyMod(opts.date ?? '').label.split(' — ')[0]}` : '';
+      if (mode === 'rule') setMode('times', `${opts.table}단`);
+      else if (mode === 'daily' && stage.mode?.mod) setMode('calendar', dailyMod(opts.date ?? '').label.split(' — ')[0] ?? '');
     }
   }
 

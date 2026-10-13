@@ -36,6 +36,7 @@ import { isDue } from '../edu/srs';
 import { daysBetween, today } from '../edu/date';
 import { aapState } from '../net/aap';
 import { aapStatusLine } from './aapStatus';
+import { icon } from './icons';
 
 type Go = (screen: string, payload?: unknown) => void;
 
@@ -165,7 +166,7 @@ function dailyCard(d: SaveData, refresh: () => void): HTMLElement {
     const done = isDone(st, i);
     const cur = Math.min(m.goal, st.progress[i] ?? 0);
     return el('div', { class: done ? 'quest done' : 'quest' },
-      el('span', { class: 'q-mark', 'aria-hidden': 'true' }, done ? '✅' : '⬜'),
+      el('span', { class: 'q-mark', 'aria-hidden': 'true' }, icon(done ? 'check' : 'box')),
       el('span', { class: 'q-text' }, m.text),
       el('span', { class: 'q-num' }, done ? `먹물 +${m.reward}` : `${cur}/${m.goal}`),
     );
@@ -209,8 +210,8 @@ export function mapScreen(go: Go, payload?: unknown): { node: HTMLElement } {
   const grid = el('div', { class: 'map-grid' });
   const heading = el('h2', { class: 'chapter-name' }, '');
   const sub = el('p', { class: 'muted' }, '');
-  const prev = btn('◀ 앞 구역', () => { chapter = Math.max(1, chapter - 1); refresh(); }, 'btn sm ghost');
-  const next = btn('다음 구역 ▶', () => { chapter += 1; refresh(); }, 'btn sm ghost');
+  const prev = btn([icon('left'), ' 앞 구역'], () => { chapter = Math.max(1, chapter - 1); refresh(); }, 'btn sm ghost');
+  const next = btn(['다음 구역 ', icon('right')], () => { chapter += 1; refresh(); }, 'btn sm ghost');
 
   function refresh(): void {
     const save = store.load();
@@ -232,7 +233,7 @@ export function mapScreen(go: Go, payload?: unknown): { node: HTMLElement } {
         type: 'button',
       },
         el('span', { class: 'n' }, `${s.pos}. ${s.boss ? '수문장' : (s.name.split(' ')[1] ?? '')}`),
-        el('span', { class: 'stars' }, starN ? stars(starN) : (locked ? '🔒' : '　')),
+        el('span', { class: 'stars' }, starN ? stars(starN) : (locked ? icon('lock') : '　')),
         el('span', { class: 'types' }, types),
       );
       b.disabled = locked;
@@ -430,9 +431,9 @@ export function gateScreen(go: Go, result: GatePayload): { node: HTMLElement; te
        */
       el('p', { class: 'muted' }, '엉킴괴수가 남긴 봉인이에요. 맞힌 개수만큼 별을 받아요.'),
       el('div', { class: 'star-rule' },
-        el('span', {}, `${TOTAL}개 다 맞히면 ⭐⭐⭐`),
-        el('span', {}, '3개 이상 ⭐⭐'),
-        el('span', {}, '그 아래 ⭐'),
+        el('span', {}, `${TOTAL}개 다 맞히면 ★★★`),
+        el('span', {}, '3개 이상 ★★'),
+        el('span', {}, '그 아래 ★'),
       ),
       qLine, askLine, choices, fb,
     ),
@@ -551,7 +552,7 @@ export function resultScreen(go: Go, r: ResultPayload): { node: HTMLElement } {
       // 🔴 난이도가 조용히 바뀌면 아이는 "왜 갑자기 어렵지"라고만 느낀다 —
       //    바뀐 사실과 이유를 말해 준다. 내려갈 때는 실패가 아니라 배려로 읽히게 쓴다.
       ...(r.nextTier !== r.tier ? [el('div', { class: 'card gain' },
-        el('b', {}, r.nextTier > r.tier ? '⚔️ 엉킴괴수가 더 세졌어요!' : '🛡️ 엉킴괴수가 조금 약해졌어요'),
+        el('b', {}, ...(r.nextTier > r.tier ? [icon('swords'), ' 엉킴괴수가 더 세졌어요!'] : [icon('shield'), ' 엉킴괴수가 조금 약해졌어요'])),
         el('div', { class: 'muted' }, r.nextTier > r.tier
           ? '너무 쉬웠죠? 다음 판은 더 강한 적이 나와요.'
           : '다음 판은 조금 수월할 거예요. 천천히 해도 괜찮아요.'),
