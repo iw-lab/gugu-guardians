@@ -52,12 +52,16 @@ await p.screenshot({ path: `${out}/battle-classic.png` });
 await clickText('잠깐'); await wait(300); await clickText('그만하기'); await wait(1500);
 ok((await screen()) === 'menu', 'E3 classic 그만하기 → 첫 화면');
 
-const MODES = [['time', '번개 전투', /⏱ \d+초/], ['survival', '끝없는 방어', /파도/], ['rule', '구구단 정복', /✖ 7단/], ['big', '보스 연전', /보스 \d\/6/], ['daily', '오늘의 전장', /📅/]];
+// 모드 표시 = .mode-hud 의 SVG 아이콘 + 글자(이모지 금지 — check-no-emoji). 아이콘이 없으면 «모드 HUD» 가 빈 것
+const MODES = [['time', '번개 전투', /^부순 성 \d+ \| \d+초$/], ['survival', '끝없는 방어', /^파도 \d+ \|/], ['rule', '구구단 정복', /^7단 \|/], ['big', '보스 연전', /^보스 \d\/6 \|/], ['daily', '오늘의 전장', /^\S.* \| \d+초 \/ \d+초$/]];
 for (const [id, label, hud] of MODES) {
   await clickText(label); await wait(1200);
   if (id === 'rule') { await clickText('^\\s*7단'); await wait(1200); }
   await wait(2500);
-  const h = await p.evaluate(() => document.querySelector('.bhud')?.innerText.replace(/\n/g, ' ') || '');
+  const h = await p.evaluate(() => {
+    const m = document.querySelector('.mode-hud'); const t = document.querySelector('.bhud .muted');
+    return m?.querySelector('svg') ? `${m.textContent.trim()} | ${t?.textContent.trim() ?? ''}` : `(모드 아이콘 없음) ${m?.textContent ?? ''}`;
+  });
   ok((await screen()) === 'battle' && hud.test(h), `E3 ${label} 전장 · HUD «${h.slice(0, 60)}»`);
   if (id === 'rule') {
     const qs = new Set();
