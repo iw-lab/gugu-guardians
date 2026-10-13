@@ -128,7 +128,7 @@ for (const [id, label, limit, wrongWhen, check] of MODES) {
   await p.screenshot({ path: `${out}/${id}-result.png` });
   ok(res.screen === 'modeResult', `P1 ${label} 끝까지 ${res.sec}초 → ${res.screen} «${head}»`);
   const sv = await save();
-  ok(check(sv), `P2 ${label} 기록 ${JSON.stringify(sv.modes?.[id])}`);
+  ok(check(sv), `P2 ${label} 기록 ${JSON.stringify(sv.modes?.[id])}${id === 'big' ? ` · 최고 보스 ${sv.modes?.bigBest}` : ''}`);
   await mem(`${label} 뒤`);
   await clickText('첫 화면'); await wait(1500);
   if ((await screen()) !== 'menu') { await p.goto(url, { waitUntil: 'networkidle2' }); await wait(1500); }

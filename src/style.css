@@ -811,3 +811,10 @@ table.rep td.num { text-align: right; font-variant-numeric: tabular-nums; }
 /* 아래 단추 5개 — «도감 12/56» 은 글자가 길어 같은 폭이면 잘린다(아이콘 1em 이 붙은 뒤 실측) */
 .home-screen .gb-sub { grid-template-columns: 1fr 1.4fr 1fr 1fr 1fr; gap: 6px; }
 .home-screen .gb-sub > button { padding-inline: 4px; white-space: nowrap; }
+/* 낮은 가로 화면(폰 가로 ≤360px) — 학교 순위가 5줄 차면 «출전» 단추가 화면 밖으로 밀린다(배포본 900×310 실측).
+   위 3등 + 우리 학교만 남기고 줄 간격을 좁힌다 — 주 단추는 언제나 보여야 한다 */
+@media (max-height: 360px) {
+  .home-screen .gb-rank-list li:nth-child(n+4):not(.me) { display: none; }
+  .home-screen .gb-rank-list li { min-height: 20px; }
+  .home-screen .gb-rank { padding-block: 6px; }
+}
