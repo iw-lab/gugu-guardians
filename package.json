@@ -12,6 +12,7 @@
     "probe": "node tools/balance-probe.mjs",
     "check": "tsc --noEmit && tsc --noEmit -p server/tsconfig.json && vitest run && node tools/balance-probe.mjs && node tools/asset-check.mjs && node tools/asset-check.mjs public/assets",
     "build:single": "node tools/build-single.mjs",
+    "deploy:pages": "tools/deploy-pages.sh",
     "deploy:server": "wrangler deploy --config server/wrangler.jsonc",
     "check:assets": "node tools/asset-check.mjs && node tools/asset-check.mjs public/assets",
     "qa:launch": "node tools/qa-launch.mjs",

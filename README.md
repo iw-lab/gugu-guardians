@@ -52,9 +52,9 @@ Cloudflare Pages 로 옮겼습니다. 옛 주소도 링크가 깨지지 않게 �
 시크릿을 넣기 전까지는 배포 때마다 이걸 손으로 쳐야 합니다:
 
 ```bash
-npm run build
-npx wrangler pages deploy dist --project-name gugu-guardians --branch main
+npm run deploy:pages   # = tools/deploy-pages.sh — origin/main 과 같고 깨끗할 때만 배포, 끝나면 학생 주소 번들까지 확인
 ```
+프로젝트는 **naver 계정**(4644562c…)에 있습니다. 뒤처진 로컬로 배포하면 남이 올린 새 버전을 덮어쓰므로(2026-10-13 실제로 한 번) 스크립트가 막습니다.
 
 `dist/` 폴더를 정적 호스팅에 그대로 올리면 끝입니다(Netlify·Vercel·GitHub Pages·학교 서버 등).
 게임 자체에는 API 키도 시크릿도 없습니다 — 번들에 들어가는 유일한 외부 주소는 순위 서버의 공개 URL입니다.
