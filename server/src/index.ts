@@ -80,6 +80,8 @@ export class BoardDO extends DurableObject<Env> {
       `);
       this.sql.exec('CREATE INDEX IF NOT EXISTS idx_week_correct ON score (week, correct DESC);');
       this.sql.exec('CREATE INDEX IF NOT EXISTS idx_week_stage   ON score (week, stage   DESC);');
+      // device 단독 조회(forget: 모든 주에서 삭제)는 위 두 색인(week 선행)을 못 타 전체훑기가 된다
+      this.sql.exec('CREATE INDEX IF NOT EXISTS idx_device       ON score (device);');
     });
   }
 
