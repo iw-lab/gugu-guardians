@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_windbell.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:8234e4b2-4d96-4d55-89d8-3e73f52675ec",
+ "exportedName": "제목 없음 - 2026년 10월 13일 01.35.34.glb",
+ "bytes": 2250768,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.039,
+  2.001,
+  1.814
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T16:38:21.091Z"
+}

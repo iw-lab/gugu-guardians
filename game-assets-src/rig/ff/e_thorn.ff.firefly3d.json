@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_thorn.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:8974773c-af7e-4b9a-b912-559d4ae4059f",
+ "exportedName": "제목 없음 - 2026년 10월 13일 04.15.11.glb",
+ "bytes": 2573988,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.109,
+  1.658,
+  2.002
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T19:18:10.537Z"
+}

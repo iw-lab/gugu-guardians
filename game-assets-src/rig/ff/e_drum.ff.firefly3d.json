@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_drum.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:609c4294-6cea-44b8-a4f3-5d1eb52c59c5",
+ "exportedName": "제목 없음 - 2026년 10월 12일 21.46.21.glb",
+ "bytes": 1846320,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.185,
+  1.786,
+  2.034
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T12:49:09.763Z"
+}

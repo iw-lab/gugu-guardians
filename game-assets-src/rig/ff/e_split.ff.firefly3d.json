@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_split.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:cca7839e-2828-448b-9aae-fea27fcc4875",
+ "exportedName": "제목 없음 - 2026년 10월 12일 21.25.28.glb",
+ "bytes": 2547888,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  1.655,
+  1.47,
+  1.657
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T12:28:16.539Z"
+}

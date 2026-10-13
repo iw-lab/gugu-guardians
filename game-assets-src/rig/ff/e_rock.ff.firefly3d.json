@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_rock.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:efb25e8a-12c4-4ec5-be54-b6c1d82dcbc3",
+ "exportedName": "제목 없음 - 2026년 10월 12일 23.16.36.glb",
+ "bytes": 2497820,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.763,
+  1.68,
+  1.987
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T14:19:33.524Z"
+}

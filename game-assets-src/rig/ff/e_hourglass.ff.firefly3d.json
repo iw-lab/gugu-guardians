@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_hourglass.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:1d272578-72de-4648-ac85-feb6119e46a7",
+ "exportedName": "제목 없음 - 2026년 10월 13일 02.46.54.glb",
+ "bytes": 2463952,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.582,
+  1.999,
+  1.866
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T17:49:39.323Z"
+}

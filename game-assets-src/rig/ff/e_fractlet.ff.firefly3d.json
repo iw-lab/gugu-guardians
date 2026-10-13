@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_fractlet.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:e95f4b71-345d-4fb5-8cf7-b74947b77edd",
+ "exportedName": "제목 없음 - 2026년 10월 13일 02.02.00.glb",
+ "bytes": 2189032,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.951,
+  1.977,
+  1.953
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T17:04:47.140Z"
+}

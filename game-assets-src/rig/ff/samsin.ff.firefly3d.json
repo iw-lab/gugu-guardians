@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/samsin.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:60f0d344-7133-49e9-9c7d-94bc6cb1306f",
+ "exportedName": "제목 없음 - 2026년 10월 13일 03.19.29.glb",
+ "bytes": 2443920,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.828,
+  2.007,
+  1.872
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T18:22:18.416Z"
+}

@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_abacus.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:7576851b-89a3-4f13-8d97-9c062cdac54a",
+ "exportedName": "제목 없음 - 2026년 10월 13일 01.40.31.glb",
+ "bytes": 2156272,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.448,
+  1.753,
+  2.032
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T16:43:17.407Z"
+}

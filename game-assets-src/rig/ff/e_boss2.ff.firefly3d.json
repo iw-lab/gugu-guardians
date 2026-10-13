@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_boss2.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:326321ce-0c1f-4e52-a52f-c11dd92148a0",
+ "exportedName": "제목 없음 - 2026년 10월 13일 00.37.24.glb",
+ "bytes": 2595552,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.617,
+  1.996,
+  1.48
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T15:40:20.875Z"
+}

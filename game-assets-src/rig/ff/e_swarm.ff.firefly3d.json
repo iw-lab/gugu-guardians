@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_swarm.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:5a579773-db41-4f6a-9f3d-5ceb6fca1084",
+ "exportedName": "제목 없음 - 2026년 10월 12일 19.45.15.glb",
+ "bytes": 2830260,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.431,
+  1.743,
+  2.063
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T10:48:16.371Z"
+}

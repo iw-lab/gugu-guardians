@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_lantern.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:ab57002e-3d47-4fd5-b6ba-65ba533955dd",
+ "exportedName": "제목 없음 - 2026년 10월 13일 02.13.12.glb",
+ "bytes": 2305448,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.666,
+  1.63,
+  2.066
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T17:16:07.738Z"
+}

@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_armor.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:b36e0337-09d2-4175-9423-c5db6ddf9b5e",
+ "exportedName": "제목 없음 - 2026년 10월 12일 22.57.13.glb",
+ "bytes": 2500636,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.616,
+  1.631,
+  2.018
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T14:00:09.887Z"
+}

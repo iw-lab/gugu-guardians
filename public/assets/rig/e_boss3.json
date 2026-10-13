@@ -1,0 +1,532 @@
+{
+ "frames": {
+  "e_boss3_idle_00": {
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_idle_01": {
+   "frame": {
+    "x": 224,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_idle_02": {
+   "frame": {
+    "x": 448,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_idle_03": {
+   "frame": {
+    "x": 672,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_idle_04": {
+   "frame": {
+    "x": 896,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_idle_05": {
+   "frame": {
+    "x": 1120,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_idle_06": {
+   "frame": {
+    "x": 1344,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_idle_07": {
+   "frame": {
+    "x": 1568,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_00": {
+   "frame": {
+    "x": 0,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_01": {
+   "frame": {
+    "x": 224,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_02": {
+   "frame": {
+    "x": 448,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_03": {
+   "frame": {
+    "x": 672,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_04": {
+   "frame": {
+    "x": 896,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_05": {
+   "frame": {
+    "x": 1120,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_06": {
+   "frame": {
+    "x": 1344,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_walk_07": {
+   "frame": {
+    "x": 1568,
+    "y": 224,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_00": {
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_01": {
+   "frame": {
+    "x": 224,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_02": {
+   "frame": {
+    "x": 448,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_03": {
+   "frame": {
+    "x": 672,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_04": {
+   "frame": {
+    "x": 896,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_05": {
+   "frame": {
+    "x": 1120,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_06": {
+   "frame": {
+    "x": 1344,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  },
+  "e_boss3_punch_07": {
+   "frame": {
+    "x": 1568,
+    "y": 448,
+    "w": 224,
+    "h": 224
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 224,
+    "h": 224
+   },
+   "sourceSize": {
+    "w": 224,
+    "h": 224
+   }
+  }
+ },
+ "meta": {
+  "app": "game-builder/rig-characters.py",
+  "image": "e_boss3.png",
+  "size": {
+   "w": 1792,
+   "h": 672
+  },
+  "scale": "1",
+  "pivotPx": [
+   112.0,
+   200.16
+  ],
+  "dir": "SW",
+  "frames": 8,
+  "firefly": "game-assets-src/rig/ff/e_boss3.glb",
+  "anims": {
+   "e_boss3_idle": [
+    "e_boss3_idle_00",
+    "e_boss3_idle_01",
+    "e_boss3_idle_02",
+    "e_boss3_idle_03",
+    "e_boss3_idle_04",
+    "e_boss3_idle_05",
+    "e_boss3_idle_06",
+    "e_boss3_idle_07"
+   ],
+   "e_boss3_walk": [
+    "e_boss3_walk_00",
+    "e_boss3_walk_01",
+    "e_boss3_walk_02",
+    "e_boss3_walk_03",
+    "e_boss3_walk_04",
+    "e_boss3_walk_05",
+    "e_boss3_walk_06",
+    "e_boss3_walk_07"
+   ],
+   "e_boss3_punch": [
+    "e_boss3_punch_00",
+    "e_boss3_punch_01",
+    "e_boss3_punch_02",
+    "e_boss3_punch_03",
+    "e_boss3_punch_04",
+    "e_boss3_punch_05",
+    "e_boss3_punch_06",
+    "e_boss3_punch_07"
+   ]
+  }
+ }
+}

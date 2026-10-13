@@ -1104,7 +1104,7 @@
   ]
  },
  "jangmyeong": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1113,9 +1113,18 @@
   ],
   "dir": "SE",
   "src": "game-assets-src/rig/src/jangmyeong.png",
-  "ts": "2026-10-12T14:40:51",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  21s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  21s] [1/1] jangmyeong.png → jangmyeong.ff.glb\n[  70s]    「이미지를 3D로」 메뉴 없음\n[  70s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  99s]    드롭 재시도\n[ 170s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 170s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T19:19:41",
+  "srcSha": "123c6e81e704c31a",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/jangmyeong.glb",
+  "glbSha": "9c5cec8fc498074d",
+  "atlas": "public/assets/rig/jangmyeong.png",
+  "atlasSha": "02fdd3962167096c",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/jangmyeong.webp"
+  ]
  },
  "hwangso": {
   "ok": true,
@@ -1302,7 +1311,7 @@
   ]
  },
  "samsin": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1311,12 +1320,21 @@
   ],
   "dir": "SE",
   "src": "game-assets-src/rig/src/samsin.png",
-  "ts": "2026-10-12T14:43:42",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   0s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] samsin.png → samsin.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-13T03:15:21",
+  "srcSha": "c5aed3049c1fecbe",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/samsin.glb",
+  "glbSha": "3e27c5e5452e11b8",
+  "atlas": "public/assets/rig/samsin.png",
+  "atlasSha": "42d0bf580ce1f65b",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/samsin.webp"
+  ]
  },
  "e_swarm": {
-  "ok": false,
+  "ok": true,
   "shape": "fly",
   "actions": [
    "idle",
@@ -1325,12 +1343,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_swarm.png",
-  "ts": "2026-10-12T14:46:27",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_swarm.png → e_swarm.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T19:38:13",
+  "srcSha": "16f8866519c422eb",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_swarm.glb",
+  "glbSha": "0c0a65be97d937ae",
+  "atlas": "public/assets/rig/e_swarm.png",
+  "atlasSha": "3ec7cfecb771ed6b",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_swarm.webp"
+  ]
  },
  "e_zero": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1339,12 +1366,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_zero.png",
-  "ts": "2026-10-12T14:49:12",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_zero.png → e_zero.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T19:51:31",
+  "srcSha": "5140058a0c5360f3",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_zero.glb",
+  "glbSha": "17f5a46ae217e087",
+  "atlas": "public/assets/rig/e_zero.png",
+  "atlasSha": "b2c39c54d59ce64f",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_zero.webp"
+  ]
  },
  "e_bat": {
-  "ok": false,
+  "ok": true,
   "shape": "fly",
   "actions": [
    "idle",
@@ -1353,12 +1389,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_bat.png",
-  "ts": "2026-10-12T14:51:58",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_bat.png → e_bat.ff.glb\n[  67s]    「이미지를 3D로」 메뉴 없음\n[  67s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  95s]    드롭 재시도\n[ 166s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 166s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T20:02:23",
+  "srcSha": "bb542bd7444c84b6",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_bat.glb",
+  "glbSha": "f4d96d34a7f772a1",
+  "atlas": "public/assets/rig/e_bat.png",
+  "atlasSha": "b29cef7ad132dbf7",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_bat.webp"
+  ]
  },
  "e_splitlet": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1367,12 +1412,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_splitlet.png",
-  "ts": "2026-10-12T14:54:45",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_splitlet.png → e_splitlet.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T20:11:33",
+  "srcSha": "43872b8c0b8a75af",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_splitlet.glb",
+  "glbSha": "c105537e3b36fc2a",
+  "atlas": "public/assets/rig/e_splitlet.png",
+  "atlasSha": "f8561153ce475328",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_splitlet.webp"
+  ]
  },
  "e_arch": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1381,12 +1435,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_arch.png",
-  "ts": "2026-10-12T14:57:30",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   0s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_arch.png → e_arch.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T20:20:08",
+  "srcSha": "f7999daf9f102849",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_arch.glb",
+  "glbSha": "79f0daab81a326c6",
+  "atlas": "public/assets/rig/e_arch.png",
+  "atlasSha": "be7f9e20bdad5419",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_arch.webp"
+  ]
  },
  "e_mul": {
-  "ok": false,
+  "ok": true,
   "shape": "worm",
   "actions": [
    "idle",
@@ -1395,12 +1458,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_mul.png",
-  "ts": "2026-10-12T15:00:16",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_mul.png → e_mul.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T20:26:28",
+  "srcSha": "bba6076021e51885",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_mul.glb",
+  "glbSha": "3a4b92f972d1d982",
+  "atlas": "public/assets/rig/e_mul.png",
+  "atlasSha": "f70284b57abc70b0",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_mul.webp"
+  ]
  },
  "e_dash": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1409,12 +1481,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_dash.png",
-  "ts": "2026-10-12T15:03:01",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_dash.png → e_dash.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-13T03:23:01",
+  "srcSha": "fa42f9de3cef90ab",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_dash.glb",
+  "glbSha": "e44494e48bf32fb2",
+  "atlas": "public/assets/rig/e_dash.png",
+  "atlasSha": "f458775914efaa0f",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_dash.webp"
+  ]
  },
  "e_minus": {
-  "ok": false,
+  "ok": true,
   "shape": "fly",
   "actions": [
    "idle",
@@ -1423,12 +1504,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_minus.png",
-  "ts": "2026-10-12T15:05:46",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_minus.png → e_minus.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T20:53:59",
+  "srcSha": "172f939a56319879",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_minus.glb",
+  "glbSha": "ccf7b7e2e4b0701a",
+  "atlas": "public/assets/rig/e_minus.png",
+  "atlasSha": "85df928dded50391",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_minus.webp"
+  ]
  },
  "e_split": {
-  "ok": false,
+  "ok": true,
   "shape": "worm",
   "actions": [
    "idle",
@@ -1437,12 +1527,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_split.png",
-  "ts": "2026-10-12T15:08:32",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_split.png → e_split.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T21:22:12",
+  "srcSha": "7e1bb5db4a732c4e",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_split.glb",
+  "glbSha": "4b2baf1335e22e2c",
+  "atlas": "public/assets/rig/e_split.png",
+  "atlasSha": "131b911658ec6356",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_split.webp"
+  ]
  },
  "e_sky": {
-  "ok": false,
+  "ok": true,
   "shape": "fly",
   "actions": [
    "idle",
@@ -1451,12 +1550,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_sky.png",
-  "ts": "2026-10-12T15:11:18",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_sky.png → e_sky.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T21:29:48",
+  "srcSha": "b47b7abacede36b2",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_sky.glb",
+  "glbSha": "a16b935bb4176d11",
+  "atlas": "public/assets/rig/e_sky.png",
+  "atlasSha": "b44338a527fd4a76",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_sky.webp"
+  ]
  },
  "e_drum": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1465,12 +1573,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_drum.png",
-  "ts": "2026-10-12T15:14:04",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_drum.png → e_drum.ff.glb\n[  68s]    「이미지를 3D로」 메뉴 없음\n[  68s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  96s]    드롭 재시도\n[ 167s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 167s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T21:36:50",
+  "srcSha": "2eba45ab9781a3fb",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_drum.glb",
+  "glbSha": "a488cce2ce6ed862",
+  "atlas": "public/assets/rig/e_drum.png",
+  "atlasSha": "0a76470cb349389f",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_drum.webp"
+  ]
  },
  "e_knot": {
-  "ok": false,
+  "ok": true,
   "shape": "worm",
   "actions": [
    "idle",
@@ -1479,12 +1596,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_knot.png",
-  "ts": "2026-10-12T15:16:52",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   0s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_knot.png → e_knot.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T21:51:26",
+  "srcSha": "d2021b3d747771b8",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_knot.glb",
+  "glbSha": "e1a4e3b423ece75a",
+  "atlas": "public/assets/rig/e_knot.png",
+  "atlasSha": "cbe569fce2a44006",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_knot.webp"
+  ]
  },
  "e_ghost": {
-  "ok": false,
+  "ok": true,
   "shape": "fly",
   "actions": [
    "idle",
@@ -1493,12 +1619,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_ghost.png",
-  "ts": "2026-10-12T15:19:38",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  19s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  19s] [1/1] e_ghost.png → e_ghost.ff.glb\n[  66s]    「이미지를 3D로」 메뉴 없음\n[  66s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-13T03:29:57",
+  "srcSha": "843483802b437987",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_ghost.glb",
+  "glbSha": "0dd7deefef1d350d",
+  "atlas": "public/assets/rig/e_ghost.png",
+  "atlasSha": "646d87aec9c41cb4",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_ghost.webp"
+  ]
  },
  "e_armor": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1507,12 +1642,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_armor.png",
-  "ts": "2026-10-12T15:22:24",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_armor.png → e_armor.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T22:30:57",
+  "srcSha": "d6e066f72b4a3b00",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_armor.glb",
+  "glbSha": "1560b05d426a0f5a",
+  "atlas": "public/assets/rig/e_armor.png",
+  "atlasSha": "6be386df6312d088",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_armor.webp"
+  ]
  },
  "e_thorn": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1521,12 +1665,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_thorn.png",
-  "ts": "2026-10-12T15:25:10",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_thorn.png → e_thorn.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-13T03:36:47",
+  "srcSha": "72334d89ed96a03c",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_thorn.glb",
+  "glbSha": "496a2ac0bf7106c7",
+  "atlas": "public/assets/rig/e_thorn.png",
+  "atlasSha": "c94e9d30872bda91",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_thorn.webp"
+  ]
  },
  "e_rock": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1535,12 +1688,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_rock.png",
-  "ts": "2026-10-12T15:27:56",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_rock.png → e_rock.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  94s]    드롭 재시도\n[ 165s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 165s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T23:14:22",
+  "srcSha": "8e9725c8456010d9",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_rock.glb",
+  "glbSha": "72b96bb97c6ef974",
+  "atlas": "public/assets/rig/e_rock.png",
+  "atlasSha": "1811e9586a1ee9ed",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_rock.webp"
+  ]
  },
  "e_shield": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1549,12 +1711,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_shield.png",
-  "ts": "2026-10-12T15:30:41",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_shield.png → e_shield.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T23:22:03",
+  "srcSha": "63c667c32bc278e2",
+  "amp": "0.4",
+  "glb": "game-assets-src/rig/ff/e_shield.glb",
+  "glbSha": "2c602512deaca3bd",
+  "atlas": "public/assets/rig/e_shield.png",
+  "atlasSha": "4cfcb14e32225069",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_shield.webp"
+  ]
  },
  "e_boss": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1563,12 +1734,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_boss.png",
-  "ts": "2026-10-12T15:33:27",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   1s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_boss.png → e_boss.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-12T23:35:16",
+  "srcSha": "792b47a16139a679",
+  "amp": "0.6",
+  "glb": "game-assets-src/rig/ff/e_boss.glb",
+  "glbSha": "6af62cf8581eb522",
+  "atlas": "public/assets/rig/e_boss.png",
+  "atlasSha": "3d247ecc2b953b0f",
+  "frames": 8,
+  "size": 224,
+  "replaces": [
+   "public/assets/e_boss.webp"
+  ]
  },
  "e_boss2": {
-  "ok": false,
+  "ok": true,
   "shape": "worm",
   "actions": [
    "idle",
@@ -1577,12 +1757,21 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_boss2.png",
-  "ts": "2026-10-12T15:36:12",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_boss2.png → e_boss2.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-13T00:21:34",
+  "srcSha": "903f8016e9842dc8",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_boss2.glb",
+  "glbSha": "74308efc588a455c",
+  "atlas": "public/assets/rig/e_boss2.png",
+  "atlasSha": "61bc5e124df69089",
+  "frames": 8,
+  "size": 224,
+  "replaces": [
+   "public/assets/e_boss2.webp"
+  ]
  },
  "e_boss3": {
-  "ok": false,
+  "ok": true,
   "shape": "biped",
   "actions": [
    "idle",
@@ -1591,8 +1780,316 @@
   ],
   "dir": "SW",
   "src": "game-assets-src/rig/src/e_boss3.png",
-  "ts": "2026-10-12T15:38:57",
-  "why": "Firefly 3D(img3d.py) 실패",
-  "log": "[   0s] [3d] 탭 연결\n[   1s] [3d] 보드 대기 https://firefly.adobe.com/boards/new?referrer_app=firefly-web\n[  18s] [3d] 보드: https://firefly.adobe.com/boards/new?referrer_app=firefly-web · 확대 50%\n[  18s] [1/1] e_boss3.png → e_boss3.ff.glb\n[  65s]    「이미지를 3D로」 메뉴 없음\n[  65s]    생성 전 실패 — 빈 곳으로 옮겨 한 번 더\n[  93s]    드롭 재시도\n[ 164s]    변환 버튼 없음(이미지 업로드 실패?)\n[ 164s]    ❌ rc=5\n❌ Firefly 3D 실패 rc=5(생성 실패/시간 초과) — 다른 엔진으로 폴백하지 않는다. 브릿지 로그를 보고 고칠 것\n"
+  "ts": "2026-10-13T00:41:43",
+  "srcSha": "b61ad43a569f5cd4",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_boss3.glb",
+  "glbSha": "ee1fd9305d865db7",
+  "atlas": "public/assets/rig/e_boss3.png",
+  "atlasSha": "479a44e2bdce6aea",
+  "frames": 8,
+  "size": 224,
+  "replaces": [
+   "public/assets/e_boss3.webp"
+  ]
+ },
+ "e_boss4": {
+  "ok": true,
+  "shape": "worm",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_boss4.png",
+  "ts": "2026-10-13T01:07:36",
+  "srcSha": "28eb36e460c128df",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_boss4.glb",
+  "glbSha": "316135c5dd9fdd53",
+  "atlas": "public/assets/rig/e_boss4.png",
+  "atlasSha": "0e700d8aa4b936c5",
+  "frames": 8,
+  "size": 224,
+  "replaces": [
+   "public/assets/e_boss4.webp"
+  ]
+ },
+ "e_windbell": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_windbell.png",
+  "ts": "2026-10-13T01:18:16",
+  "srcSha": "bf385dce5a3ccc04",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_windbell.glb",
+  "glbSha": "0817bdcc981cbb83",
+  "atlas": "public/assets/rig/e_windbell.png",
+  "atlasSha": "68058ca6b82e2806",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_windbell.webp"
+  ]
+ },
+ "e_abacus": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_abacus.png",
+  "ts": "2026-10-13T01:39:17",
+  "srcSha": "2ebe47ef5f9e5a3b",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_abacus.glb",
+  "glbSha": "d5dd15c466917c62",
+  "atlas": "public/assets/rig/e_abacus.png",
+  "atlasSha": "008c2eb1a31b8cee",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_abacus.webp"
+  ]
+ },
+ "e_comma": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_comma.png",
+  "ts": "2026-10-13T01:44:16",
+  "srcSha": "3abddbf3f29a26ff",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_comma.glb",
+  "glbSha": "97487061f2e39c84",
+  "atlas": "public/assets/rig/e_comma.png",
+  "atlasSha": "caa3247183d5fc8f",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_comma.webp"
+  ]
+ },
+ "e_fraction": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_fraction.png",
+  "ts": "2026-10-13T01:48:50",
+  "srcSha": "460a79c9781501b9",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_fraction.glb",
+  "glbSha": "e07965c4666e3fc6",
+  "atlas": "public/assets/rig/e_fraction.png",
+  "atlasSha": "5207c8811e078574",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_fraction.webp"
+  ]
+ },
+ "e_fractlet": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_fractlet.png",
+  "ts": "2026-10-13T01:55:31",
+  "srcSha": "ecffbc9aa165c83f",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_fractlet.glb",
+  "glbSha": "6b8d47c72d56e0dc",
+  "atlas": "public/assets/rig/e_fractlet.png",
+  "atlasSha": "31f97e27f2d1f27c",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_fractlet.webp"
+  ]
+ },
+ "e_lantern": {
+  "ok": true,
+  "shape": "fly",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_lantern.png",
+  "ts": "2026-10-13T02:05:29",
+  "srcSha": "d8b8da8d44d4bdd2",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_lantern.glb",
+  "glbSha": "0ce418273cf0a9ec",
+  "atlas": "public/assets/rig/e_lantern.png",
+  "atlasSha": "8392bf4180490b4a",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_lantern.webp"
+  ]
+ },
+ "e_bracket": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_bracket.png",
+  "ts": "2026-10-13T02:16:49",
+  "srcSha": "ee0bfdebb64e9f0d",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_bracket.glb",
+  "glbSha": "46c64755d5524976",
+  "atlas": "public/assets/rig/e_bracket.png",
+  "atlasSha": "063283421bb85b28",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_bracket.webp"
+  ]
+ },
+ "e_mirror": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_mirror.png",
+  "ts": "2026-10-13T02:33:04",
+  "srcSha": "e2b0516a84381b96",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_mirror.glb",
+  "glbSha": "000bc5db115be894",
+  "atlas": "public/assets/rig/e_mirror.png",
+  "atlasSha": "5f981ea247acfab2",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_mirror.webp"
+  ]
+ },
+ "e_hourglass": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_hourglass.png",
+  "ts": "2026-10-13T02:39:36",
+  "srcSha": "91755142c375b2c0",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_hourglass.glb",
+  "glbSha": "ec39f6ac6f666d88",
+  "atlas": "public/assets/rig/e_hourglass.png",
+  "atlasSha": "2ae1e9fcbdfa6454",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_hourglass.webp"
+  ]
+ },
+ "e_ox": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_ox.png",
+  "ts": "2026-10-13T02:50:28",
+  "srcSha": "397d19ef5b0da357",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_ox.glb",
+  "glbSha": "9e7e9db2f59f6278",
+  "atlas": "public/assets/rig/e_ox.png",
+  "atlasSha": "5a645438fb6a3c67",
+  "frames": 8,
+  "size": 160,
+  "replaces": [
+   "public/assets/e_ox.webp"
+  ]
+ },
+ "e_boss5": {
+  "ok": true,
+  "shape": "biped",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_boss5.png",
+  "ts": "2026-10-13T03:04:00",
+  "srcSha": "eb566daef2c4db40",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_boss5.glb",
+  "glbSha": "5b4bef951d0cbc75",
+  "atlas": "public/assets/rig/e_boss5.png",
+  "atlasSha": "052abbb707905028",
+  "frames": 8,
+  "size": 224,
+  "replaces": [
+   "public/assets/e_boss5.webp"
+  ]
+ },
+ "e_boss6": {
+  "ok": true,
+  "shape": "quad",
+  "actions": [
+   "idle",
+   "walk",
+   "punch"
+  ],
+  "dir": "SW",
+  "src": "game-assets-src/rig/src/e_boss6.png",
+  "ts": "2026-10-13T03:10:55",
+  "srcSha": "8df3b83d27927d56",
+  "amp": "1",
+  "glb": "game-assets-src/rig/ff/e_boss6.glb",
+  "glbSha": "4e2115609a58aa96",
+  "atlas": "public/assets/rig/e_boss6.png",
+  "atlasSha": "b146d592e4f1f836",
+  "frames": 8,
+  "size": 224,
+  "replaces": [
+   "public/assets/e_boss6.webp"
+  ]
  }
 }

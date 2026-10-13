@@ -1,0 +1,19 @@
+{
+ "source": "firefly-boards-image-to-3d",
+ "input": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/rig/src/e_fraction.png",
+ "board": "https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:f981b1ea-8c87-481f-9dc0-ba65dc674bfc",
+ "exportedName": "제목 없음 - 2026년 10월 13일 01.52.03.glb",
+ "bytes": 2067756,
+ "ok": true,
+ "tris": 10000,
+ "tex": 1,
+ "meshes": 1,
+ "skins": 0,
+ "size": [
+  0.216,
+  2.001,
+  2.009
+ ],
+ "generator": "Lagrange",
+ "at": "2026-10-12T16:54:43.021Z"
+}
