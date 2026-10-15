@@ -1,0 +1,17 @@
+{
+ "prompt": "Wide 3:2 landscape illustration for a kids' math defense game thumbnail. No text, no letters, no numbers, no digits, no logos, no UI, no flags. STRICT COMPOSITION: the top 38% of the frame is open bright blue sky with soft swirly minhwa clouds only — no characters there, and the top-right corner is especially empty. Keep the bottom-center strip (bottom 25%, middle half of the width) simple — only ",
+ "out": "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/thumb-v4/art-b.png",
+ "t0": 1792043267.3081028,
+ "refs": [
+  "/Users/sim-insu/Documents/dev/gugu-guardians/game-assets-src/thumb-v4/ref-board.png"
+ ],
+ "w": 1536,
+ "h": 1024,
+ "src": "blob:https://chatgpt.com/b9972eae-dc8c-45e6-a271-c28df4db0d0f",
+ "bytes": "data-uri(data:image/png;base64)",
+ "verify": "1536x1024 · 3,721,210바이트",
+ "elapsed_s": 75.4,
+ "conversation": "https://chatgpt.com/c/6ad0687c-8578-83e8-a3fc-79983d857fc3",
+ "served_by": "chatgpt-web(모델 미노출 — 서버가 정한다)",
+ "attempts": 1
+}
