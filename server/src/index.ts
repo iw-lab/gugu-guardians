@@ -62,6 +62,9 @@ export class BoardDO extends DurableObject<Env> {
     // 🔴 스키마 생성은 blockConcurrencyWhile 안에서. 밖에서 하면 첫 요청이
     //    테이블 생성보다 먼저 도착해 "no such table" 로 터진다.
     ctx.blockConcurrencyWhile(async () => {
+      // gb-ddl-once: DO 생성자(blockConcurrencyWhile) 안에서 1회만 — 요청마다가 아니라
+      // DO 인스턴스 콜드스타트 때만 돈다. 저장소도 DO 내장 SQLite(ctx.storage.sql)라
+      // 계정 공유 D1 일일 읽기 한도와 무관하다(위 설계 노트 15~19행).
       this.sql.exec(`
         CREATE TABLE IF NOT EXISTS score (
           week       TEXT    NOT NULL,
