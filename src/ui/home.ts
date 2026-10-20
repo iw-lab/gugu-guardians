@@ -25,7 +25,7 @@ export function initHub(): void {
   if (hubReady) return;
   hubReady = true;
   // 단일 HTML·아티팩트 빌드에는 /api/hub 중계가 없다 — 키트가 «안 닿음»으로 보고 학교 점수 없이 판을 연다
-  configureHub({ key: 'gugu.hub.v1' });
+  configureHub({ key: 'gugu.hub.v1', direct: 'https://gugu-hub.starlight-heroes.workers.dev' });
   configureSchool({ freePlay: true, playWord: '출전', sfx: { tick: () => play('tap'), win: () => play('win') } });
 }
 

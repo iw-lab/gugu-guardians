@@ -12,4 +12,5 @@ database_name = "gugu-hub"
 database_id = "46a75155-f949-4363-ad78-4890123ff597"
 
 [vars]
+DIRECT_ORIGINS = "https://gugu-guardians.pages.dev,https://*.gugu-guardians.pages.dev"   # 직결(키트 direct.sh) — 무료 계정 Pages 함수 공용 한도와 무관하게 순위
 FREE_PLAY = "1"
