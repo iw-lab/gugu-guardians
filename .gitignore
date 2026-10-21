@@ -13,3 +13,7 @@ dist-kingsmath/
 
 # 파이썬 임시 산출물
 __pycache__/
+
+# 학교 허브 비밀(키트)
+.secrets/
+node_modules

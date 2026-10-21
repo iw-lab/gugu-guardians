@@ -1,0 +1,18 @@
+# 구구성 수호대 2D 오리지널 학교 허브 — 저장소 = Durable Object 내장 SQLite(D1 자리 불필요 · 무료 플랜). game-builder kit/school-hub install.sh --store do 로 깔았다.
+# 배포 = tools/hub.sh deploy (로그인 이메일 확인 후). 비밀: QUIZ_KEY(문제 묶음 봉인) · PROXY_KEY(게임 페이지 중계만 받기)
+name = "gugu2d-hub"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+account_id = "b3d436cfca3fb9f2d1d7af777e23e8f1"
+
+[[durable_objects.bindings]]
+name = "HUB_DO"
+class_name = "HubDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["HubDO"]
+
+[vars]
+DIRECT_ORIGINS = "https://gugu-guardians-2d.pages.dev,https://*.gugu-guardians-2d.pages.dev"   # 직결(키트 direct.sh) — 무료 계정 Pages 함수 공용 한도와 무관하게 순위
+FREE_PLAY = "1"

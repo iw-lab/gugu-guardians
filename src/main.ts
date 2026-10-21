@@ -17,6 +17,21 @@ import { initAap, aapState } from './net/aap';
 import { showAapBadge } from './ui/aapBadge';
 import { weekKey, today } from './edu/date';
 import { stageDef } from './sim/stages';
+import './gb/gb-ui.css';
+import { configureHub } from './gb/hubnet.js';
+import { configureSchool, mountSchoolRank, gbGate, gbFinish } from './gb/gb-school.js';
+
+/**
+ * 🏫 학교 점수만(2026-10-21 사용자 «학교점수만 원본에 추가 · 쓸데없이 서버 호출하지 말고») — 키트 school-hub 무료 판(FREE_PLAY).
+ * 서버(korea 계정 gugu2d-hub · DO 저장)에 가는 건 이것뿐: 처음 열 때 내 정보·순위 1번씩 · 출전 1번(판 영수증) · 판 끝 1번(점수+순위 같이).
+ * 순위 카드는 한 번만 만들어 첫 화면에 다시 붙인다 — 첫 화면으로 돌아올 때마다 순위를 다시 받지 않는다.
+ * 서버가 안 닿으면 학교 점수 없이 그대로 한다(관문이 go(null)).
+ */
+configureHub({ key: 'gugu2d.hub.v1', direct: 'https://gugu2d-hub.simssijjang-korea.workers.dev' });
+configureSchool({ freePlay: true, playWord: '판' });
+const rankBox = document.createElement('div');
+let rankMounted = false;
+let ticket: string | null = null;
 
 /**
  * 구구성 수호대 — 부트스트랩 & 화면 라우터.
@@ -64,6 +79,8 @@ function go(screen: string, payload?: unknown): void {
   switch (screen) {
     case 'menu':
       mount(root, () => menuScreen(go));
+      root.querySelector('.menu-hero')?.prepend(rankBox);
+      if (!rankMounted) { rankMounted = true; mountSchoolRank(rankBox); }
       break;
     case 'map':
       mount(root, () => mapScreen(go, payload));
@@ -76,6 +93,8 @@ function go(screen: string, payload?: unknown): void {
       break;
     case 'battle': {
       const p = payload as { stage: number; deck: string[] };
+      // 출전 = 학교 관문(처음 한 번 학교 고르기 · 판 영수증). 서버가 안 닿으면 ref 없이 그대로 시작한다
+      void gbGate((ref) => { ticket = ref;
       mount(root, () => buildBattle(p.stage, p.deck, (r: BattleResult) => {
         snapshotWeekly();
         // 순위 갱신은 동의했을 때만 나가고, 실패해도 조용히 넘어간다(게임을 막지 않는다)
@@ -101,10 +120,13 @@ function go(screen: string, payload?: unknown): void {
           if (r.status === 'win') s = bump(s, 'clear', 1);
           d.daily = s;
         });
+        // 학교 점수 — 이긴 판만 «끝까지 감». 결과 응답에 순위가 같이 와서 순위 카드가 따로 묻지 않는다
+        if (ticket) { const t = ticket; ticket = null; void gbFinish(t, r.status === 'win'); }
         // 이겼을 때만 봉인 해제(관문)로 간다. 졌으면 바로 결과 — 학습은 이미 전투 중에 했다.
         if (r.status === 'win') go('gate', { ...r, matchInk: ink });
         else go('result', { ...r, starN: 0, gateCorrect: 0, gateTotal: 5, matchInk: ink });
       }));
+      }, { kind: 'level' });
       break;
     }
     case 'gate':

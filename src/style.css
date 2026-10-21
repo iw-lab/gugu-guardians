@@ -687,3 +687,28 @@ table.rep td.num { text-align: right; font-variant-numeric: tabular-nums; }
   from { opacity: 0; transform: translate(-50%, -8px); }
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
+
+/* 🏫 학교 순위 카드(키트 school-hub) — 키트는 어두운 바탕용 글자색이라 한지 바탕에선 흐려 안 보였다(2026-10-21).
+   키트 파일은 고치지 않고(게이트 S2) 이 화면의 토큰만 한지·먹 색으로 바꾼다 */
+.menu-hero .gb-rank {
+  --gb-panel: #fffdf7; --gb-panel-2: #f3ecdd; --gb-line: rgba(34, 29, 26, .15);
+  --gb-text: var(--meok); --gb-dim: var(--meok-soft); --gb-gold: #9a6b00; --gb-accent: var(--nok); --gb-accent-ink: #fff;
+  width: min(560px, 92vw); margin: 0 auto 6px; border-color: var(--line); box-shadow: var(--shadow);
+}
+/* 가로 화면(폰·태블릿·노트북 720px 높이까지) — 카드가 시작 단추를 밀어내지 않게 통계 줄을 빼고 위 3곳 + 우리 학교만 */
+@media (max-height: 760px) {
+  .menu-hero .gb-rank { padding: 4px 10px; margin-bottom: 2px; }
+  .menu-hero .gb-rank .gb-stats { display: none; }
+  .menu-hero .gb-rank .gb-rank-list li:nth-child(n+4):not(.me) { display: none; }
+  .menu-hero .gb-rank .gb-rank-list li { padding-block: 1px; }
+  .menu-hero .gb-rank .gb-more { display: none; }
+}
+/* 아주 낮은 가로(폰 가로 ≤430px) — 순위 줄은 1등만 + 우리 학교, 머리·발 한 줄로 */
+@media (max-height: 430px) {
+  .menu-hero .gb-rank .gb-rank-list li:nth-child(n+2):not(.me) { display: none; }
+  .menu-hero .gb-rank .gb-rank-head { margin-bottom: 0; }
+  .menu-hero .gb-rank .gb-rank-foot { margin-top: 0; }
+  /* 순위 카드 자리만큼 해태 문장을 뺀다(제목·시작 단추가 화면 안에 남게) */
+  .menu-hero .crest { display: none; }
+  .menu-hero { gap: 8px; padding-block: 10px; }
+}
