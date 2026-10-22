@@ -712,3 +712,8 @@ table.rep td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .menu-hero .crest { display: none; }
   .menu-hero { gap: 8px; padding-block: 10px; }
 }
+
+/* 🔴 선행쌤 링크(키트 1.14.0)가 #rotate-hint(세로 화면 안내, z-index 99 전체 덮개)에 가려졌다(게이트 B12, 2026-10-22).
+   #rotate-hint 는 position:fixed 라 평범한 위치의 .gb-site 보다 항상 위에 그려진다 — 링크만 더 높은 쌓임 맥락으로 올린다.
+   키트 파일(gb-ui.css)은 고치지 않고 이 화면의 쌓임 순서만 바꾼다. */
+.menu-hero .gb-site { position: relative; z-index: 100; }
