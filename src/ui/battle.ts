@@ -11,7 +11,6 @@ import type { Question } from '../edu/generator';
 import { el, btn, type Teardown } from './dom';
 import * as store from '../save/store';
 import { play, playCorrect, playLose, playBossAppear } from '../render/audio';
-import { bumpWeeklyNow } from '../meta/weekly';
 
 /**
  * 전투 화면 — Canvas 전장 + DOM UI(숫자패드·덱·HUD).
@@ -346,9 +345,6 @@ export function buildBattle(stageIndex: number, deck: string[], onDone: (r: Batt
       //    내릴 땐 한 판만 져도 바로 — 비대칭이 의도다(막히는 아이를 붙잡아 두지 않는다).
       d.challenge.tier = nx.tier;
       d.challenge.streak = nx.streak;
-      // 주간 순위 버킷. 동의 여부와 무관하게 로컬에는 쌓는다 —
-      // 나중에 켰을 때 "이번 주 기록이 0"이 되면 아이 입장에선 손해다.
-      bumpWeeklyNow(d, { correct: battle.correct, playMs, stage: r.status === 'win' ? stageIndex : 0 });
     });
     onDone(r);
   }

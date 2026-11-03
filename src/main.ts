@@ -5,14 +5,13 @@ import { installUnlockHooks, playBgm } from './render/audio';
 import { buildBattle, type BattleResult } from './ui/battle';
 import {
   menuScreen, mapScreen, prepScreen, gateScreen, resultScreen, summonScreen,
-  codexScreen, srsScreen, reportScreen, settingsScreen, boardScreen,
+  codexScreen, srsScreen, reportScreen, settingsScreen,
   type ResultPayload, type GatePayload,
 } from './ui/screens';
 import { armAutoFullscreen } from './ui/fullscreen';
 import { matchInk } from './sim/economy';
 import { bump, rollDaily } from './meta/daily';
 import * as store from './save/store';
-import { submitScore } from './net/board';
 import { initAap, aapState } from './net/aap';
 import { showAapBadge } from './ui/aapBadge';
 import { weekKey, today } from './edu/date';
@@ -97,8 +96,6 @@ function go(screen: string, payload?: unknown): void {
       void gbGate((ref) => { ticket = ref;
       mount(root, () => buildBattle(p.stage, p.deck, (r: BattleResult) => {
         snapshotWeekly();
-        // 순위 갱신은 동의했을 때만 나가고, 실패해도 조용히 넘어간다(게임을 막지 않는다)
-        void submitScore();
         /**
          * 🔴 **판 보상은 승패와 무관하게 여기서 준다.** 관문(gate)은 이겨야 가는 곳이라
          *    거기서만 주면 패배가 보상 0 이 되고, 그러면 막힌 아이는 전력을 올릴 방법이
@@ -143,9 +140,6 @@ function go(screen: string, payload?: unknown): void {
       break;
     case 'report':
       mount(root, () => reportScreen(go));
-      break;
-    case 'board':
-      mount(root, () => boardScreen(go));
       break;
     case 'settings':
       mount(root, () => settingsScreen(go));
