@@ -1,5 +1,6 @@
 import { el, btn, stars, type Teardown } from './dom';
 import { startRun } from './home';
+import { openNickPicker } from './nickPicker';
 import * as store from '../save/store';
 import {
   ALLIES, RARITIES, DECK_SIZE, reconcileDeck, progressionAllies,
@@ -1028,7 +1029,12 @@ export function settingsScreen(go: Go): { node: HTMLElement } {
       ),
       el('div', { class: 'card' },
         el('b', {}, '내 별명'), el('div', {}, d.profile.nickname),
-        el('div', { class: 'muted' }, '이름 대신 쓰는 별명이에요. 우리가 자동으로 지어 줘요.'),
+        el('div', { class: 'muted' }, '이름 대신 쓰는 별명이에요. 직접 고를 수 있어요.'),
+        btn('별명 다시 고르기', () => {
+          void openNickPicker({ value: d.profile.nickname, allowCancel: true }).then((picked) => {
+            if (picked) { store.update((s) => { s.profile.nickname = picked; s.profile.nickChosen = true; }); go('settings'); }
+          });
+        }, 'btn sm'),
       ),
       el('div', { class: 'card' },
         el('b', {}, '알찬 연결'),

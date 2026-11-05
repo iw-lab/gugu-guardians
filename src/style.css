@@ -818,3 +818,26 @@ table.rep td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .home-screen .gb-rank-list li { min-height: 20px; }
   .home-screen .gb-rank { padding-block: 6px; }
 }
+
+/* ── 별명 고르기 (2026-11-04 «아이가 직접 고른다») ───────────────────────── */
+.nick-pick-back {
+  position: fixed; inset: 0; background: rgba(34, 29, 26, .72); z-index: 80;
+  display: grid; place-items: center; padding: 16px; overflow-y: auto;
+}
+.nick-pick-card { max-width: 520px; width: 100%; margin: auto; text-align: left; }
+.nick-pick-out {
+  font-size: 1.3em; font-weight: 900; text-align: center; color: var(--cheong);
+  padding: 10px; background: var(--hanji); border: 3px solid var(--line); border-radius: var(--radius); margin: 8px 0;
+}
+.nick-pick-h { font-size: .82em; font-weight: 800; color: var(--meok-soft); margin: 8px 0 4px; }
+.nick-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.nick-chip {
+  font: inherit; font-weight: 800; color: var(--meok); background: #fff;
+  border: 3px solid var(--line); border-radius: 999px; padding: 8px 14px; min-height: 48px; cursor: pointer;
+}
+.nick-chip.on { background: var(--cheong); color: var(--hanji); }
+.nick-pick-actions { display: flex; gap: 10px; justify-content: center; margin-top: 14px; }
+@media (max-height: 430px) {
+  .nick-chip { padding: 5px 10px; min-height: 36px; font-size: .85em; }
+  .nick-pick-out { font-size: 1.05em; }
+}

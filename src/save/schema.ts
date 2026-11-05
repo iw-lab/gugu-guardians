@@ -25,7 +25,9 @@ export const STARTER_UNITS = ['jipsin', 'kkachi', 'musoe'];
 
 
 export interface SaveData {
-  profile: { nickname: string; gradeMax: number; createdAt: string };
+  // 🔴 nickChosen=false 면 홈 화면이 고르기 화면을 띄운다(자동으로 지어진 별명은 «내 것»이 아니다).
+  //    옛 설치(이 필드가 없던 세이브)도 false 로 떨어져 한 번 고르게 한다.
+  profile: { nickname: string; gradeMax: number; createdAt: string; nickChosen: boolean };
   progress: { cleared: Record<string, number>; maxStage: number };
   deck: string[];
   /** 보유 셈지기 — 소환·진도로 얻는다. 게임 내 전력의 단일 진실원 */
@@ -107,7 +109,7 @@ export function nickIndex(nickname: string): [number, number] {
 
 export function defaultSave(): SaveData {
   return {
-    profile: { nickname: randomNickname(), gradeMax: 4, createdAt: today() },
+    profile: { nickname: randomNickname(), gradeMax: 4, createdAt: today(), nickChosen: false },
     progress: { cleared: {}, maxStage: 0 },
     deck: [],
     roster: Object.fromEntries(STARTER_UNITS.map((id) => [id, { level: 1, shards: 0 }])),
@@ -238,6 +240,7 @@ export function normalize(input: unknown): SaveData {
       nickname: str(profile['nickname'], base.profile.nickname).slice(0, 20),
       gradeMax: Math.floor(num(profile['gradeMax'], 4, 1, 6)),
       createdAt: str(profile['createdAt'], base.profile.createdAt),
+      nickChosen: bool(profile['nickChosen'], false),
     },
     progress: {
       cleared,
