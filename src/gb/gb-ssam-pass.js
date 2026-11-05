@@ -51,7 +51,7 @@ export function showRoomLock(what = '친구랑 방 만들어 하기') {
   // 🔒 CSP 안전: innerHTML 의 style="…" 속성은 엄격한 CSP(style-src 'unsafe-inline' 없음)에서 버려진다(블록누리 실측)
   //    → 요소를 만들고 style.cssText(CSSOM)로만 칠한다.
   const mk = (tag, css, text) => { const e = d.createElement(tag); if (css) e.style.cssText = css; if (text != null) e.textContent = text; return e; };
-  const card = mk('div', 'max-width:360px;width:100%;background:#fff;color:#1b2140;border-radius:18px;padding:22px 20px;text-align:center;font:16px/1.5 system-ui,sans-serif;box-shadow:0 12px 40px rgba(0,0,0,.35)');
+  const card = mk('div', 'max-width:360px;width:100%;background:#fff;color:#1b2140;border-radius:18px;padding:22px 20px;text-align:center;font:16px/1.5 system-ui,sans-serif;word-break:keep-all;overflow-wrap:anywhere;box-shadow:0 12px 40px rgba(0,0,0,.35)');
   const c = what.charCodeAt(what.length - 1);
   const josa = c >= 0xac00 && c <= 0xd7a3 && (c - 0xac00) % 28 ? '은' : '는'; // 받침 있으면 «은»
   const title = mk('div', 'font-weight:800;font-size:19px;margin:8px 0 4px', `${what}${josa} 선행쌤에서 열어요`);
@@ -67,7 +67,7 @@ export function showRoomLock(what = '친구랑 방 만들어 하기') {
   door.target = '_top';
   door.href = ssamDoorUrl();
   const solo = mk('div', 'margin-top:10px;font-size:13px;opacity:.75', '혼자 하기는 지금 그대로 할 수 있어요.');
-  const tip = mk('div', 'margin-top:8px;font-size:12.5px;line-height:1.45;background:#f4f6fb;border-radius:10px;padding:8px 10px;color:#3a4366', '선생님께: 아이들에게 선행쌤(ssamzip.kr)의 게임 링크로 나눠 주면 처음부터 열려 있어요.');
+  const tip = mk('div', 'margin-top:8px;font-size:12.5px;line-height:1.45;background:#f4f6fb;border-radius:10px;padding:8px 10px;color:#3a4366', '선생님께: 아이들에게 선행쌤(sunhaengssam.web.app)의 게임 링크로 나눠 주면 처음부터 열려 있어요.');
   const x = mk('button', 'margin-top:10px;background:none;border:0;color:#556;font:inherit;padding:8px;cursor:pointer', '혼자 하기로 돌아가기');
   x.type = 'button';
   x.dataset.x = '';
