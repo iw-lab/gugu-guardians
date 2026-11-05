@@ -99,7 +99,7 @@ jobs:
           ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           if [ -z "$TOKEN" ] || [ -z "$ACCOUNT" ]; then
-            echo "::error::CLOUDFLARE_API_TOKEN·CLOUDFLARE_ACCOUNT_ID 가 없어 학생 사이트(pages.dev)에 배포하지 못했습니다. 저장소 Settings → Secrets and variables → Actions 에 두 값을 넣으세요(계정 ID 는 gugu-guardians Pages 프로젝트를 가진 계정의 것). 임시로는 'npx wrangler pages deploy dist --project-name gugu-guardians --branch main'."
+            echo "::error::CLOUDFLARE_API_TOKEN·CLOUDFLARE_ACCOUNT_ID 가 없어 학생 사이트(pages.dev)에 배포하지 못했습니다. 저장소 Settings → Secrets and variables → Actions 에 두 값을 넣으세요(계정 ID 는 gugu-guardians-2d Pages 프로젝트를 가진 계정의 것 — korea 계정). 임시로는 'npx wrangler pages deploy dist --project-name gugu-guardians-2d --branch main'."
             exit 1
           fi
       - name: Cloudflare Pages 배포 (학생이 여는 주소)
@@ -107,7 +107,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name gugu-guardians --branch main
+          command: pages deploy dist --project-name gugu-guardians-2d --branch main
       # 🔴 **배포했다는 말을 믿지 않고, 학생 주소를 실제로 열어 본다.**
       #    「배포 성공」은 업로드가 됐다는 뜻이지 그 주소가 새 번들을 준다는 뜻이 아니다.
       #    오늘 고친 결함이 정확히 그 틈이었다. 방금 빌드한 번들 파일명이 pages.dev 의
@@ -117,10 +117,10 @@ jobs:
           want=$(grep -o 'assets/index-[A-Za-z0-9_-]*\.js' dist/index.html | head -1)
           echo "이번 빌드 번들: $want"
           for i in 1 2 3 4 5 6; do
-            got=$(curl -sf "https://gugu-guardians.pages.dev/?cb=$RANDOM$i" | grep -o 'assets/index-[A-Za-z0-9_-]*\.js' | head -1 || true)
+            got=$(curl -sf "https://gugu-guardians-2d.pages.dev/?cb=$RANDOM$i" | grep -o 'assets/index-[A-Za-z0-9_-]*\.js' | head -1 || true)
             echo "  시도 $i — 학생 주소: ${got:-(응답 없음)}"
             [ "$got" = "$want" ] && exit 0
             sleep 10
           done
-          echo "::error::학생 주소(gugu-guardians.pages.dev)가 아직 옛 번들을 주고 있습니다. 배포 잡은 성공했지만 학생에게는 도달하지 않았습니다."
+          echo "::error::학생 주소(gugu-guardians-2d.pages.dev)가 아직 옛 번들을 주고 있습니다. 배포 잡은 성공했지만 학생에게는 도달하지 않았습니다."
           exit 1

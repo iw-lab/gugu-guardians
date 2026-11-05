@@ -4,7 +4,7 @@
 > 로그인 없이 브라우저에서 바로 플레이. 학습 기록은 기기에만 저장됩니다.
 > 주간 순위는 **켜야만** 동작하고, 켜도 자동 생성 별명과 숫자 두 개만 나갑니다.
 
-**바로 하기 → https://gugu-guardians.pages.dev/**
+**바로 하기 → https://gugu-guardians-2d.pages.dev/**
 >
 > ⚠️ 옛 주소 `iw-lab.github.io/gugu-guardians/` 는 **학교망이 도메인째 막는다**(ERR_TIMED_OUT).
 > 링크가 깨지지 않도록 당분간 살려 두지만, 교실에서 쓸 주소는 위쪽 pages.dev 다.
@@ -31,7 +31,7 @@ npm run build     # dist/ 에 정적 파일 생성
 npm run preview   # http://localhost:5184 에서 빌드 결과 확인
 ```
 
-### 🔴 학생이 여는 주소는 `gugu-guardians.pages.dev` 입니다
+### 🔴 학생이 여는 주소는 `gugu-guardians-2d.pages.dev` 입니다
 
 교육청 네트워크가 `github.io` 를 **도메인째** 막습니다(ERR_TIMED_OUT). 그래서 2026-08-21 에
 Cloudflare Pages 로 옮겼습니다. 옛 주소도 링크가 깨지지 않게 당분간 살려 둡니다.
@@ -53,7 +53,7 @@ Cloudflare Pages 로 옮겼습니다. 옛 주소도 링크가 깨지지 않게 �
 
 ```bash
 npm run build
-npx wrangler pages deploy dist --project-name gugu-guardians --branch main
+npx wrangler pages deploy dist --project-name gugu-guardians-2d --branch main
 ```
 
 `dist/` 폴더를 정적 호스팅에 그대로 올리면 끝입니다(Netlify·Vercel·GitHub Pages·학교 서버 등).
