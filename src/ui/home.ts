@@ -12,7 +12,6 @@ import { mountSchoolRank, refreshSchoolRank, gbGate, gbFinish, gbLeave, configur
 import { bindFullscreenButton } from '../gb/gb-fullscreen.js';
 import { renderModeCards } from '../gb/gb-modes.js';
 import { configureHub } from '../gb/hubnet.js';
-import { openNickPicker } from './nickPicker';
 
 /**
  * 첫 화면 — game-builder 기본틀(kit/school-hub · REMASTER-GDD R-1)
@@ -81,13 +80,9 @@ function bestText(kind: ModeKind): string {
 export function homeScreen(go: Go): { node: HTMLElement; teardown?: () => void } {
   initHub();
   const d = store.load();
-  // 🔴 자동으로 지어진 별명은 «내 것»이 아니다 — 첫 화면에 들어온 첫 순간 반드시 고르게 한다
-  //    (처음 설치든, 고치기 전에 자동 배정된 옛 설치든 똑같이). 그만두기 단추는 없다(allowCancel 기본 false).
-  if (!d.profile.nickChosen) {
-    void openNickPicker({ value: d.profile.nickname }).then((picked) => {
-      if (picked) store.update((s) => { s.profile.nickname = picked; s.profile.nickChosen = true; });
-    });
-  }
+  // 2026-11-08 «아무튼 빨리 게임하도록» — 별명은 schema.ts randomNickname() 으로 이미 정해진 낱말(NICK_A×NICK_B)에서
+  //   저절로 지어진다. 첫 화면을 막는 고르기 창은 없앴다(바꾸기는 설정 화면 단추 → screens.ts openNickPicker allowCancel).
+  if (!d.profile.nickChosen) store.update((s) => { s.profile.nickChosen = true; });
   const next = Math.max(1, d.progress.maxStage + 1);
   const fsBtn = el('button', { class: 'gb-icon', type: 'button', 'data-gb': 'fullscreen', 'aria-label': '전체화면' }, '⛶');
   bindFullscreenButton(fsBtn);
